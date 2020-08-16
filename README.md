@@ -13,7 +13,7 @@ A library to render HTML
  - just run: node index.js
 
 ## Test
-1 - $ cd test
-2 - $ node index.js
+> cd test
+> node index.js
 
     
