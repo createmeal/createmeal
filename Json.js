@@ -41,7 +41,7 @@ Json.prototype.newTag = function (key, jsonNode) {
   const objectValueKeys = Object.keys(objectValue);
   var that = this;
   const children = objectValueKeys.map(function (objectValueKey) {
-    return that.newTag(objectValueKey, objectValue[objectValueKey]);
+    return that.newTag(objectValueKey, objectValue);
   });
   return new Tag(key, attributes, content, children);
 }

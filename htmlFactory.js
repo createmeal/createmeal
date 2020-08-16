@@ -16,6 +16,6 @@ jsonDoc = JSON.parse(jsonDoc);
 var jsonObject = new Json(jsonDoc);
 var tags = jsonObject.toTag();
 
-console.log('Json creation', tags);
-console.log('Json creation', tags[0].toString());
-console.log('Json creation', tags[1].toString());
+console.log( tags);
+console.log( tags[0].toString());
+console.log( tags[1].toString());

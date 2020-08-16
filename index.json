@@ -9,6 +9,12 @@
             "lang": "pt-br"
         }],
         "head": {},
-        "body": {}
+        "body": {
+            "div":{
+                "attributes" : [
+                    {"class": "form-control"}
+                ]    
+            }
+        }
     }
 }
