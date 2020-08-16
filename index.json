@@ -8,7 +8,11 @@
         "attributes": [{
             "lang": "pt-br"
         }],
-        "head": {},
+        "head": {
+            "title":{
+                
+            }
+        },
         "body": {
             "div":{
                 "attributes" : [

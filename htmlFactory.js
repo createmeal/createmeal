@@ -17,5 +17,4 @@ var jsonObject = new Json(jsonDoc);
 var tags = jsonObject.toTag();
 
 console.log( tags);
-console.log( tags[0].toString());
-console.log( tags[1].toString());
+console.log( tags.join("\n"));

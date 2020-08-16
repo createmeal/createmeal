@@ -30,7 +30,7 @@ Json.prototype.convertNode = function (jsonNode) {
   return tags;
 }
 
-Json.prototype.newTag = function (key, jsonNode) {
+Json.prototype.newTag = function(key, jsonNode) {
   if (this.jsonNodeIsEmpty(jsonNode))
     return new Tag(key);
   var objectValue = jsonNode[key];
