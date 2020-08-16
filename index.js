@@ -1,8 +1,10 @@
 const fs = require('fs');
+const path = require('path');
+
 
 const OPENTAGS = ["!DOCTYPE", "img", "br", "hr"];
 
-let jsonDoc = fs.readFileSync("index.json", 'utf8');
+let jsonDoc = fs.readFileSync(path.resolve(__dirname, "index.json"), 'utf8');
 jsonDoc = JSON.parse(jsonDoc);
 
 /**
@@ -52,5 +54,7 @@ for (const field in jsonDoc) {
     }
     html = html + create(field, children, options);
 }
-fs.writeFileSync("index.html", html);
+fs.writeFileSync(path.resolve(__dirname, "index.html"), html);
 console.log(html);
+
+module.exports ={create, convertAttributes}

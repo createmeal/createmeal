@@ -1,4 +1,15 @@
-<h1 align="center"> sml </h1>
-A HTML library renderer.
+# jsml
 
-<p align="justify"> A library to render HTML</p>
+## Description
+A library to render HTML
+
+### Features
+
+ - Create an HTML using a lightway notation in JSON
+
+ > Project Status: in progress :warning:
+
+ ## instalation
+ - just run: node index.js
+
+    
