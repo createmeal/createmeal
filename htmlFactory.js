@@ -13,4 +13,9 @@ console.log(html.toString());
 let jsonDoc = fs.readFileSync(path.resolve(__dirname, "index.json"), 'utf8');
 jsonDoc = JSON.parse(jsonDoc);
 
-console.log('Json creation', new Json(html));
+var jsonObject = new Json(jsonDoc);
+var tags = jsonObject.toTag();
+
+console.log('Json creation', tags);
+console.log('Json creation', tags[0].toString());
+console.log('Json creation', tags[1].toString());

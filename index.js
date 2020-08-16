@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-
+require('./htmlFactory')
 
 const OPENTAGS = ["!DOCTYPE", "img", "br", "hr"];
 
