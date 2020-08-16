@@ -27,12 +27,12 @@ function create(name, children = [], options = []) {
  */
 function convertAttributes(list) {
     let attributes = [];
-    for (const a of list) {
-        for (const b in a) {
-            if (a[b] !== "") {
-                attributes.push(`${b}="${a[b]}"`);
+    for (const attribute of list) {
+        for (const key in attribute) {
+            if (attribute[key] !== "") {
+                attributes.push(`${key}="${attribute[key]}"`);
             } else {
-                attributes.push(b);
+                attributes.push(key);
             }
         }
     }
