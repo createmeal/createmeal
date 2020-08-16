@@ -2,10 +2,10 @@
 const Tag = require('./Tag');
 /**
  * Json class.
- * Represents the complete json
- *
+ * Represents the complete json with the metods to create tags
+ * This class is prepared to create tags and its chiltren
  * @constructor
- * @param {String} json - name of a tag.
+ * @param {String} json - Original parsed json.
  */
 
 function Json(json) {
