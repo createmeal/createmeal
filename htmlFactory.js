@@ -18,3 +18,5 @@ var tags = jsonObject.toTag();
 
 console.log( tags);
 console.log( tags.join("\n"));
+
+fs.writeFileSync(path.resolve(__dirname, "index.html"), tags.join("\n"));
