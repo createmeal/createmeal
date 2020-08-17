@@ -1,5 +1,6 @@
 'use strict';
 const Tag = require('./Tag');
+const ATTRIBUTES = require('./attributes.json')
 /**
  * Json class.
  * Represents the complete json with the metods to create tags
@@ -9,6 +10,7 @@ const Tag = require('./Tag');
  */
 
 function Json(json) {
+  this.ATTRIBUTES = ["id", ]
   this.json = json;
 }
 

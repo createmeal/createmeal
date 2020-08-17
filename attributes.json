@@ -1,0 +1,652 @@
+{
+    "attributes": [
+        {
+            "Attribute Name": "accept",
+            "Elements": "<form>, <input>",
+            "Description": "List of types the server accepts, typically a file type."
+        },
+        {
+            "Attribute Name": "accept-charset",
+            "Elements": "<form>",
+            "Description": "List of supported charsets."
+        },
+        {
+            "Attribute Name": "accesskey",
+            "Elements": "Global attribute",
+            "Description": "Keyboard shortcut to activate or add focus to the element."
+        },
+        {
+            "Attribute Name": "action",
+            "Elements": "<form>",
+            "Description": "The URI of a program that processes the information submitted via the form."
+        },
+        {
+            "Attribute Name": "align",
+            "Elements": "<applet>, <caption>, <col>, <colgroup>, <hr>, <iframe>, <img>, <table>, <tbody>, <td>, <tfoot> , <th>, <thead>, <tr>",
+            "Description": "Specifies the horizontal alignment of the element."
+        },
+        {
+            "Attribute Name": "allow",
+            "Elements": "<iframe>",
+            "Description": "Specifies a feature-policy for the iframe."
+        },
+        {
+            "Attribute Name": "alt",
+            "Elements": "<applet>, <area>, <img>, <input>",
+            "Description": "Alternative text in case an image can't be displayed."
+        },
+        {
+            "Attribute Name": "async",
+            "Elements": "<script>",
+            "Description": "Executes the script asynchronously."
+        },
+        {
+            "Attribute Name": "autocapitalize",
+            "Elements": "Global attribute",
+            "Description": "Sets whether input is automatically capitalized when entered by user"
+        },
+        {
+            "Attribute Name": "autocomplete",
+            "Elements": "<form>, <input>, <select>, <textarea>",
+            "Description": "Indicates whether controls in this form can by default have their values automatically completed by the browser."
+        },
+        {
+            "Attribute Name": "autofocus",
+            "Elements": "<button>, <input>, <keygen>, <select>, <textarea>",
+            "Description": "The element should be automatically focused after the page loaded."
+        },
+        {
+            "Attribute Name": "autoplay",
+            "Elements": "<audio>, <video>",
+            "Description": "The audio or video should play as soon as possible."
+        },
+        {
+            "Attribute Name": "background",
+            "Elements": "<body>, <table>, <td>, <th>",
+            "Description": "Specifies the URL of an image file. Note: Although browsers and email clients may still support this attribute, it is obsolete. Use CSS background-image instead."
+        },
+        {
+            "Attribute Name": "bgcolor",
+            "Elements": "<body>, <col>, <colgroup>, <marquee>, <table>, <tbody>, <tfoot>, <td>, <th>, <tr>",
+            "Description": "Background color of the element. Note: This is a legacy attribute. Please use the CSS background-color property instead."
+        },
+        {
+            "Attribute Name": "border",
+            "Elements": "<img>, <object>, <table>",
+            "Description": "The border width. Note: This is a legacy attribute. Please use the CSS border property instead."
+        },
+        {
+            "Attribute Name": "buffered",
+            "Elements": "<audio>, <video>",
+            "Description": "Contains the time range of already buffered media."
+        },
+        {
+            "Attribute Name": "capture",
+            "Elements": "<input>",
+            "Description": "From the HTML Media Capture. The definition of 'media capture' in that specification.spec, specifies a new file can be captured."
+        },
+        {
+            "Attribute Name": "challenge",
+            "Elements": "<keygen>",
+            "Description": "A challenge string that is submitted along with the public key."
+        },
+        {
+            "Attribute Name": "charset",
+            "Elements": "<meta>, <script>",
+            "Description": "Declares the character encoding of the page or script."
+        },
+        {
+            "Attribute Name": "checked",
+            "Elements": "<command>, <input>",
+            "Description": "Indicates whether the element should be checked on page load."
+        },
+        {
+            "Attribute Name": "cite",
+            "Elements": "<blockquote>, <del>, <ins>, <q>",
+            "Description": "Contains a URI which points to the source of the quote or change."
+        },
+        {
+            "Attribute Name": "class",
+            "Elements": "Global attribute",
+            "Description": "Often used with CSS to style elements with common properties."
+        },
+        {
+            "Attribute Name": "code",
+            "Elements": "<applet>",
+            "Description": "Specifies the URL of the applet's class file to be loaded and executed."
+        },
+        {
+            "Attribute Name": "codebase",
+            "Elements": "<applet>",
+            "Description": "This attribute gives the absolute or relative URL of the directory where applets' .class files referenced by the code attribute are stored."
+        },
+        {
+            "Attribute Name": "color",
+            "Elements": "<basefont>, <font>, <hr>",
+            "Description": "This attribute sets the text color using either a named color or a color specified in the hexadecimal #RRGGBB format. Note: This is a legacy attribute. Please use the CSS color property instead."
+        },
+        {
+            "Attribute Name": "cols",
+            "Elements": "<textarea>",
+            "Description": "Defines the number of columns in a textarea."
+        },
+        {
+            "Attribute Name": "colspan",
+            "Elements": "<td>, <th>",
+            "Description": "The colspan attribute defines the number of columns a cell should span."
+        },
+        {
+            "Attribute Name": "content",
+            "Elements": "<meta>",
+            "Description": "A value associated with http-equiv or name depending on the context."
+        },
+        {
+            "Attribute Name": "contenteditable",
+            "Elements": "Global attribute",
+            "Description": "Indicates whether the element's content is editable."
+        },
+        {
+            "Attribute Name": "contextmenu",
+            "Elements": "Global attribute",
+            "Description": "Defines the ID of a <menu> element which will serve as the element's context menu."
+        },
+        {
+            "Attribute Name": "controls",
+            "Elements": "<audio>, <video>",
+            "Description": "Indicates whether the browser should show playback controls to the user."
+        },
+        {
+            "Attribute Name": "coords",
+            "Elements": "<area>",
+            "Description": "A set of values specifying the coordinates of the hot-spot region."
+        },
+        {
+            "Attribute Name": "crossorigin",
+            "Elements": "<audio>, <img>, <link>, <script>, <video>",
+            "Description": "How the element handles cross-origin requests"
+        },
+        {
+            "Attribute Name": "csp ",
+            "Elements": "<iframe>",
+            "Description": "Specifies the Content Security Policy that an embedded document must agree to enforce upon itself."
+        },
+        {
+            "Attribute Name": "data",
+            "Elements": "<object>",
+            "Description": "Specifies the URL of the resource."
+        },
+        {
+            "Attribute Name": "data-*",
+            "Elements": "Global attribute",
+            "Description": "Lets you attach custom attributes to an HTML element."
+        },
+        {
+            "Attribute Name": "datetime",
+            "Elements": "<del>, <ins>, <time>",
+            "Description": "Indicates the date and time associated with the element."
+        },
+        {
+            "Attribute Name": "decoding",
+            "Elements": "<img>",
+            "Description": "Indicates the preferred method to decode the image."
+        },
+        {
+            "Attribute Name": "default",
+            "Elements": "<track>",
+            "Description": "Indicates that the track should be enabled unless the user's preferences indicate something different."
+        },
+        {
+            "Attribute Name": "defer",
+            "Elements": "<script>",
+            "Description": "Indicates that the script should be executed after the page has been parsed."
+        },
+        {
+            "Attribute Name": "dir",
+            "Elements": "Global attribute",
+            "Description": "Defines the text direction. Allowed values are ltr (Left-To-Right) or rtl (Right-To-Left)"
+        },
+        {
+            "Attribute Name": "dirname",
+            "Elements": "<input>, <textarea>"
+        },
+        {
+            "Attribute Name": "disabled",
+            "Elements": "<button>, <command>, <fieldset>, <input>, <keygen>, <optgroup>, <option>, <select>, <textarea>",
+            "Description": "Indicates whether the user can interact with the element."
+        },
+        {
+            "Attribute Name": "download",
+            "Elements": "<a>, <area>",
+            "Description": "Indicates that the hyperlink is to be used for downloading a resource."
+        },
+        {
+            "Attribute Name": "draggable",
+            "Elements": "Global attribute",
+            "Description": "Defines whether the element can be dragged."
+        },
+        {
+            "Attribute Name": "dropzone",
+            "Elements": "Global attribute",
+            "Description": "Indicates that the element accepts the dropping of content onto it."
+        },
+        {
+            "Attribute Name": "enctype",
+            "Elements": "<form>",
+            "Description": "Defines the content type of the form data when the method is POST."
+        },
+        {
+            "Attribute Name": "enterkeyhint ",
+            "Elements": "<textarea>, contenteditable",
+            "Description": "The enterkeyhint specifies what action label (or icon) to present for the enter key on virtual keyboards. The attribute can be used with form controls (such as the value of textarea elements), or in elements in an editing host (e.g., using contenteditable attribute)."
+        },
+        {
+            "Attribute Name": "for",
+            "Elements": "<label>, <output>",
+            "Description": "Describes elements which belongs to this one."
+        },
+        {
+            "Attribute Name": "form",
+            "Elements": "<button>, <fieldset>, <input>, <keygen>, <label>, <meter>, <object>, <output>, <progress>, <select>, <textarea>",
+            "Description": "Indicates the form that is the owner of the element."
+        },
+        {
+            "Attribute Name": "formaction",
+            "Elements": "<input>, <button>",
+            "Description": "Indicates the action of the element, overriding the action defined in the <form>."
+        },
+        {
+            "Attribute Name": "formenctype",
+            "Elements": "<button>, <input>",
+            "Description": "If the button/input is a submit button (type=\"submit\"), this attribute sets the encoding type to use during form submission. If this attribute is specified, it overrides the enctype attribute of the button's form owner."
+        },
+        {
+            "Attribute Name": "formmethod",
+            "Elements": "<button>, <input>",
+            "Description": "If the button/input is a submit button (type=\"submit\"), this attribute sets the submission method to use during form submission (GET, POST, etc.). If this attribute is specified, it overrides the method attribute of the button's form owner."
+        },
+        {
+            "Attribute Name": "formnovalidate",
+            "Elements": "<button>, <input>",
+            "Description": "If the button/input is a submit button (type=\"submit\"), this boolean attribute specifies that the form is not to be validated when it is submitted. If this attribute is specified, it overrides the novalidate attribute of the button's form owner."
+        },
+        {
+            "Attribute Name": "formtarget",
+            "Elements": "<button>, <input>",
+            "Description": "If the button/input is a submit button (type=\"submit\"), this attribute specifies the browsing context (for example, tab, window, or inline frame) in which to display the response that is received after submitting the form. If this attribute is specified, it overrides the target attribute of the button's form owner."
+        },
+        {
+            "Attribute Name": "headers",
+            "Elements": "<td>, <th>",
+            "Description": "IDs of the <th> elements which applies to this element."
+        },
+        {
+            "Attribute Name": "height",
+            "Elements": "<canvas>, <embed>, <iframe>, <img>, <input>, <object>, <video>",
+            "Description": "Specifies the height of elements listed here. For all other elements, use the CSS height property. Note: In some instances, such as <div>, this is a legacy attribute, in which case the CSS height property should be used instead."
+        },
+        {
+            "Attribute Name": "hidden",
+            "Elements": "Global attribute",
+            "Description": "Prevents rendering of given element, while keeping child elements, e.g. script elements, active."
+        },
+        {
+            "Attribute Name": "high",
+            "Elements": "<meter>",
+            "Description": "Indicates the lower bound of the upper range."
+        },
+        {
+            "Attribute Name": "href",
+            "Elements": "<a>, <area>, <base>, <link>",
+            "Description": "The URL of a linked resource."
+        },
+        {
+            "Attribute Name": "hreflang",
+            "Elements": "<a>, <area>, <link>",
+            "Description": "Specifies the language of the linked resource."
+        },
+        {
+            "Attribute Name": "http-equiv",
+            "Elements": "<meta>",
+            "Description": "Defines a pragma directive."
+        },
+        {
+            "Attribute Name": "icon",
+            "Elements": "<command>",
+            "Description": "Specifies a picture which represents the command."
+        },
+        {
+            "Attribute Name": "id",
+            "Elements": "Global attribute",
+            "Description": "Often used with CSS to style a specific element. The value of this attribute must be unique."
+        },
+        {
+            "Attribute Name": "importance ",
+            "Elements": "<iframe>, <img>, <link>, <script>",
+            "Description": "Indicates the relative fetch priority for the resource."
+        },
+        {
+            "Attribute Name": "integrity",
+            "Elements": "<link>, <script>",
+            "Description": "Specifies a Subresource Integrity value that allows browsers to verify what they fetch."
+        },
+        {
+            "Attribute Name": "intrinsicsize ",
+            "Elements": "<img>",
+            "Description": "This attribute tells the browser to ignore the actual intrinsic size of the image and pretend it’s the size specified in the attribute."
+        },
+        {
+            "Attribute Name": "inputmode",
+            "Elements": "<textarea>, contenteditable",
+            "Description": "Provides a hint as to the type of data that might be entered by the user while editing the element or its contents. The attribute can be used with form controls (such as the value of textarea elements), or in elements in an editing host (e.g., using contenteditable attribute)."
+        },
+        {
+            "Attribute Name": "ismap",
+            "Elements": "<img>",
+            "Description": "Indicates that the image is part of a server-side image map."
+        },
+        {
+            "Attribute Name": "itemprop",
+            "Elements": "Global attribute"
+        },
+        {
+            "Attribute Name": "keytype",
+            "Elements": "<keygen>",
+            "Description": "Specifies the type of key generated."
+        },
+        {
+            "Attribute Name": "kind",
+            "Elements": "<track>",
+            "Description": "Specifies the kind of text track."
+        },
+        {
+            "Attribute Name": "label",
+            "Elements": "<optgroup>, <option>, <track>",
+            "Description": "Specifies a user-readable title of the element."
+        },
+        {
+            "Attribute Name": "lang",
+            "Elements": "Global attribute",
+            "Description": "Defines the language used in the element."
+        },
+        {
+            "Attribute Name": "language",
+            "Elements": "<script>",
+            "Description": "Defines the script language used in the element."
+        },
+        {
+            "Attribute Name": "loading ",
+            "Elements": "<img>, <iframe>",
+            "Description": "Indicates if the element should be loaded lazily (loading=\"lazy\") or loaded immediately (loading=\"eager\"). WIP: WHATWG PR #3752"
+        },
+        {
+            "Attribute Name": "list",
+            "Elements": "<input>",
+            "Description": "Identifies a list of pre-defined options to suggest to the user."
+        },
+        {
+            "Attribute Name": "loop",
+            "Elements": "<audio>, <bgsound>, <marquee>, <video>",
+            "Description": "Indicates whether the media should start playing from the start when it's finished."
+        },
+        {
+            "Attribute Name": "low",
+            "Elements": "<meter>",
+            "Description": "Indicates the upper bound of the lower range."
+        },
+        {
+            "Attribute Name": "manifest",
+            "Elements": "<html>",
+            "Description": "Specifies the URL of the document's cache manifest. Note: This attribute is obsolete, use <link rel=\"manifest\"> instead."
+        },
+        {
+            "Attribute Name": "max",
+            "Elements": "<input>, <meter>, <progress>",
+            "Description": "Indicates the maximum value allowed."
+        },
+        {
+            "Attribute Name": "maxlength",
+            "Elements": "<input>, <textarea>",
+            "Description": "Defines the maximum number of characters allowed in the element."
+        },
+        {
+            "Attribute Name": "minlength",
+            "Elements": "<input>, <textarea>",
+            "Description": "Defines the minimum number of characters allowed in the element."
+        },
+        {
+            "Attribute Name": "media",
+            "Elements": "<a>, <area>, <link>, <source>, <style>",
+            "Description": "Specifies a hint of the media for which the linked resource was designed."
+        },
+        {
+            "Attribute Name": "method",
+            "Elements": "<form>",
+            "Description": "Defines which HTTP method to use when submitting the form. Can be GET (default) or POST."
+        },
+        {
+            "Attribute Name": "min",
+            "Elements": "<input>, <meter>",
+            "Description": "Indicates the minimum value allowed."
+        },
+        {
+            "Attribute Name": "multiple",
+            "Elements": "<input>, <select>",
+            "Description": "Indicates whether multiple values can be entered in an input of the type email or file."
+        },
+        {
+            "Attribute Name": "muted",
+            "Elements": "<audio>, <video>",
+            "Description": "Indicates whether the audio will be initially silenced on page load."
+        },
+        {
+            "Attribute Name": "name",
+            "Elements": "<button>, <form>, <fieldset>, <iframe>, <input>, <keygen>, <object>, <output>, <select>, <textarea>, <map>, <meta>, <param>",
+            "Description": "Name of the element. For example used by the server to identify the fields in form submits."
+        },
+        {
+            "Attribute Name": "novalidate",
+            "Elements": "<form>",
+            "Description": "This attribute indicates that the form shouldn't be validated when submitted."
+        },
+        {
+            "Attribute Name": "open",
+            "Elements": "<details>",
+            "Description": "Indicates whether the details will be shown on page load."
+        },
+        {
+            "Attribute Name": "optimum",
+            "Elements": "<meter>",
+            "Description": "Indicates the optimal numeric value."
+        },
+        {
+            "Attribute Name": "pattern",
+            "Elements": "<input>",
+            "Description": "Defines a regular expression which the element's value will be validated against."
+        },
+        {
+            "Attribute Name": "ping",
+            "Elements": "<a>, <area>",
+            "Description": "The ping attribute specifies a space-separated list of URLs to be notified if a user follows the hyperlink."
+        },
+        {
+            "Attribute Name": "placeholder",
+            "Elements": "<input>, <textarea>",
+            "Description": "Provides a hint to the user of what can be entered in the field."
+        },
+        {
+            "Attribute Name": "poster",
+            "Elements": "<video>",
+            "Description": "A URL indicating a poster frame to show until the user plays or seeks."
+        },
+        {
+            "Attribute Name": "preload",
+            "Elements": "<audio>, <video>",
+            "Description": "Indicates whether the whole resource, parts of it or nothing should be preloaded."
+        },
+        {
+            "Attribute Name": "radiogroup",
+            "Elements": "<command>"
+        },
+        {
+            "Attribute Name": "readonly",
+            "Elements": "<input>, <textarea>",
+            "Description": "Indicates whether the element can be edited."
+        },
+        {
+            "Attribute Name": "referrerpolicy",
+            "Elements": "<a>, <area>, <iframe>, <img>, <link>, <script>",
+            "Description": "Specifies which referrer is sent when fetching the resource."
+        },
+        {
+            "Attribute Name": "rel",
+            "Elements": "<a>, <area>, <link>",
+            "Description": "Specifies the relationship of the target object to the link object."
+        },
+        {
+            "Attribute Name": "required",
+            "Elements": "<input>, <select>, <textarea>",
+            "Description": "Indicates whether this element is required to fill out or not."
+        },
+        {
+            "Attribute Name": "reversed",
+            "Elements": "<ol>",
+            "Description": "Indicates whether the list should be displayed in a descending order instead of a ascending."
+        },
+        {
+            "Attribute Name": "rows",
+            "Elements": "<textarea>",
+            "Description": "Defines the number of rows in a text area."
+        },
+        {
+            "Attribute Name": "rowspan",
+            "Elements": "<td>, <th>",
+            "Description": "Defines the number of rows a table cell should span over."
+        },
+        {
+            "Attribute Name": "sandbox",
+            "Elements": "<iframe>",
+            "Description": "Stops a document loaded in an iframe from using certain features (such as submitting forms or opening new windows)."
+        },
+        {
+            "Attribute Name": "scope",
+            "Elements": "<th>",
+            "Description": "Defines the cells that the header test (defined in the th element) relates to."
+        },
+        {
+            "Attribute Name": "scoped",
+            "Elements": "<style>"
+        },
+        {
+            "Attribute Name": "selected",
+            "Elements": "<option>",
+            "Description": "Defines a value which will be selected on page load."
+        },
+        {
+            "Attribute Name": "shape",
+            "Elements": "<a>, <area>"
+        },
+        {
+            "Attribute Name": "size",
+            "Elements": "<input>, <select>",
+            "Description": "Defines the width of the element (in pixels). If the element's type attribute is text or password then it's the number of characters."
+        },
+        {
+            "Attribute Name": "sizes",
+            "Elements": "<link>, <img>, <source>"
+        },
+        {
+            "Attribute Name": "slot",
+            "Elements": "Global attribute",
+            "Description": "Assigns a slot in a shadow DOM shadow tree to an element."
+        },
+        {
+            "Attribute Name": "span",
+            "Elements": "<col>, <colgroup>"
+        },
+        {
+            "Attribute Name": "spellcheck",
+            "Elements": "Global attribute",
+            "Description": "Indicates whether spell checking is allowed for the element."
+        },
+        {
+            "Attribute Name": "src",
+            "Elements": "<audio>, <embed>, <iframe>, <img>, <input>, <script>, <source>, <track>, <video>",
+            "Description": "The URL of the embeddable content."
+        },
+        {
+            "Attribute Name": "srcdoc",
+            "Elements": "<iframe>"
+        },
+        {
+            "Attribute Name": "srclang",
+            "Elements": "<track>"
+        },
+        {
+            "Attribute Name": "srcset",
+            "Elements": "<img>, <source>",
+            "Description": "One or more responsive image candidates."
+        },
+        {
+            "Attribute Name": "start",
+            "Elements": "<ol>",
+            "Description": "Defines the first number if other than 1."
+        },
+        {
+            "Attribute Name": "step",
+            "Elements": "<input>"
+        },
+        {
+            "Attribute Name": "style",
+            "Elements": "Global attribute",
+            "Description": "Defines CSS styles which will override styles previously set."
+        },
+        {
+            "Attribute Name": "summary",
+            "Elements": "<table>"
+        },
+        {
+            "Attribute Name": "tabindex",
+            "Elements": "Global attribute",
+            "Description": "Overrides the browser's default tab order and follows the one specified instead."
+        },
+        {
+            "Attribute Name": "target",
+            "Elements": "<a>, <area>, <base>, <form>",
+            "Description": "Specifies where to open the linked document (in the case of an <a> element) or where to display the response recieved (in the case of a <form> element)"
+        },
+        {
+            "Attribute Name": "title",
+            "Elements": "Global attribute",
+            "Description": "Text to be displayed in a tooltip when hovering over the element."
+        },
+        {
+            "Attribute Name": "translate",
+            "Elements": "Global attribute",
+            "Description": "Specify whether an element’s attribute values and the values of its Text node children are to be translated when the page is localized, or whether to leave them unchanged."
+        },
+        {
+            "Attribute Name": "type",
+            "Elements": "<button>, <input>, <command>, <embed>, <object>, <script>, <source>, <style>, <menu>",
+            "Description": "Defines the type of the element."
+        },
+        {
+            "Attribute Name": "usemap",
+            "Elements": "<img>, <input>, <object>"
+        },
+        {
+            "Attribute Name": "value",
+            "Elements": "<button>, <data>, <input>, <li>, <meter>, <option>, <progress>, <param>",
+            "Description": "Defines a default value which will be displayed in the element on page load."
+        },
+        {
+            "Attribute Name": "width",
+            "Elements": "<canvas>, <embed>, <iframe>, <img>, <input>, <object>, <video>",
+            "Description": "For the elements listed here, this establishes the element's width. Note: For all other instances, such as <div>, this is a legacy attribute, in which case the CSS width property should be used instead."
+        },
+        {
+            "Attribute Name": "wrap",
+            "Elements": "<textarea>",
+            "Description": "Indicates whether the text should be wrapped."
+        }
+    ]
+}
