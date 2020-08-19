@@ -1,4 +1,5 @@
 const Tag = require('./Tag');
+const TAGS = require('./tags.json')
 const Json = require('./Json');
 const fs = require('fs');
 const path = require('path');
@@ -20,3 +21,11 @@ console.log( tags);
 console.log( tags.join("\n"));
 
 fs.writeFileSync(path.resolve(__dirname, "index.html"), tags.join("\n"));
+
+
+console.log("tag index", contains(TAGS, "aside"))
+
+function contains(tags, name) {
+    var object = TAGS["aside"]
+    return object !== null && object !== undefined;
+}

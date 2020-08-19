@@ -1,6 +1,7 @@
 'use strict';
 const Tag = require('./Tag');
 const ATTRIBUTES = require('./attributes.json')
+const TAGS = require('./tags.json')
 /**
  * Json class.
  * Represents the complete json with the metods to create tags
@@ -36,8 +37,21 @@ Json.prototype.newTag = function(key, jsonNode) {
   if (this.jsonNodeIsEmpty(jsonNode))
     return new Tag(key);
   var objectValue = jsonNode[key];
-  const attributes = objectValue.attributes;
-  const content = objectValue.content;
+  const attributes = this.extractAttributes(objectValue);
+  const content = this.extractContent(objectValue);
+  const children = this.extractChildren(objectValue);
+  return new Tag(key, attributes, content, children);
+}
+
+Json.prototype.extractContent = function(objectValue) {
+  return objectValue.content;
+}
+
+Json.prototype.extractAttributes = function(objectValue) {
+  return objectValue.attributes;
+}
+
+Json.prototype.extractChildren = function(objectValue) {
   delete objectValue['content'];
   delete objectValue['attributes'];
   const objectValueKeys = Object.keys(objectValue);
@@ -45,11 +59,16 @@ Json.prototype.newTag = function(key, jsonNode) {
   const children = objectValueKeys.map(function (objectValueKey) {
     return that.newTag(objectValueKey, objectValue);
   });
-  return new Tag(key, attributes, content, children);
+  return children;
 }
 
 Json.prototype.jsonNodeIsEmpty = function (jsonNode){
   return !jsonNode || jsonNode === undefined || jsonNode === null || Object.keys(jsonNode).length === 0;
+}
+
+Json.prototype.contains = function(arr, val) {
+  var object = arr[val];
+  return object !== null && object !== undefined;
 }
 
 module.exports = Json;
