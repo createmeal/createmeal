@@ -37,12 +37,10 @@ Json.prototype.newTag = function (key, jsonNode) {
   if (this.jsonNodeIsEmpty(jsonNode))
     return new Tag(key);
   var objectValue = jsonNode[key];
-  //console.log(key)
-  const attributes = this.extractAttributes(objectValue);
-  delete objectValue['attributes'];
-  //console.log("todos os atributos",key,attributes)
   const content = this.extractContent(objectValue);
   delete objectValue['content'];
+  const attributes = this.extractAttributes(objectValue);
+  delete objectValue['attributes'];
   const children = this.extractChildren(objectValue);
   return new Tag(key, attributes, content, children);
 }
@@ -52,14 +50,15 @@ Json.prototype.extractContent = function (objectValue) {
 }
 
 Json.prototype.extractAttributes = function (objectValue) {
-  //console.warn("extractAttributes", objectValue)
   var attributes = [];
   if (objectValue.attributes)
     attributes = attributes.concat(objectValue.attributes);
-  for (const attribute in Object.keys(objectValue)) {
+  for (const attribute in objectValue) {
     if (!this.jsonNodeIsEmpty(attribute) && this.contains(ATTRIBUTES, attribute)) {
-      attributes.push({ attribute: objectValue(attribute) });
-     // delete objectValue[attribute];
+      var objectAttribute = {};
+      objectAttribute[attribute] = objectValue[attribute];
+      attributes.push(objectAttribute);
+      delete objectValue[attribute];
     }
   };
   return attributes;
