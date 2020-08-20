@@ -35,7 +35,7 @@
         },
         "body": {
             "div": {
-                "attributes": [{"class": "container"}],
+                "attributes": [{"class":"container"}],
                 "h1": {
                     "content": "Teste de criacao"
                 },

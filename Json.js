@@ -11,7 +11,7 @@ const TAGS = require('./tags.json')
  */
 
 function Json(json) {
-  this.ATTRIBUTES = ["id", ]
+  this.ATTRIBUTES = ["id",]
   this.json = json;
 }
 
@@ -24,7 +24,7 @@ Json.prototype.toTag = function () {
 };
 
 Json.prototype.convertNode = function (jsonNode) {
-  const keys = Object.keys(jsonNode);
+  const keys = this.extractJsonKeys(jsonNode);
   if (keys.length == 0)
     return;
   var tags = [];
@@ -33,42 +33,73 @@ Json.prototype.convertNode = function (jsonNode) {
   return tags;
 }
 
-Json.prototype.newTag = function(key, jsonNode) {
+Json.prototype.newTag = function (key, jsonNode) {
   if (this.jsonNodeIsEmpty(jsonNode))
     return new Tag(key);
   var objectValue = jsonNode[key];
+  //console.log(key)
   const attributes = this.extractAttributes(objectValue);
+  delete objectValue['attributes'];
+  //console.log("todos os atributos",key,attributes)
   const content = this.extractContent(objectValue);
+  delete objectValue['content'];
   const children = this.extractChildren(objectValue);
   return new Tag(key, attributes, content, children);
 }
 
-Json.prototype.extractContent = function(objectValue) {
+Json.prototype.extractContent = function (objectValue) {
   return objectValue.content;
 }
 
-Json.prototype.extractAttributes = function(objectValue) {
-  return objectValue.attributes;
+Json.prototype.extractAttributes = function (objectValue) {
+  //console.warn("extractAttributes", objectValue)
+  var attributes = [];
+  if (objectValue.attributes)
+    attributes = attributes.concat(objectValue.attributes);
+  for (const attribute in Object.keys(objectValue)) {
+    if (!this.jsonNodeIsEmpty(attribute) && this.contains(ATTRIBUTES, attribute)) {
+      attributes.push({ attribute: objectValue(attribute) });
+     // delete objectValue[attribute];
+    }
+  };
+  return attributes;
 }
 
-Json.prototype.extractChildren = function(objectValue) {
-  delete objectValue['content'];
-  delete objectValue['attributes'];
-  const objectValueKeys = Object.keys(objectValue);
+Json.prototype.extractChildren = function (objectValue) {
+  const objectValueKeys = this.extractJsonKeys(objectValue);
   var that = this;
-  const children = objectValueKeys.map(function (objectValueKey) {
-    return that.newTag(objectValueKey, objectValue);
-  });
+  const children = [];
+  for (const objectValueKey of objectValueKeys) {
+    if (objectValueKey === "children")
+      this.createChildArray(children, objectValueKey, objectValue);
+    children.push(that.newTag(objectValueKey, objectValue));
+  };
   return children;
 }
 
-Json.prototype.jsonNodeIsEmpty = function (jsonNode){
+Json.prototype.createChildArray = function (array, objectValueKey, objectValue) {
+  for (const childValue of objectValue[objectValueKey]) {
+    array.push(this.convertNode(childValue));
+  };
+}
+
+Json.prototype.jsonNodeIsEmpty = function (jsonNode) {
   return !jsonNode || jsonNode === undefined || jsonNode === null || Object.keys(jsonNode).length === 0;
 }
 
-Json.prototype.contains = function(arr, val) {
+Json.prototype.contains = function (arr, val) {
   var object = arr[val];
   return object !== null && object !== undefined;
+}
+
+Json.prototype.extractJsonKeys = function (jsonNode) {
+  var jsonKeys = [];
+  for (const key in jsonNode) {
+    if (key !== null && key !== undefined && !/^[0-9]+$/.exec(key)) {
+      jsonKeys.push(key);
+    }
+  }
+  return jsonKeys;
 }
 
 module.exports = Json;
