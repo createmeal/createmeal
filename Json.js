@@ -11,7 +11,6 @@ const TAGS = require('./tags.json')
  */
 
 function Json(json) {
-  this.ATTRIBUTES = ["id",]
   this.json = json;
 }
 
