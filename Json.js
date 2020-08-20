@@ -100,6 +100,14 @@ Json.prototype.extractJsonKeys = function (jsonNode) {
   return jsonKeys;
 }
 
+Json.prototype.toHtml = function(){
+  return this.toTag().join("\n")
+}
+
+Json.prototype.toString = function(){
+  return this.toHtml();
+}
+
 module.exports = Json;
 
 
