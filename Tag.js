@@ -12,7 +12,7 @@
  */
 
 function Tag(name, attributes = [], content = "", children = []) {
-  this.OPENTAGS = ["!DOCTYPE", "img", "br", "hr"];
+  this.OPENTAGS = ["!DOCTYPE", "img", "br", "hr", "link"];
   this.name = name;
   this.attributes = attributes;
   this.content = content;

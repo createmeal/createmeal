@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 require('./htmlFactory')
 
-const OPENTAGS = ["!DOCTYPE", "img", "br", "hr"];
+const OPENTAGS = ["!DOCTYPE", "img", "br", "hr", "link"];
 
 let jsonDoc = fs.readFileSync(path.resolve(__dirname, "index.json"), 'utf8');
 jsonDoc = JSON.parse(jsonDoc);
