@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-require('./htmlFactory')
+//require('./htmlFactory')
 
 const OPENTAGS = ["!DOCTYPE", "img", "br", "hr", "link"];
 
@@ -40,7 +40,7 @@ function convertAttributes(list) {
 }
 
 let html = "";
-
+/*
 for (const field in jsonDoc) {
     let children = [];
     let options = [];
@@ -53,7 +53,12 @@ for (const field in jsonDoc) {
         }
     }
     html = html + create(field, children, options);
-}
+}*/
+
+console.log(Object.keys(jsonDoc)); 
+console.log(jsonDoc["!DOCTYPE"])
+console.log()
+
 fs.writeFileSync(path.resolve(__dirname, "index.html"), html);
 console.log(html);
 
