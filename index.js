@@ -56,8 +56,35 @@ for (const field in jsonDoc) {
     html = html + create(field, children, options);
 }*/
 
+function getAttributes(value){    
+    let obj={};
+    if(Array.isArray(value)) {        
+        obj = createObjectFromArray(value);
+    }
+    if(typeof value ==='object'){
+        obj = value.attributes;
+        if(Array.isArray(obj)) {        
+            obj = createObjectFromArray(obj);
+        }
+    }
+    return obj;
+}
+
+function createObjectFromArray(value){
+    let obj={};
+    for(const element of value){
+        const keys = Object.keys(element);
+        for(const key of keys){
+            obj[key]=element[key];
+        }
+    }
+    return obj;
+}
+
 function getNodes(jsonDoc){
     let nodes = [];
+    if(jsonDoc==='attribute')
+        return nodes;
     if(Array.isArray(jsonDoc)) {
         for(element of jsonDoc){
             let key = Object.keys(element)[0];
@@ -72,6 +99,12 @@ function getNodes(jsonDoc){
     if(typeof jsonDoc ==='object'){
         for(let [key, value] of Object.entries(jsonDoc)){
             let node = new Node(key);
+            const attributes = getAttributes(value);
+            if(attributes){
+                for(const [key, value] of Object.entries(attributes)){
+                    node.setAttribute(key, value);
+                }       
+            }              
             let children = getNodes(value);
             for(child of children){
                 node.add(child);
@@ -92,7 +125,10 @@ function traverse(indent, node) {
     for (var i = 0, len = node.children.length; i < len; i++) {
         traverse(indent, node.getChild(i));
     }
-    log.add(Array(atualIndentation).join("  ") + node.getCloseTag());
+    const OPENTAGS = ["!DOCTYPE", "img", "br", "hr", "link"];
+    if(!OPENTAGS.includes(node.name)){
+        log.add(Array(atualIndentation).join("  ") + node.getCloseTag());
+    }
 }
 
 // logging helper
