@@ -58,21 +58,10 @@ for (const field in jsonDoc) {
 
 function getNodes(jsonDoc){
     let nodes = [];
-    if(typeof jsonDoc ==='object'){
-        for(elementName of Object.keys(jsonDoc)){
-            let element = jsonDoc[elementName];
-            let node = new Node(elementName);
-            let children = getNodes(element);
-            for(child of children){
-                node.add(child);
-            }   
-            nodes.push(node);
-        }
-    } 
     if(Array.isArray(jsonDoc)) {
         for(element of jsonDoc){
-            let elementName = Object.keys(element)[0];
-            let node = new Node(elementName);
+            let key = Object.keys(element)[0];
+            let node = new Node(key);
             let children = getNodes(element);
             for(child of children){
                 node.add(child);
@@ -80,6 +69,16 @@ function getNodes(jsonDoc){
             nodes.push(node);
         }
     }
+    if(typeof jsonDoc ==='object'){
+        for(let [key, value] of Object.entries(jsonDoc)){
+            let node = new Node(key);
+            let children = getNodes(value);
+            for(child of children){
+                node.add(child);
+            }   
+            nodes.push(node);
+        }
+    } 
     return nodes;
 }
 
@@ -87,11 +86,13 @@ function getNodes(jsonDoc){
 let nodes = getNodes(jsonDoc);
 
 function traverse(indent, node) {
-    log.add(Array(indent++).join("--") + node.name);
+    const atualIndentation = indent;
+    log.add(Array(indent++).join("  ") + node.getOpenTag());
 
     for (var i = 0, len = node.children.length; i < len; i++) {
         traverse(indent, node.getChild(i));
     }
+    log.add(Array(atualIndentation).join("  ") + node.getCloseTag());
 }
 
 // logging helper
