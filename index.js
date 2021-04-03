@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const Node = require('./composite/Node.js')
 //require('./htmlFactory')
 
 const OPENTAGS = ["!DOCTYPE", "img", "br", "hr", "link"];
@@ -55,11 +56,62 @@ for (const field in jsonDoc) {
     html = html + create(field, children, options);
 }*/
 
-console.log(Object.keys(jsonDoc)); 
-console.log(jsonDoc["!DOCTYPE"])
-console.log()
+function getNodes(jsonDoc){
+    let nodes = [];
+    if(typeof jsonDoc ==='object'){
+        for(elementName of Object.keys(jsonDoc)){
+            let element = jsonDoc[elementName];
+            let node = new Node(elementName);
+            let children = getNodes(element);
+            for(child of children){
+                node.add(child);
+            }   
+            nodes.push(node);
+        }
+    } 
+    if(Array.isArray(jsonDoc)) {
+        for(element of jsonDoc){
+            let elementName = Object.keys(element)[0];
+            let node = new Node(elementName);
+            let children = getNodes(element);
+            for(child of children){
+                node.add(child);
+            }            
+            nodes.push(node);
+        }
+    }
+    return nodes;
+}
+
+
+let nodes = getNodes(jsonDoc);
+
+function traverse(indent, node) {
+    log.add(Array(indent++).join("--") + node.name);
+
+    for (var i = 0, len = node.children.length; i < len; i++) {
+        traverse(indent, node.getChild(i));
+    }
+}
+
+// logging helper
+
+var log = (function () {
+    var log = "";
+
+    return {
+        add: function (msg) { log += msg + "\n"; },
+        show: function () { console.log(log); log = ""; }
+    }
+})();
+
+for(node of nodes){
+    traverse(1, node);
+    log.show();
+}
+
 
 fs.writeFileSync(path.resolve(__dirname, "index.html"), html);
-console.log(html);
+//console.log(html);
 
 module.exports ={create, convertAttributes}
