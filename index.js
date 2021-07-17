@@ -88,13 +88,13 @@ function createObjectFromArray(value){
  * @param {*} jsonDoc - json que representa o HTML 
  * @returns array de nós do html.
  */
-function getNodes(jsonDoc){
+function jsonNodeToHtmlNode(jsonDoc){
     let nodes = [];
     if(Array.isArray(jsonDoc)) {
         for(element of jsonDoc){
             let key = Object.keys(element)[0];
             let node = new Node(key);
-            let children = getNodes(element);
+            let children = jsonNodeToHtmlNode(element);
             for(child of children){
                 node.add(child);
             }            
@@ -113,7 +113,7 @@ function getNodes(jsonDoc){
                     node.setAttribute(key, value);
                 }       
             }             
-            let children = getNodes(value);
+            let children = jsonNodeToHtmlNode(value);
             for(child of children){
                 node.add(child);
             }   
@@ -144,7 +144,7 @@ function traverse(indent, node) {
     }
 }
 
-let nodes = getNodes(jsonDoc);
+let nodes = jsonNodeToHtmlNode(jsonDoc);
 
 // logging helper
 var log = (function () {
