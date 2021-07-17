@@ -5,7 +5,7 @@ const Node = require('../composite/Node.js')
 
 const OPENTAGS = ["!DOCTYPE", "img", "br", "hr", "link"];
 
-let jsonDoc = fs.readFileSync(path.resolve(__dirname, "../index.json"), 'utf8');
+let jsonDoc = fs.readFileSync(path.resolve(__dirname, "index.json"), 'utf8');
 jsonDoc = JSON.parse(jsonDoc);
 
 /**
@@ -41,20 +41,6 @@ function convertAttributes(list) {
 }
 
 let html = "";
-/*
-for (const field in jsonDoc) {
-    let children = [];
-    let options = [];
-    for (const subfield in jsonDoc[field]) {
-        if (Array.isArray(jsonDoc[field][subfield])) {
-            let obj = convertAttributes(jsonDoc[field][subfield]);
-            options.push(obj);
-        } else {
-            children.push(create(subfield));
-        }
-    }
-    html = html + create(field, children, options);
-}*/
 
 function getAttributes(value){    
     let obj={};
