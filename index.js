@@ -81,10 +81,15 @@ function createObjectFromArray(value){
     return obj;
 }
 
+/**
+ * Metodo responsavel por ler o Json e converter para html Nodes
+ * 
+ * O retorno é o array de nós de html a ser percorrido afim de gerar o HTML.
+ * @param {*} jsonDoc - json que representa o HTML 
+ * @returns array de nós do html.
+ */
 function getNodes(jsonDoc){
     let nodes = [];
-    if(jsonDoc==='attribute')
-        return nodes;
     if(Array.isArray(jsonDoc)) {
         for(element of jsonDoc){
             let key = Object.keys(element)[0];
@@ -98,13 +103,16 @@ function getNodes(jsonDoc){
     }
     if(typeof jsonDoc ==='object'){
         for(let [key, value] of Object.entries(jsonDoc)){
+            if(key==='attributes'){
+                continue;
+            }
             let node = new Node(key);
             const attributes = getAttributes(value);
             if(attributes){
                 for(const [key, value] of Object.entries(attributes)){
                     node.setAttribute(key, value);
                 }       
-            }              
+            }             
             let children = getNodes(value);
             for(child of children){
                 node.add(child);
@@ -116,7 +124,12 @@ function getNodes(jsonDoc){
 }
 
 
-let nodes = getNodes(jsonDoc);
+/**
+ * Percorre a composição de nós de HTML para gerar o HTML devidamente estruturado.
+ * 
+ * @param {*} indent indentação a ser feita a cada nó.
+ * @param {*} node nó primario que compõe os subnós
+ */
 
 function traverse(indent, node) {
     const atualIndentation = indent;
@@ -131,8 +144,9 @@ function traverse(indent, node) {
     }
 }
 
-// logging helper
+let nodes = getNodes(jsonDoc);
 
+// logging helper
 var log = (function () {
     var log = "";
 

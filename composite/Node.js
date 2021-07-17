@@ -10,7 +10,11 @@ Node.prototype = {
     },
 
     setAttribute(key, value){
-        this.attributes.push(`${key}="${value}"`);
+        const NOVALUEATTRIBUTES=['html'];
+        if(NOVALUEATTRIBUTES.includes(key)||value===null)
+            this.attributes.push(`${key}`);
+        else
+            this.attributes.push(`${key}="${value}"`);
     },
 
     remove: function (child) {
