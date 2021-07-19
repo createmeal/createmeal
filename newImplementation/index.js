@@ -60,7 +60,7 @@ function traverse(indent, node) {
     }
 }
 
-let nodes = jsonNodeToHtmlNode(jsonDoc);
+//let nodes = jsonNodeToHtmlNode(jsonDoc);
 
 // logging helper
 var log = (function () {
@@ -71,14 +71,24 @@ var log = (function () {
         show: function () { console.log(log); log = ""; }
     }
 })();
-
+/*
 for(node of nodes){
     traverse(1, node);
     log.show();
 }
-
+*/
 
 fs.writeFileSync(path.resolve(__dirname, "index.html"), html);
 //console.log(html);
+function HTML(json){    
+    let nodes = jsonNodeToHtmlNode(json);
+    let logs= []
+    for(node of nodes){
+        traverse(0, node);
+        logs.push(log);
+        log="";
+    }
+    return logs.join("");
+}
 
-module.exports ={}
+module.exports ={HTML}
