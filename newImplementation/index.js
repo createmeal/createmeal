@@ -9,31 +9,6 @@ jsonDoc = JSON.parse(jsonDoc);
 
 let html = "";
 
-function getAttributes(value){    
-    let obj={};
-    if(Array.isArray(value)) {        
-        obj = createObjectFromArray(value);
-    }
-    if(typeof value ==='object'){
-        obj = value.attributes;
-        if(Array.isArray(obj)) {        
-            obj = createObjectFromArray(obj);
-        }
-    }
-    return obj;
-}
-
-function createObjectFromArray(value){
-    let obj={};
-    for(const element of value){
-        const keys = Object.keys(element);
-        for(const key of keys){
-            obj[key]=element[key];
-        }
-    }
-    return obj;
-}
-
 /**
  * Metodo responsavel por ler o Json e converter para html Nodes
  * 
@@ -43,39 +18,27 @@ function createObjectFromArray(value){
  */
 function jsonNodeToHtmlNode(jsonDoc){
     let nodes = [];
-    if(Array.isArray(jsonDoc)) {
-        for(element of jsonDoc){
-            let key = Object.keys(element)[0];
-            let node = new Node(key);
-            let children = jsonNodeToHtmlNode(element);
-            for(child of children){
-                node.add(child);
-            }            
-            nodes.push(node);
-        }
-    }
-    if(typeof jsonDoc ==='object'){
-        for(let [key, value] of Object.entries(jsonDoc)){
-            if(key==='attributes'){
-                continue;
-            }
-            let node = new Node(key);
-            const attributes = getAttributes(value);
-            if(attributes){
-                for(const [key, value] of Object.entries(attributes)){
-                    node.setAttribute(key, value);
-                }       
-            }             
-            let children = jsonNodeToHtmlNode(value);
-            for(child of children){
-                node.add(child);
-            }   
-            nodes.push(node);
-        }
-    } 
+    foreEachNode(jsonDoc);
     return nodes;
 }
 
+/**
+ * responsible for iterate all json nodes independing if is object or array.
+ * @param {*} jsonDoc 
+ */
+function foreEachNode(jsonDoc){
+    if(Array.isArray(jsonDoc)){
+        console.log('array')
+        for(let child of jsonDoc){
+            console.log(child);
+        }
+    } else if(typeof jsonDoc ==="object"){
+        console.log('objeto', jsonDoc)
+        for(let child in jsonDoc){
+            console.log(child);
+        }
+    }
+}
 
 /**
  * Percorre a composição de nós de HTML para gerar o HTML devidamente estruturado.
