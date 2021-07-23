@@ -1,13 +1,13 @@
-var Node = function (name) {
-    this.children = [];
-    this.attributes = [];
-    this.name = name;
-}
+class Node {
+    constructor(name){
+        this.children = [];
+        this.attributes = [];
+        this.name = name;
+    }
 
-Node.prototype = {
-    add: function (child) {
+    add(child) {
         this.children.push(child);
-    },
+    }
 
     setAttribute(key, value){
         const NOVALUEATTRIBUTES=['html'];
@@ -15,9 +15,9 @@ Node.prototype = {
             this.attributes.push(`${key}`);
         else
             this.attributes.push(`${key}="${value}"`);
-    },
+    }
 
-    remove: function (child) {
+    remove(child) {
         var length = this.children.length;
         for (var i = 0; i < length; i++) {
             if (this.children[i] === child) {
@@ -25,26 +25,28 @@ Node.prototype = {
                 return;
             }
         }
-    },
+    }
 
-    getAttributes: function(){
+    getAttributes(){
         return this.attributes.join(' ');
-    },
+    }
 
-    getOpenTag: function(){
+    getOpenTag(){
         return `<${this.name} ${this.getAttributes()}>`;
-    },
+    }
 
-    getCloseTag: function(){
+    getCloseTag(){
         return `</${this.name}>`;
-    },
+    }
 
-    getChild: function (i) {
+    getChild(i) {
         return this.children[i];
-    },
+    }
 
-    hasChildren: function () {
+    hasChildren() {
         return this.children.length > 0;
     }
+  
 }
-module.exports = Node;
+
+module.exports=Node;

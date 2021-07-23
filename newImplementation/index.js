@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const Node = require('../composite/Node.js')
+const AttrNode = require('../composite/AttrNode.js')
 
 const OPENTAGS = ["!DOCTYPE", "img", "br", "hr", "link"];
 
@@ -30,6 +31,7 @@ function foreEachNode(jsonDoc){
     if(Array.isArray(jsonDoc)){
         console.log('array')
         for(let child of jsonDoc){
+            let attrNode = new AttrNode();
             console.log(child);
         }
     } else if(typeof jsonDoc ==="object"){
