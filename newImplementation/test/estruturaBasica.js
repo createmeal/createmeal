@@ -1,7 +1,7 @@
 const jsml = require('../index')
 const assert = require('./assert')
 
-assert.assert(jsml.HTML([{}]), 'teste', "basic string array node");
+assert.assert(jsml.HTML(["teste"]), 'teste', "basic string array node");
 /*{
     html:{
         

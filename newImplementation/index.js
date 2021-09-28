@@ -1,7 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 const Node = require('../composite/Node.js')
-const AttrNode = require('../composite/AttrNode.js')
+const NodeFactory = require('../composite/NodeFactory.js')
+const AttrNode = require('../composite/AttrNode.js');
+const { Console } = require('console');
 
 const OPENTAGS = ["!DOCTYPE", "img", "br", "hr", "link"];
 
@@ -18,8 +20,7 @@ let html = "";
  * @returns array de nós do html.
  */
 function jsonNodeToHtmlNode(jsonDoc){
-    let nodes = [];
-    foreEachNode(jsonDoc);
+    let nodes = foreEachNode(jsonDoc);
     return nodes;
 }
 
@@ -28,11 +29,13 @@ function jsonNodeToHtmlNode(jsonDoc){
  * @param {*} jsonDoc 
  */
 function foreEachNode(jsonDoc){
+    let nodes = [];
     if(Array.isArray(jsonDoc)){
         console.log('array')
         for(let child of jsonDoc){
-            let attrNode = new AttrNode();
-            console.log(child);
+            let node = NodeFactory.getNode(child);
+            console.log(node)
+            nodes.push(node);
         }
     } else if(typeof jsonDoc ==="object"){
         console.log('objeto', jsonDoc)
@@ -40,6 +43,15 @@ function foreEachNode(jsonDoc){
             console.log(child);
         }
     }
+    return nodes;
+}
+
+function createNodes(jsonNode){
+    let node = new Node();
+}
+
+function createAttrNodes(jsonNode){
+    let attrNode = new AttrNode();
 }
 
 /**
@@ -52,7 +64,7 @@ function foreEachNode(jsonDoc){
 function traverse(indent, node) {
     const atualIndentation = indent;
     log.add(Array(indent++).join("  ") + node.getOpenTag());
-
+    console.log('getOpenTag', node, node.getOpenTag(), log.show());
     for (var i = 0, len = node.children.length; i < len; i++) {
         traverse(indent, node.getChild(i));
     }
