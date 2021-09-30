@@ -46,6 +46,14 @@ class Node {
     hasChildren() {
         return this.children.length > 0;
     }
+
+    toHtml(){
+        let htmlChildren = [];
+        for (var i = 0, len = this.children.length; i < len; i++) {
+            htmlChildren.push(this.children.toHtml());
+        }
+        return this.getOpenTag() + htmlChildren.join("") + this.getCloseTag();
+    }
   
 }
 
