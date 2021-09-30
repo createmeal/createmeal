@@ -1,7 +1,18 @@
 const jsml = require('../index')
 const assert = require('./assert')
 
+/**
+ * html String
+ * 
+ * Converte um array de strings para uma html string
+ */
 assert.assert(jsml.toHtml(["teste"]), 'teste', "basic string array node");
+/**
+ * html DOCTYPE tag
+ * 
+ * Converte um array de strings para uma html string
+ */
+assert.assert(jsml.toHtml([{"!DOCTYPE":""}]), 'teste', "basic string array node");
 /*{
     html:{
         

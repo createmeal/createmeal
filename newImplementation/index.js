@@ -1,57 +1,7 @@
-const fs = require('fs');
 const path = require('path');
 const NodeFactory = require('../composite/NodeFactory.js')
 
 const OPENTAGS = ["!DOCTYPE", "img", "br", "hr", "link"];
-
-/**
-function createNodes(jsonNode){
-    let node = new Node();
-}
-
-function createAttrNodes(jsonNode){
-    let attrNode = new AttrNode();
-}
-
-
- * Percorre a composição de nós de HTML para gerar o HTML devidamente estruturado.
- * 
- * @param {*} indent indentação a ser feita a cada nó.
- * @param {*} node nó primario que compõe os subnós
- 
-
-function traverse(indent, node) {
-    const atualIndentation = indent;
-    log.add(Array(indent++).join("  ") + node.getOpenTag());
-    console.log('getOpenTag', node, node.getOpenTag(), log.show());
-    for (var i = 0, len = node.children.length; i < len; i++) {
-        traverse(indent, node.getChild(i));
-    }
-    const OPENTAGS = ["!DOCTYPE", "img", "br", "hr", "link"];
-    if(!OPENTAGS.includes(node.name)){
-        log.add(Array(atualIndentation).join("  ") + node.getCloseTag());
-    }
-}
-
-//let nodes = jsonNodeToHtmlNode(jsonDoc);
-
-// logging helper
-var log = (function () {
-    var log = "";
-    return {
-        add: function (msg) { log += msg + "\n"; },
-        show: function () { console.log(log); log = ""; }
-    }
-})();
-
-for(node of nodes){
-    traverse(1, node);
-    log.show();
-}
-*/
-
-let jsonDoc = fs.readFileSync(path.resolve(__dirname, "index.json"), 'utf8');
-jsonDoc = JSON.parse(jsonDoc);
 
 /**
  * Metodo responsavel por ler o Json e converter para html Nodes
@@ -87,7 +37,6 @@ function foreEachNode(jsonDoc){
     return nodes;
 }
 
-//console.log(html);
 function toHtml(json){    
     let nodes = jsonNodeToHtmlNode(json);
     let htmls= []
