@@ -1,8 +1,7 @@
 var Node = require('./Node');
 class AttrNode extends Node {
-    constructor(){
-        super();
+    constructor(name){
+        super(name);
     }
-
 }
 module.exports = AttrNode;

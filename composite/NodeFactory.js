@@ -10,10 +10,10 @@ class NodeFactory {
         if(typeof value  === 'string'|| value instanceof String){
             return new StringNode(value);
         }        
-        if(attrs[value]){
-            return new Node(attrs[value]);
-        }
         if(typeof value === 'object'){  
+            if(this.isAttr(value)){
+                return;
+            }
             let node;          
             for(let [key, entryValue] of Object.entries(value)){
                 if(openTags[key])
@@ -23,6 +23,10 @@ class NodeFactory {
                     let children  = this.getNode(entryValue);
                     if(children)
                         node.add(children);
+                    let attrs  = this.getAttrs(value);
+                    if(attrs && attrs.length>0)
+                        for(const attr of attrs)
+                            node.setAttribute(attr.key, attr.value);              
                 }
             }    
             return node;
@@ -34,9 +38,25 @@ class NodeFactory {
     }
 
     static getAttrs(value){
-        if(typeof value === 'object'){
-            return new Node(value[0]);
-        }        
+        let attrs = [];
+        for(let [key, entryValue] of Object.entries(value)){
+            if(this.isAttr(key))
+                attrs.push({"key":key,"value":entryValue});    
+            else
+                attrs = this.getAttrs(entryValue);
+        }
+        return attrs;
+    }
+
+    static isAttr(value){
+        if(attrs[value])
+            return true;
+        if(typeof value === 'object'){ 
+            for(let [key, entryValue] of Object.entries(value)){
+                if(attrs[key])
+                    return true;
+            }
+        } 
     }
 
 }

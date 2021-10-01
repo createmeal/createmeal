@@ -12,6 +12,15 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\newImplementation\\test\\estruturaBasica.js"
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "test jsml - attr",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\newImplementation\\test\\attrTests.js"
         }
     ]
 }

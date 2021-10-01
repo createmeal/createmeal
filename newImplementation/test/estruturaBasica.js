@@ -13,6 +13,7 @@ assert.assert(jsml.toHtml(["teste"]), 'teste', "basic string array node");
  * Converte um array de strings para uma html string
  */
 assert.assert(jsml.toHtml({"!DOCTYPE":""}), "<!DOCTYPE>", "DOCTYPE tag");
+assert.assert(jsml.toHtml({"!DOCTYPE html":""}), "<!DOCTYPE html>", "DOCTYPE tag with html attr");
 /**
  * html tag 
 {
