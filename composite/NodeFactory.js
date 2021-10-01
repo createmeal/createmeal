@@ -21,7 +21,8 @@ class NodeFactory {
                 else {
                     node = new Node(key);
                     let children  = this.getNode(entryValue);
-                    node.add(children);
+                    if(children)
+                        node.add(children);
                 }
             }    
             return node;

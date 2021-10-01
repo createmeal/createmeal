@@ -1,4 +1,3 @@
-const path = require('path');
 const NodeFactory = require('../composite/NodeFactory.js')
 
 const OPENTAGS = ["!DOCTYPE", "img", "br", "hr", "link"];
@@ -22,7 +21,6 @@ const OPENTAGS = ["!DOCTYPE", "img", "br", "hr", "link"];
 function foreEachNode(jsonDoc){
     let nodes = [];
     if(Array.isArray(jsonDoc)){
-        console.log('array')
         for(let child of jsonDoc){
             let node = NodeFactory.getNode(child);
             nodes.push(node);

@@ -13,22 +13,34 @@ assert.assert(jsml.toHtml(["teste"]), 'teste', "basic string array node");
  * Converte um array de strings para uma html string
  */
 assert.assert(jsml.toHtml({"!DOCTYPE":""}), "<!DOCTYPE>", "DOCTYPE tag");
-/*{
+/**
+ * html tag 
+{
     html:{
         
     }
 }
-<html></html>
+<html></html>*/
+assert.assert(jsml.toHtml({"html":""}), "<html></html>", "html tag");
+assert.assert(jsml.toHtml({"html":{}}), "<html></html>", "html tag with empty object value");
+assert.assert(jsml.toHtml({"html":{}}), "<html></html>", "html tag with null value");
+assert.assert(jsml.toHtml({"html":[]}), "<html></html>", "html tag with empty array value");
 
+/**
+ * !DOCTYPE e HTML
+ */
+ assert.assert(jsml.toHtml([{"!DOCTYPE":""},{"html":""}]), "<!DOCTYPE><html></html>", "doctype and html tag");
+ /**
+  * Html with children
+  */
+ assert.assert(jsml.toHtml([{"!DOCTYPE":""},{"html":{"div":{}}}]), "<!DOCTYPE><html><div></div></html>", "doctype and html tag");
+/*
 ["teste-strint-array"]
 var a= {"test-string-object":""}
 a={
     "array-string":["teste", "teste"]
 }
 <array-string>testeteste</array-string>
-
-["teste"]
-<teste></teste>
 
 [doctype, html{div:[div1, div2]}]
 <docktype>
