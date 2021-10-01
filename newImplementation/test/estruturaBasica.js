@@ -7,6 +7,19 @@ const assert = require('./assert')
  * Converte um array de strings para uma html string
  */
 assert.assert(jsml.toHtml(["teste"]), 'teste', "basic string array node");
+
+/**
+ * html String to writing html
+ * 
+ * Convert an string array to html string
+ */
+ assert.assert(jsml.toHtml(["<!DOCTYPE>"]), '<!DOCTYPE>', "Write html by stringarray");
+ /**
+ * html String to writing html
+ * 
+ * Convert an string array to html
+ */
+  assert.assert(jsml.toHtml(["<!DOCTYPE>", '<html lang="pt-BR"></html>']), '<!DOCTYPE><html lang="pt-BR"></html>', "Write html by stringarray - mor then one tag");
 /**
  * html DOCTYPE tag
  * 
