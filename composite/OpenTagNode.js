@@ -1,5 +1,5 @@
 var Node = require('./Node');
-class StringNode extends Node {
+class OpenTagNode extends Node {
     constructor(name){
         super(name);
     }
@@ -12,4 +12,4 @@ class StringNode extends Node {
     }
 
 }
-module.exports = StringNode;
+module.exports = OpenTagNode;
