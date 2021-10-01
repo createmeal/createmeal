@@ -32,7 +32,10 @@ class Node {
     }
 
     getOpenTag(){
-        return `<${this.name} ${this.getAttributes()}>`;
+        if(this.attributes.length>0)
+            return `<${this.name} ${this.getAttributes()}>`;
+        else
+            return `<${this.name}>`;
     }
 
     getCloseTag(){
@@ -50,7 +53,7 @@ class Node {
     toHtml(){
         let htmlChildren = [];
         for (var i = 0, len = this.children.length; i < len; i++) {
-            htmlChildren.push(this.children.toHtml());
+            htmlChildren.push(this.getChild(i).toHtml());
         }
         return this.getOpenTag() + htmlChildren.join("") + this.getCloseTag();
     }

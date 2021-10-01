@@ -25,14 +25,11 @@ function foreEachNode(jsonDoc){
         console.log('array')
         for(let child of jsonDoc){
             let node = NodeFactory.getNode(child);
-            console.log(node)
             nodes.push(node);
         }
     } else if(typeof jsonDoc ==="object"){
-        console.log('objeto', jsonDoc)
-        for(let child in jsonDoc){
-            console.log(child);
-        }
+        let node = NodeFactory.getNode(jsonDoc);
+        nodes.push(node);
     }
     return nodes;
 }
