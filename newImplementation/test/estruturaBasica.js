@@ -33,7 +33,7 @@ assert.assert(jsml.toHtml({"html":[]}), "<html></html>", "html tag with empty ar
  /**
   * Html with children
   */
- assert.assert(jsml.toHtml([{"!DOCTYPE":""},{"html":{"div":{}}}]), "<!DOCTYPE><html><div></div></html>", "doctype and html tag");
+ assert.assert(jsml.toHtml([{"!DOCTYPE":""},{"html":{"div":{}}}]), "<!DOCTYPE><html><div></div></html>", "html with div child tag");
 /*
 ["teste-strint-array"]
 var a= {"test-string-object":""}
