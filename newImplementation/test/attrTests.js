@@ -30,3 +30,14 @@ assert.assert(jsml.toHtml(json), result, "04-div with attribute array");
  json= {"!DOCTYPE":{"attributes":[{"html":null}, {"attr-personalizado":"valor-attr"}]}};
  result='<!DOCTYPE html attr-personalizado="valor-attr">'
 assert.assert(jsml.toHtml(json), result, "05-user defined attributes");
+json = {
+    "!DOCTYPE": {
+        "attributes":[
+            {"html":null}, 
+            {"attr-personalizado":"valor-attr"}
+        ]},
+    "html": {
+    }
+}
+result='<!DOCTYPE html attr-personalizado="valor-attr"><html></html>'
+assert.assert(jsml.toHtml(json), result, "06-user defined attributes - with two elements");
