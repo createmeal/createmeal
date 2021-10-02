@@ -26,8 +26,8 @@ function foreEachNode(jsonDoc){
             nodes.push(node);
         }
     } else if(typeof jsonDoc ==="object"){
-        let node = NodeFactory.getNode(jsonDoc);
-        nodes.push(node);
+        let newnodes = NodeFactory.getNode(jsonDoc);
+        nodes = nodes.concat(newnodes);
     }
     return nodes;
 }

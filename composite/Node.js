@@ -8,6 +8,12 @@ class Node {
     add(child) {
         this.children.push(child);
     }
+    addChildren(child) {
+        if(typeof child==='object')
+            this.add(child);
+        if(Array.isArray(child)&&child&&child.length>0)
+            this.children = this.children.concat(child);
+    }
 
     setAttribute(key, value){
         const NOVALUEATTRIBUTES=['html'];

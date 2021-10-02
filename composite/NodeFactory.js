@@ -24,8 +24,7 @@ class NodeFactory {
                 else {
                     node = new Node(key);
                     let children  = this.getNode(entryValue);
-                    if(children)
-                        node.add(children);
+                    node.addChildren(children);
                     let attrs  = this.getAttrs(value);
                     if(attrs && attrs.length>0)
                         for(const attr of attrs)
@@ -41,6 +40,8 @@ class NodeFactory {
     }
 
     static getAttrs(value){
+        if(!value)
+            return;
         let attrs = [];
         for(let [key, entryValue] of Object.entries(value)){
             if(key==="attributes"){
