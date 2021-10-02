@@ -7,6 +7,18 @@ const assert = require('./assert')
  * Converte um array de strings para uma html string
  */
 assert.assert(jsml.toHtml(["teste"]), 'teste', "01-basic string array node");
+/**
+ * html String as element child
+ * 
+ * Converte um array de strings para uma html string
+ */
+ assert.assert(jsml.toHtml({"p":["teste"]}), '<p>teste</p>', "01b-basic string array node");
+ /**
+ * html String as element child - multiple strings
+ * 
+ * Converte um array de strings para uma html string
+ */
+  assert.assert(jsml.toHtml({"p":["teste","de","strings"]}), '<p>testedestrings</p>', "01c-basic string array node - multiple strings");
 
 /**
  * html String to writing html

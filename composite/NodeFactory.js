@@ -58,15 +58,29 @@ class NodeFactory {
         if(!value)
             return;
         let attrs = [];
-        for(let [key, entryValue] of Object.entries(value)){
-            if(key==="attributes"){
-                return NodeFactory.processAttributeArray(entryValue);
-            }  
-            if(this.isAttr(key))
-                attrs.push({"key":key,"value":entryValue});    
-            else
-                attrs = this.getAttrs(entryValue);
+        if(Array.isArray(value)){
+            for(const item of value){
+                if(item==="attributes"){
+                    return NodeFactory.processAttributeArray(item);
+                }  
+                let newAttrs = this.getAttrs(item);
+                if(Array.isArray(newAttrs))
+                    attrs = attrs.concat(newAttrs);    
+                else
+                    attrs.push(newAttrs);
+            }
         }
+        else if(typeof value ==='object'){
+            for(let [key, entryValue] of Object.entries(value)){
+                if(key==="attributes"){
+                    return NodeFactory.processAttributeArray(entryValue);
+                }  
+                if(this.isAttr(key))
+                    attrs.push({"key":key,"value":entryValue});    
+                else
+                    attrs = this.getAttrs(entryValue);
+            }
+        }        
         return attrs;
     }
 
