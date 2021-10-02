@@ -33,18 +33,19 @@ class NodeFactory {
                      */
                     continue;
                 }  
+                let node;
                 if(openTags[key])
-                    nodes.push(new OpenTagNode(key));
+                    node = new OpenTagNode(key);
                 else {
-                    let node = new Node(key);
+                    node = new Node(key);
                     let children  = this.getNode(entryValue);
                     node.addChildren(children);
-                    let attrs  = this.getAttrs(value);
-                    if(attrs && attrs.length>0)
-                        for(const attr of attrs)
-                            node.setAttribute(attr.key, attr.value);  
-                    nodes.push(node);            
                 }
+                let attrs  = this.getAttrs(value);
+                if(attrs && attrs.length>0)
+                    for(const attr of attrs)
+                        node.setAttribute(attr.key, attr.value);  
+                nodes.push(node);      
             }    
             return nodes;
         }        
@@ -54,7 +55,7 @@ class NodeFactory {
         return new Node(name); 
     }
 
-    static getAttrs(value){
+    static getAttrs(value, skipAttrValidation=false){
         if(!value)
             return;
         let attrs = [];
@@ -75,7 +76,7 @@ class NodeFactory {
                 if(key==="attributes"){
                     return NodeFactory.processAttributeArray(entryValue);
                 }  
-                if(this.isAttr(key))
+                if(skipAttrValidation||this.isAttr(key))
                     attrs.push({"key":key,"value":entryValue});    
                 else
                     attrs = this.getAttrs(entryValue);
@@ -87,7 +88,7 @@ class NodeFactory {
     static processAttributeArray(value) {
         let attrs = [];
         for (const attr of value) {
-            attrs =attrs.concat(this.getAttrs(attr));
+            attrs =attrs.concat(this.getAttrs(attr, true));
         }
         return attrs;
     }
