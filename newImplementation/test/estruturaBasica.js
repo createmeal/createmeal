@@ -52,6 +52,13 @@ assert.assert(jsml.toHtml({"html":[]}), "<html></html>", "08-html tag with empty
   * Html with children
   */
  assert.assert(jsml.toHtml([{"!DOCTYPE":""},{"html":{"div":{}}}]), "<!DOCTYPE><html><div></div></html>", "10-html with div child tag");
+
+ /**
+* multiple divs
+*/
+input = {"body":[{"div":{}},{"div":{}}]};
+output = "<body><div></div><div></div></body>";
+assert.assert(jsml.toHtml(input), output, "11-multiple divs");
 /*
 ["teste-strint-array"]
 var a= {"test-string-object":""}

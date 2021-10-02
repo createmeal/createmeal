@@ -10,7 +10,17 @@ class NodeFactory {
         if(typeof value  === 'string'|| value instanceof String){
             return new StringNode(value);
         }        
-        if(typeof value === 'object'){
+        if(Array.isArray(value)){
+            let nodes = []; 
+            for(let child of value){
+                let node = this.getNode(child);
+                if(Array.isArray(node))
+                    nodes = nodes.concat(node);
+                else
+                    nodes.push(node);
+            }
+            return nodes;
+        } else if(typeof value === 'object'){
             if(this.isAttr(value)){
                 return;
             }
