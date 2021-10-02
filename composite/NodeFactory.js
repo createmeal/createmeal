@@ -10,12 +10,15 @@ class NodeFactory {
         if(typeof value  === 'string'|| value instanceof String){
             return new StringNode(value);
         }        
-        if(typeof value === 'object'){  
+        if(typeof value === 'object'){
             if(this.isAttr(value)){
                 return;
             }
             let node;          
             for(let [key, entryValue] of Object.entries(value)){
+                if(key==="attributes"){
+                    return;
+                }  
                 if(openTags[key])
                     node = new OpenTagNode(key);
                 else {
@@ -40,10 +43,21 @@ class NodeFactory {
     static getAttrs(value){
         let attrs = [];
         for(let [key, entryValue] of Object.entries(value)){
+            if(key==="attributes"){
+                return NodeFactory.processAttributeArray(entryValue);
+            }  
             if(this.isAttr(key))
                 attrs.push({"key":key,"value":entryValue});    
             else
                 attrs = this.getAttrs(entryValue);
+        }
+        return attrs;
+    }
+
+    static processAttributeArray(value) {
+        let attrs = [];
+        for (const attr of value) {
+            attrs =attrs.concat(this.getAttrs(attr));
         }
         return attrs;
     }

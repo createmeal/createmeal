@@ -18,3 +18,9 @@ assert.assert(jsml.toHtml({"!DOCTYPE html":null}), '<!DOCTYPE html>', "!DOCTYPE 
  * div with class
 */
 assert.assert(jsml.toHtml({"div":{"class":"btn btn-danger"}}), '<div class="btn btn-danger"></div>', "div with class attribute");
+/**
+ * div with an attribute array
+*/
+let json= {"div":{"attributes":[{"style":"width:50%"}, {"class":"btn btn-danger"}, {"height":"50px"}]}};
+let result='<div style="width:50%" class="btn btn-danger" height="50px"></div>'
+assert.assert(jsml.toHtml(json), result, "div with attribute array");
