@@ -17,7 +17,11 @@ class NodeFactory {
             let nodes = [];          
             for(let [key, entryValue] of Object.entries(value)){
                 if(key==="attributes"){
-                    return;
+                    /**
+                     * TODO:return; susbtituido o return por um continue para que o codigo continue a tratar os demais children. necessario validar.
+                     * 
+                     */
+                    continue;
                 }  
                 if(openTags[key])
                     nodes.push(new OpenTagNode(key));

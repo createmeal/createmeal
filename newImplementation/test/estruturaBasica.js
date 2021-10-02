@@ -45,6 +45,10 @@ assert.assert(jsml.toHtml({"html":[]}), "<html></html>", "08-html tag with empty
  */
  assert.assert(jsml.toHtml([{"!DOCTYPE":""},{"html":""}]), "<!DOCTYPE><html></html>", "09-doctype and html tag");
  /**
+ * !DOCTYPE e HTML in a object
+ */
+  assert.assert(jsml.toHtml({"!DOCTYPE":{}, "html":{}}), "<!DOCTYPE><html></html>", "09b-doctype and html tag");
+ /**
   * Html with children
   */
  assert.assert(jsml.toHtml([{"!DOCTYPE":""},{"html":{"div":{}}}]), "<!DOCTYPE><html><div></div></html>", "10-html with div child tag");
