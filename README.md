@@ -17,7 +17,8 @@ A library to render HTML
 > node index.js
 
 ## alguns apelidos:
-Createmeals
-Creameals
+Createmeals - (create) create (atemeal) html (s) specification
+rango - abreviando e abrasileirando
+hango - americanizando o abrasileirado.
 
     
