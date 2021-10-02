@@ -23,11 +23,17 @@ function foreEachNode(jsonDoc){
     if(Array.isArray(jsonDoc)){
         for(let child of jsonDoc){
             let node = NodeFactory.getNode(child);
-            nodes.push(node);
+            if(Array.isArray(node))
+                nodes = nodes.concat(node);
+            else
+                nodes.push(node);
         }
     } else if(typeof jsonDoc ==="object"){
         let newnodes = NodeFactory.getNode(jsonDoc);
-        nodes = nodes.concat(newnodes);
+        if(Array.isArray(newnodes))
+            nodes = nodes.concat(newnodes);
+        else
+            nodes.push(newnodes);
     }
     return nodes;
 }

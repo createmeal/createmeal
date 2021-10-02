@@ -14,4 +14,4 @@ const assert = require('./assert')
    /**
   * Html with children
   */
-    assert.assert(jsml.toHtml({"html":{"head":{}, "body":{}}}), "<html><head></head></html>", "html with head and body child tag");
+    assert.assert(jsml.toHtml({"html":{"head":{}, "body":{}}}), "<html><head></head><body></body></html>", "html with head and body children");

@@ -9,10 +9,11 @@ class Node {
         this.children.push(child);
     }
     addChildren(child) {
-        if(typeof child==='object')
-            this.add(child);
         if(Array.isArray(child)&&child&&child.length>0)
             this.children = this.children.concat(child);
+        else if(typeof child==='object'&&child.length>0)
+            this.add(child);
+        
     }
 
     setAttribute(key, value){

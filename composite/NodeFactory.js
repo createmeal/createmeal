@@ -14,24 +14,25 @@ class NodeFactory {
             if(this.isAttr(value)){
                 return;
             }
-            let node;          
+            let nodes = [];          
             for(let [key, entryValue] of Object.entries(value)){
                 if(key==="attributes"){
                     return;
                 }  
                 if(openTags[key])
-                    node = new OpenTagNode(key);
+                    nodes.push(new OpenTagNode(key));
                 else {
-                    node = new Node(key);
+                    let node = new Node(key);
                     let children  = this.getNode(entryValue);
                     node.addChildren(children);
                     let attrs  = this.getAttrs(value);
                     if(attrs && attrs.length>0)
                         for(const attr of attrs)
-                            node.setAttribute(attr.key, attr.value);              
+                            node.setAttribute(attr.key, attr.value);  
+                    nodes.push(node);            
                 }
             }    
-            return node;
+            return nodes;
         }        
     }
 
