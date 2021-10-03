@@ -43,3 +43,15 @@ assert.assert(jsml.toHtml(input), output, "04-html with head, body and body chil
   }];
   output = "<html><head><link></link><title></title></head></html>";
   assert.assert(jsml.toHtml(input), output, "06-html with head, and head with link and title");
+
+  /**
+  * body multiple children
+  */
+  input = {
+      "body":{
+        "class": "container",
+        "h1": {}
+      }
+  };
+  output = '<body class="container"><h1></h1></body>';
+  assert.assert(jsml.toHtml(input), output, "07-body multiple children");

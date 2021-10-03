@@ -20,13 +20,13 @@ class NodeFactory {
                     nodes.push(node);
             }
             return nodes;
-        } else if(typeof value === 'object'){
-            //validation to prevent processing a value that represents an attribute as a child
-            if(this.isAttr(value)){
-               return;
-            }
+        } else if(typeof value === 'object'){            
             let nodes = [];          
             for(let [key, entryValue] of Object.entries(value)){
+                //validation to prevent processing a value that represents an attribute as a child
+                if(this.isAttr(key, entryValue)){
+                    continue;
+                }
                 if(key==="attributes"){
                     /**
                      * TODO:return; susbtituido o return por um continue para que o codigo continue a tratar os demais children. necessario validar.
