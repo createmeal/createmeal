@@ -34,8 +34,8 @@ class NodeFactory {
                      */
                     continue;
                 }  
-                let node;
-                if(openTags[key])
+                let node;            
+                if(openTags[NodeFactory.isOpenTag(key)])
                     node = new OpenTagNode(key);
                 else {
                     node = new Node(key);
@@ -50,6 +50,16 @@ class NodeFactory {
             }    
             return nodes;
         }        
+    }
+
+    static isOpenTag(key) {
+        let opentag;
+        if (key) {
+            let words = key.split(' ');
+            if (words && words.length > 0)
+                opentag = words[0];
+        }
+        return opentag;
     }
 
     static getObjectNode(name){

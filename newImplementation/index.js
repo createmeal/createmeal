@@ -1,7 +1,5 @@
 const NodeFactory = require('../composite/NodeFactory.js')
 
-const OPENTAGS = ["!DOCTYPE", "img", "br", "hr", "link"];
-
 /**
  * Metodo responsavel por ler o Json e converter para html Nodes
  * 

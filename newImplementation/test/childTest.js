@@ -41,7 +41,21 @@ assert.assert(jsml.toHtml(input), output, "04-html with head, body and body chil
       }
     }
   }];
-  output = "<html><head><link></link><title></title></head></html>";
+  output = "<html><head><link><title></title></head></html>";
+  assert.assert(jsml.toHtml(input), output, "06-html with head, and head with link and title");
+
+  /**
+  * doctype, html and body with children
+  */
+   input = [{
+    "html":{
+      "head":{
+        "link ref": {},
+        "title": {}
+      }
+    }
+  }];
+  output = "<html><head><link ref><title></title></head></html>";
   assert.assert(jsml.toHtml(input), output, "06-html with head, and head with link and title");
 
   /**
