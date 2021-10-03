@@ -42,3 +42,16 @@ json = {
 }
 result='<!DOCTYPE html attr-personalizado="valor-attr"><html></html>'
 assert.assert(jsml.toHtml(json), result, "06-user defined attributes - with two elements");
+
+/**
+  * doctype, html and body with children
+  */
+ let input = [{
+    "html":{
+      "body":{
+        "class": "container"
+      }
+    }
+  }];
+  let output = '<html><body class="container"></body></html>';
+  assert.assert(jsml.toHtml(input), output, "07-html with head, and head with link and title");

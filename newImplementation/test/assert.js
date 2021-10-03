@@ -3,7 +3,7 @@ function assert(arg0, arg1, testDescription){
 }
 
 function failed(arg0, arg1, testDescription){
-    console.error("%s FAILED! :( - expected: [%s] given: [%s]!",testDescription, arg1, arg0);
+    console.error("%s FAILED! :( - \nexpected: \n[%s] \ngiven: \n[%s]!",testDescription, arg1, arg0);
 }
 
 function success(testDescription){

@@ -79,8 +79,6 @@ class NodeFactory {
                 }  
                 if(skipAttrValidation||this.isAttr(key, entryValue))
                     attrs.push({"key":key,"value":entryValue});    
-                else
-                    attrs = this.getAttrs(entryValue);
             }
         }        
         return attrs;
