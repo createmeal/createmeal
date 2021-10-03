@@ -1,4 +1,4 @@
-const NodeFactory = require('../composite/NodeFactory.js')
+const NodeFactory = require('./composite/NodeFactory.js')
 
 /**
  * Metodo responsavel por ler o Json e converter para html Nodes

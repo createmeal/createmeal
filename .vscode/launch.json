@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\newImplementation\\test\\estruturaBasica.js"
+            "program": "${workspaceFolder}\\test\\estruturaBasica.js"
         },
         {
             "type": "pwa-node",
@@ -20,7 +20,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\newImplementation\\test\\attrTests.js"
+            "program": "${workspaceFolder}\\test\\attrTests.js"
         },
         {
             "type": "pwa-node",
@@ -29,7 +29,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\newImplementation\\test\\estruturaComplexa.js"
+            "program": "${workspaceFolder}\\test\\estruturaComplexa.js"
         },
         {
             "type": "pwa-node",
@@ -38,7 +38,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\newImplementation\\test\\childTest.js"
+            "program": "${workspaceFolder}\\test\\childTest.js"
         }
     ]
 }
