@@ -21,8 +21,9 @@ class NodeFactory {
             }
             return nodes;
         } else if(typeof value === 'object'){
+            //validation to prevent processing a value that represents an attribute as a child
             if(this.isAttr(value)){
-                return;
+               return;
             }
             let nodes = [];          
             for(let [key, entryValue] of Object.entries(value)){
@@ -76,7 +77,7 @@ class NodeFactory {
                 if(key==="attributes"){
                     return NodeFactory.processAttributeArray(entryValue);
                 }  
-                if(skipAttrValidation||this.isAttr(key))
+                if(skipAttrValidation||this.isAttr(key, entryValue))
                     attrs.push({"key":key,"value":entryValue});    
                 else
                     attrs = this.getAttrs(entryValue);
@@ -93,15 +94,15 @@ class NodeFactory {
         return attrs;
     }
 
-    static isAttr(value){
-        if(attrs[value])
+    static isAttr(name, value=""){
+        if(attrs[name] && typeof value==="string")
             return true;
-        if(typeof value === 'object'){ 
-            for(let [key, entryValue] of Object.entries(value)){
-                if(attrs[key])
+        if(typeof name === 'object'){ 
+            for(let [key, entryValue] of Object.entries(name)){
+                if(attrs[key]&&typeof entryValue==="string")
                     return true;
             }
-        } 
+        }
     }
 
 }

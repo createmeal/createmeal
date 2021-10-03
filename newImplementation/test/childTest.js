@@ -29,3 +29,17 @@ assert.assert(jsml.toHtml(input), output, "04-html with head, body and body chil
    input = [{"!DOCTYPE html":""},{"html":{"head":{}, "body":{"div":{}}}}];
    output = "<!DOCTYPE html><html><head></head><body><div></div></body></html>";
    assert.assert(jsml.toHtml(input), output, "05-doctype, html with head, body and body children");
+
+ /**
+  * doctype, html and body with children
+  */
+  input = [{
+    "html":{
+      "head":{
+        "link": {},
+        "title": {}
+      }
+    }
+  }];
+  output = "<html><head><link></link><title></title></head></html>";
+  assert.assert(jsml.toHtml(input), output, "06-html with head, and head with link and title");
