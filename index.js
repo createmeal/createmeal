@@ -1,56 +1,48 @@
-const fs = require('fs');
-
-const OPENTAGS = ["!DOCTYPE", "img", "br", "hr"];
-
-let jsonDoc = fs.readFileSync("index.json", 'utf8');
-jsonDoc = JSON.parse(jsonDoc);
+const NodeFactory = require('./composite/NodeFactory.js')
 
 /**
- * cria o elemento HTML
- * @param {*} name 
- * @param {*} children 
- * @param {*} options 
+ * Metodo responsavel por ler o Json e converter para html Nodes
+ * 
+ * O retorno é o array de nós de html a ser percorrido afim de gerar o HTML.
+ * @param {*} jsonDoc - json que representa o HTML 
+ * @returns array de nós do html.
  */
-function create(name, children = [], options = []) {
-    if (OPENTAGS.indexOf(name) > -1) {
-        return `<${name} ${options.join(" ")}>`;
-    } else {
-        return `<${name} ${options.join(" ")}>${children.join("")}</${name}>`;
-    }
+ function jsonNodeToHtmlNode(jsonDoc){
+    let nodes = foreEachNode(jsonDoc);
+    return nodes;
 }
 
 /**
- * converte os atributos do elemento para uma lista de string
- * @param {*} list 
+ * responsible for iterate all json nodes independing if is object or array.
+ * @param {*} jsonDoc 
  */
-function convertAttributes(list) {
-    let attributes = [];
-    for (const a of list) {
-        for (const b in a) {
-            if (a[b] !== "") {
-                attributes.push(`${b}="${a[b]}"`);
-            } else {
-                attributes.push(b);
-            }
+function foreEachNode(jsonDoc){
+    let nodes = [];
+    if(Array.isArray(jsonDoc)){
+        for(let child of jsonDoc){
+            let node = NodeFactory.getNode(child);
+            if(Array.isArray(node))
+                nodes = nodes.concat(node);
+            else
+                nodes.push(node);
         }
+    } else if(typeof jsonDoc ==="object"){
+        let newnodes = NodeFactory.getNode(jsonDoc);
+        if(Array.isArray(newnodes))
+            nodes = nodes.concat(newnodes);
+        else
+            nodes.push(newnodes);
     }
-    return attributes;
+    return nodes;
 }
 
-let html = "";
-
-for (const field in jsonDoc) {
-    let children = [];
-    let options = [];
-    for (const subfield in jsonDoc[field]) {
-        if (Array.isArray(jsonDoc[field][subfield])) {
-            let obj = convertAttributes(jsonDoc[field][subfield]);
-            options.push(obj);
-        } else {
-            children.push(create(subfield));
-        }
+function toHtml(json){    
+    let nodes = jsonNodeToHtmlNode(json);
+    let htmls= []
+    for(node of nodes){
+        htmls.push(node.toHtml());
     }
-    html = html + create(field, children, options);
+    return htmls.join("");
 }
-fs.writeFileSync("index.html", html);
-console.log(html);
+
+module.exports ={toHtml}
