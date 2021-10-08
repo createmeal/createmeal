@@ -17,9 +17,7 @@
                 thead: {
                     tr: [],
                 },
-                tbody: {
-                    tr: [],
-                },
+                tbody: []
             };
             let json = { body: { } };
             json.div = {class:"container-fluid"};
@@ -33,14 +31,25 @@
             for (const col of cols) {
                 json.div.table.thead.tr.push({ th: [col] });
             }
+            
+            let tr = []
             const values = [
                 "valor primeira coluna",
                 "valor segunda coluna",
                 "valor terceira coluna",
             ];
-            for (const value of values) {
-                json.div.table.tbody.tr.push({ td: [value] });
-            }
+            for (const value of values)
+                tr.push({ td: [value] });
+            json.div.table.tbody.push({tr:tr});
+            const secondLineValues = [
+                "linha 1 coluna A",
+                "linha 2 coluna B",
+                "linha 3 coluna C",
+            ];
+            let tr2 = []
+            for (const value of secondLineValues)
+                tr2.push({ td: [value] });
+            json.div.table.tbody.push({tr:tr2});
             let body = jsml.toHtml(json);
             let pageBody = document.getElementById("section");
             pageBody.innerHTML = body;
