@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <section id="section"></section>
+        <script src="./dist/jsml.js"></script>
+        <script>
+            let tableTemplate = {
+                thead: {
+                    tr: [],
+                },
+                tbody: {
+                    tr: [],
+                },
+            };
+            let json = { body: { h1: ["Teste da biblioteca"], p: ["Five"] } };
+            json.div = {};
+            json.div.h2 = ["novo titulo"];
+            json.div.h3 = ["novo titulo"];
+            json.div.h4 = ["novo titulo"];
+            json.div.table = tableTemplate;
+            const cols = ["First", "Second", "Third"];
+            for (const col of cols) {
+                json.div.table.thead.tr.push({ th: [col] });
+            }
+            const values = [
+                "valor primeira coluna",
+                "valor segunda coluna",
+                "valor terceira coluna",
+            ];
+            for (const value of values) {
+                json.div.table.tbody.tr.push({ td: [value] });
+            }
+            let body = jsml.toHtml(json);
+            let pageBody = document.getElementById("section");
+            pageBody.innerHTML = body;
+        </script>
+    </body>
+</html>
