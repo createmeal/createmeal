@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <section id="section"></section>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
+        <script src="./dist/jsml.js"></script>
+        <script>
+            let tableTemplate = {
+                class:"table table-success table-striped table-hover",
+                thead: {
+                    "tr": [],
+                },
+                tbody: []
+            };
+            let json = { };
+            json.div = {class:"container-fluid", attributes:[{"attr-personalizado":"codigo"},{"attr-personalizado2":"codigo"}]};
+            json.div.h1 = ["Teste da biblioteca"];
+            json.div.p = [{span:["This <strong>example</strong> show us how construct html using this new way "]}, {strong:["deve aparecer destacado"]}]
+            json.div.h2 = ["novo titulo"];
+            json.div.h3 = ["novo titulo"];
+            json.div.h4 = ["novo titulo"];
+            json.div.table = tableTemplate;
+            const cols = ["First", "Second", "Third"];
+            for (const col of cols) {
+                json.div.table.thead.tr.push({ th: [col] });
+            }
+            
+            let tr = []
+            const values = [
+                "valor primeira coluna",
+                "valor segunda coluna",
+                "valor terceira coluna",
+            ];
+            for (const value of values)
+                tr.push({ "td": [value] });
+            json.div.table.tbody.push({tr:tr});
+            const secondLineValues = [
+                "linha 1 coluna A",
+                "linha 2 coluna B",
+                "linha 3 coluna C",
+            ];
+            let tr2 = []
+            for (const value of secondLineValues)
+                tr2.push({ td: [value] });
+            json.div.table.tbody.push({tr:tr2});
+            let body = jsml.toHtml(json);
+            let pageBody = document.getElementById("section");
+            pageBody.innerHTML = body;
+        </script>
+    </body>
+</html>
