@@ -15,14 +15,14 @@
             let tableTemplate = {
                 class:"table table-success table-striped table-hover",
                 thead: {
-                    tr: [],
+                    "tr": [],
                 },
                 tbody: []
             };
-            let json = { body: { } };
-            json.div = {class:"container-fluid"};
+            let json = { };
+            json.div = {class:"container-fluid", attributes:[{"attr-personalizado":"codigo"},{"attr-personalizado2":"codigo"}]};
             json.div.h1 = ["Teste da biblioteca"];
-            json.div.p = ["This <strong>example</strong> show us how construct html using this new way ", {strong:["deve aparecer destacado"]}]
+            json.div.p = [{span:["This <strong>example</strong> show us how construct html using this new way "]}, {strong:["deve aparecer destacado"]}]
             json.div.h2 = ["novo titulo"];
             json.div.h3 = ["novo titulo"];
             json.div.h4 = ["novo titulo"];
@@ -39,7 +39,7 @@
                 "valor terceira coluna",
             ];
             for (const value of values)
-                tr.push({ td: [value] });
+                tr.push({ "td": [value] });
             json.div.table.tbody.push({tr:tr});
             const secondLineValues = [
                 "linha 1 coluna A",
