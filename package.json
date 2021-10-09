@@ -34,6 +34,6 @@
     "test": "test"
   },
   "publishConfig": {
-    "registry":"https://npm.HOSTNAME/"
+    "registry":"https://npm.createmeal/"
   }
 }
