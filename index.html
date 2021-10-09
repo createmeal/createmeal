@@ -10,7 +10,7 @@
     <body>
         <section id="section"></section>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
-        <script src="./dist/jsml.js"></script>
+        <script src="./dist/createmeal.js"></script>
         <script>
             let tableTemplate = {
                 class:"table table-success table-striped table-hover",
@@ -20,7 +20,7 @@
                 tbody: []
             };
             let json = { };
-            json.div = {class:"container-fluid", attributes:[{"attr-personalizado":"codigo"},{"attr-personalizado2":"codigo"}]};
+            json.div = {attributes:[{class:"container-fluid"}, {"attr-personalizado":"codigo"},{"attr-personalizado2":"codigo"}]};
             json.div.h1 = ["Teste da biblioteca"];
             json.div.p = [{span:["This <strong>example</strong> show us how construct html using this new way "]}, {strong:["deve aparecer destacado"]}]
             json.div.h2 = ["novo titulo"];
@@ -50,7 +50,7 @@
             for (const value of secondLineValues)
                 tr2.push({ td: [value] });
             json.div.table.tbody.push({tr:tr2});
-            let body = jsml.toHtml(json);
+            let body = createmeal.toHtml(json);
             let pageBody = document.getElementById("section");
             pageBody.innerHTML = body;
         </script>

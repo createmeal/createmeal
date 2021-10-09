@@ -1,12 +1,13 @@
 const path = require('path');
 
 module.exports = {
+    mode: 'production',
     entry: './index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'jsml.js',
+        filename: 'createmeal.js',
         library: {
-            name: "jsml",
+            name: "createmeal",
             type: "umd"
         }
     }
