@@ -1,1 +1,1 @@
-<a href="https://github.com/createmeal/createmeal/graphs/contributors">Contributors</a>
+[![Contributors][contributors-shield]][contributors-url]
