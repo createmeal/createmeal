@@ -1,1 +1,1 @@
-<a href="https://github.dev/createmeal/createmeal/graphs/contributors">Contributors</a>
+<a href="https://github.com/createmeal/createmeal/graphs/contributors">Contributors</a>
