@@ -21,7 +21,7 @@ let readme = {
                         { align: "center" },
                         {span: ["HTML generator powered by json"]},
                         {br:""},
-                        {a: { href: "#",  span: ["Explore the docs"]}}
+                        {a: { href: "#",  strong: ["Explore the docs >>"]}}
                     ]
                 }
             ] },
@@ -35,7 +35,7 @@ fs.writeFileSync(path.resolve(__dirname, "../README.html"), README_md);
 function createBedge(link, label, message, color) {
     return {
         a: {
-            style: "margin-right:5px;",
+            style: "margin-left:5px;",
             href: link,
             img: {
                 src: `https://img.shields.io/badge/${label}-${message}-${color}`,

@@ -3,16 +3,16 @@
     <body>
         <div id="top"></div>
         <a
-            style="margin-right: 5px"
+            style="margin-left: 5px"
             href="https://github.com/createmeal/createmeal/graphs/contributors"
             ><img
                 src="https://img.shields.io/badge/CONTRIBUTORS-2-brightgreen" /></a
         ><a
-            style="margin-right: 5px"
+            style="margin-left: 5px"
             href="https://github.com/createmeal/createmeal/issues"
             ><img src="https://img.shields.io/badge/ISSUES-0-yellow" /></a
         ><a
-            style="margin-right: 5px"
+            style="margin-left: 5px"
             href="https://github.com/createmeal/createmeal/graphs/contributors"
             ><img src="https://img.shields.io/badge/LICENSE-MIT-green"
         /></a>
@@ -20,7 +20,7 @@
             <h3>Createmeal</h3>
             <p align="center">
                 <span>HTML generator powered by json</span><br /><a href="#"
-                    ><span>Explore the docs</span></a
+                    ><strong>Explore the docs >></strong></a
                 >
             </p>
         </div>
