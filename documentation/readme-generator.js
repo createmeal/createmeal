@@ -21,7 +21,7 @@ let readme = {
                         { align: "center" },
                         {span: ["HTML generator powered by json"]},
                         {br:""},
-                        {a: { href: "#",  strong: ["Explore the docs >>"]}}
+                        {a: { href: "#",  strong: ["Explore the docs »"]}}
                     ]
                 }
             ] },

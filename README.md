@@ -20,7 +20,7 @@
             <h3>Createmeal</h3>
             <p align="center">
                 <span>HTML generator powered by json</span><br /><a href="#"
-                    ><strong>Explore the docs >></strong></a
+                    ><strong>Explore the docs »</strong></a
                 >
             </p>
         </div>
