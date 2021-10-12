@@ -1,7 +1,0 @@
-# Estruturas
-Cada estrutura do json é responsável por gerar uma estrutura similar no HTML. Por exemplo,
-Para escrever uma palavra no arquivo HTML basta
-criar um array de string, como:
-["teste"]
-
-O resultado será simplesmente a palavra "teste" no arquivo HTML.
