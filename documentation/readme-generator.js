@@ -155,10 +155,10 @@ let readme = {
                     {h3:["Installation"]},
                     {
                         ul:[{
-                            li:[{span:["npm"]}, {pre:{code:["npm i createmeal"]}}]                            
+                            li:createCodeQuote("npm i createmeal")                          
                         },
                         {
-                            li:[{span:["cdn"]}, {pre:{code:["&lt;script src=\"https://cdn.jsdelivr.net/npm/createmeal@1.0.0/dist/createmeal.min.js\"&gt;&lt;/script&gt;"]}}]                            
+                            li:createCodeQuote("&lt;script src=\"https://cdn.jsdelivr.net/npm/createmeal@1.0.0/dist/createmeal.min.js\"&gt;&lt;/script&gt;")
                         }]
                     }
                 ]
@@ -184,10 +184,10 @@ let readme = {
                     {h3:["Installation"]},
                     {
                         ul:[{
-                            li:[{span:["npm"]}, {pre:{code:["npm i createmeal"]}}]                            
+                            li:createCodeQuote("npm i createmeal")                         
                         },
                         {
-                            li:[{span:["cdn"]}, {pre:{code:["&lt;script src=\"https://cdn.jsdelivr.net/npm/createmeal@1.0.0/dist/createmeal.min.js\"&gt;&lt;/script&gt;"]}}]                            
+                            li:createCodeQuote("&lt;script src=\"https://cdn.jsdelivr.net/npm/createmeal@1.0.0/dist/createmeal.min.js\"&gt;&lt;/script&gt;")
                         }]
                     }
                 ]
@@ -230,4 +230,8 @@ function createSimpleLink(href, textContent){
             span: [textContent],
         }
     }
+}
+
+function createCodeQuote(textContent){
+    return [{span:["npm"]}, {pre:{code:[textContent]}}]
 }
