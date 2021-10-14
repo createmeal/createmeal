@@ -145,7 +145,9 @@ let readme = {
                     },*/
                     {h3:["Installation"]},
                     {
-                        p:[{q:["npm i createmeal"]}]
+                        ul:{
+                            li:[{span:["npm"]}, {blockquote:["npm i createmeal"]}]                            
+                        }
                     }
                 ]
             },
