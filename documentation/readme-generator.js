@@ -18,6 +18,16 @@ let readme = {
             createBedge(ISSUES_URL, "ISSUES", "0", "yellow"),
             { span: [" "] },
             createBedge(LICENSE_URL, "LICENSE", "MIT", "green"),
+            { span: [" "] },
+            {
+                a: {
+                    style: "margin-left:5px;",
+                    href: "https://www.jsdelivr.com/package/npm/createmeal",
+                    img: {
+                        src: `https://data.jsdelivr.com/v1/package/npm/createmeal/badge`,
+                    },
+                },
+            },
             {
                 div: [
                     { align: "center" },
@@ -26,10 +36,9 @@ let readme = {
                         p: [
                             { align: "center" },
                             { span: ["HTML generator powered by json"] },
-
+                            {br:{}},
                             {
                                 a: {
-                                    style: "display:block",
                                     href: DOCS_URL,
                                     strong: ["Explore the docs »"],
                                 },
@@ -151,7 +160,33 @@ let readme = {
                     }
                 ]
             },
-            {h2:["Usage"]},
+            {
+                section:[
+                    {h2:["Usage"]},
+                    {
+                        p:[
+                            { span: ["Try to accessing the guide for complete reference: "] },
+                            {
+                                a: {
+                                    href: DOCS_URL,
+                                    strong: ["Getting Started"],
+                                },
+                            },    
+                        ]                
+                    },
+                    /*{h3:["Prerequisites"]},
+                    {
+                        p:["there is no prerequisites to starting using this library."]
+                    },*/
+                    {h3:["Installation"]},
+                    {
+                        ul:{
+                            li:[{span:["npm"]}, {blockquote:["npm i createmeal"]}]                            
+                        }
+                    }
+                ]
+            },
+            
             {h2:["Roadmap"]},
             {h2:["Contributing"]},
             {h2:["License"]},
