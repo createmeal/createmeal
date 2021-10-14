@@ -1,18 +1,19 @@
 const createmeal = require("../index");
 const fs = require("fs");
 const path = require("path");
+const ISSUES_URL = "https://github.com/createmeal/createmeal/issues";
+const CONTRIBUTORS_URL = "https://github.com/createmeal/createmeal/graphs/contributors";
+const LICENSE_URL = "https://github.com/createmeal/createmeal/blob/master/LICENSE";
+const DOCS_URL = "#";
 
 let readme = {
     "!DOCTYPE html": "",
     html: {
         body: [
             { div: { id: "top" } },
-            createBedge("https://github.com/createmeal/createmeal/graphs/contributors",
-                "CONTRIBUTORS",  2,  "brightgreen"),
-            createBedge("https://github.com/createmeal/createmeal/issues",
-                "ISSUES",  "0", "yellow"),
-            createBedge("https://github.com/createmeal/createmeal/graphs/contributors",
-                "LICENSE", "MIT", "green"),
+            createBedge(CONTRIBUTORS_URL, "CONTRIBUTORS",  2,  "brightgreen"),
+            createBedge(ISSUES_URL, "ISSUES",  "0", "yellow"),
+            createBedge(LICENSE_URL, "LICENSE", "MIT", "green"),
             { div: [
                 { align: "center" },
                 {h3: ["Createmeal"]},
@@ -20,8 +21,17 @@ let readme = {
                     p: [
                         { align: "center" },
                         {span: ["HTML generator powered by json"]},
-                        {br:""},
-                        {a: { href: "#",  strong: ["Explore the docs »"]}}
+           
+                        {a: {style:"display:block", href: DOCS_URL,  strong: ["Explore the docs »"]}}
+                    ]                    
+                },
+                {
+                    p: [
+                        {a: { href: "#",  span: ["View Demo"]}},
+                        {span: [" · "]},
+                        {a: { href: ISSUES_URL,  span: ["Report Bug"]}},
+                        {span: [" · "]},
+                        {a: { href: ISSUES_URL,  span: ["Request Feature"]}}
                     ]
                 }
             ] },
