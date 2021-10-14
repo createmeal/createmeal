@@ -180,9 +180,12 @@ let readme = {
                     },*/
                     {h3:["Installation"]},
                     {
-                        ul:{
-                            li:[{span:["npm"]}, {blockquote:["npm i createmeal"]}]                            
-                        }
+                        ul:[{
+                            li:[{span:["npm"]}, {pre:{code:["npm i createmeal"]}}]                            
+                        },
+                        {
+                            li:[{span:["cdn"]}, {pre:{code:["&lt;script src=\"https://cdn.jsdelivr.net/npm/createmeal@1.0.0/dist/createmeal.min.js\"&gt;&lt;/script&gt;"]}}]                            
+                        }]
                     }
                 ]
             },
