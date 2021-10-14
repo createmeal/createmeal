@@ -16,13 +16,18 @@
         ><a
             style="margin-left: 5px"
             href="https://github.com/createmeal/createmeal/blob/master/LICENSE"
-            ><img src="https://img.shields.io/badge/LICENSE-MIT-green"
+            ><img src="https://img.shields.io/badge/LICENSE-MIT-green" /></a
+        ><span> </span
+        ><a
+            style="margin-left: 5px"
+            href="https://www.jsdelivr.com/package/npm/createmeal"
+            ><img
+                src="https://data.jsdelivr.com/v1/package/npm/createmeal/badge"
         /></a>
         <div align="center">
             <h3>Createmeal</h3>
             <p align="center">
-                <span>HTML generator powered by json</span
-                ><a style="display: block" href="#"
+                <span>HTML generator powered by json</span><br /><a href="#"
                     ><strong>Explore the docs »</strong></a
                 >
             </p>
@@ -127,11 +132,69 @@
             <ul>
                 <li>
                     <span>npm</span>
-                    <blockquote>npm i createmeal</blockquote>
+                    <pre><code>npm i createmeal</code></pre>
+                </li>
+                <li>
+                    <span>CDN</span>
+                    <pre><code>&lt;script src="https://cdn.jsdelivr.net/npm/createmeal@1.0.0/dist/createmeal.min.js"&gt;&lt;/script&gt;</code></pre>
                 </li>
             </ul>
         </section>
-        <h2>Usage</h2>
+        <section>
+            <h2>Usage</h2>
+            <p>
+                <span>
+                    You can generate HTML directly in your page, using
+                    javascript, or using npm package in server side:
+                </span>
+            </p>
+            <ul>
+                <li>
+                    <span>CDN</span>
+                    <pre><code>
+&lt;html&gt;
+    &lt;body&gt;
+        &lt;script src="https://cdn.jsdelivr.net/npm/createmeal@1.0.0/dist/createmeal.min.js"&gt;&lt;/script&gt;
+        &lt;script&gt;
+        let helloWorld = {
+            div: [
+                    {
+                        class: "container"
+                    },
+                    {
+                        h3: ["Hello World!"]
+                    },
+                    {
+                        p: ["This is a simple way to generate DOM without write HTML."]
+                    }
+                ]
+            }
+            let html = createmeal.toHtml(helloWorld);
+            let element = new DOMParser().parseFromString(html,"text/html").body.firstChild;
+            document.body.insertBefore(element,document.body.firstChild);
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;                    
+</code></pre>
+                </li>
+                <li>
+                    <span>CDN Result</span>
+                    <pre><code>&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;title&gt;Create App With CDN&lt;/title&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+        &lt;div class="container"&gt;
+            &lt;h3&gt;Hello World!&lt;/h3&gt;
+            &lt;p&gt;This is a simple way to generate DOM without write HTML.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+                </li>
+            </ul>
+        </section>
         <h2>Roadmap</h2>
         <h2>Contributing</h2>
         <h2>License</h2>

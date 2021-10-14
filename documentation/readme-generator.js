@@ -34,6 +34,20 @@ const USAGE_EXAMPLE=
     &lt;/body&gt;
 &lt;/html&gt;                    
 `;
+const USAGE_CDN_RESULT=
+`&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;title&gt;Create App With CDN&lt;/title&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+        &lt;div class="container"&gt;
+            &lt;h3&gt;Hello World!&lt;/h3&gt;
+            &lt;p&gt;This is a simple way to generate DOM without write HTML.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+`
 let readme = {
     "!DOCTYPE html": "",
     html: {
@@ -181,10 +195,10 @@ let readme = {
                     {h3:["Installation"]},
                     {
                         ul:[{
-                            li:createCodeQuote("npm i createmeal")                          
+                            li:createCodeQuote("npm","npm i createmeal")                          
                         },
                         {
-                            li:createCodeQuote(CDN_URL)
+                            li:createCodeQuote("CDN",CDN_URL)
                         }]
                     }
                 ]
@@ -195,12 +209,19 @@ let readme = {
                     {
                         p:[
                             { span: [`
-                                You can use this library in your javascript to generate HTML directly
-                                in your page: 
+                                You can generate HTML directly in your page, using javascript, or
+                                using npm package in server side: 
                             `] },  
                         ]                
                     },
-                    {pre:{code:[USAGE_EXAMPLE]}}
+                    {
+                        ul:[
+                        {
+                            li:createCodeQuote("CDN",USAGE_EXAMPLE)
+                        },{
+                            li:createCodeQuote("CDN Result",USAGE_CDN_RESULT)
+                        }]
+                    }
                 ]
             },
             
@@ -243,6 +264,6 @@ function createSimpleLink(href, textContent){
     }
 }
 
-function createCodeQuote(textContent){
-    return [{span:["npm"]}, {pre:{code:[textContent]}}]
+function createCodeQuote(listText,textContent){
+    return [{span:[listText]}, {pre:{code:[textContent]}}]
 }
