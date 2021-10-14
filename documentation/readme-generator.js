@@ -12,7 +12,9 @@ let readme = {
         body: [
             { div: { id: "top" } },
             createBedge(CONTRIBUTORS_URL, "CONTRIBUTORS",  2,  "brightgreen"),
+            {span: [" "]},
             createBedge(ISSUES_URL, "ISSUES",  "0", "yellow"),
+            {span: [" "]},
             createBedge(LICENSE_URL, "LICENSE", "MIT", "green"),
             { div: [
                 { align: "center" },
