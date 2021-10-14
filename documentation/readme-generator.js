@@ -7,7 +7,33 @@ const CONTRIBUTORS_URL =
 const LICENSE_URL =
     "https://github.com/createmeal/createmeal/blob/master/LICENSE";
 const DOCS_URL = "#";
-
+const CDN_URL = "&lt;script src=\"https://cdn.jsdelivr.net/npm/createmeal@1.0.0/dist/createmeal.min.js\"&gt;&lt;/script&gt;";
+const USAGE_EXAMPLE=
+`
+&lt;html&gt;
+    &lt;body&gt;
+        ${CDN_URL}
+        &lt;script&gt;
+        let helloWorld = {
+            div: [
+                    {
+                        class: "container"
+                    },
+                    {
+                        h3: ["Hello World!"]
+                    },
+                    {
+                        p: ["This is a simple way to generate DOM without write HTML."]
+                    }
+                ]
+            }
+            let html = createmeal.toHtml(helloWorld);
+            let element = new DOMParser().parseFromString(html,"text/html").body.firstChild;
+            document.body.insertBefore(element,document.body.firstChild);
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;                    
+`;
 let readme = {
     "!DOCTYPE html": "",
     html: {
@@ -158,7 +184,7 @@ let readme = {
                             li:createCodeQuote("npm i createmeal")                          
                         },
                         {
-                            li:createCodeQuote("&lt;script src=\"https://cdn.jsdelivr.net/npm/createmeal@1.0.0/dist/createmeal.min.js\"&gt;&lt;/script&gt;")
+                            li:createCodeQuote(CDN_URL)
                         }]
                     }
                 ]
@@ -168,28 +194,13 @@ let readme = {
                     {h2:["Usage"]},
                     {
                         p:[
-                            { span: ["Try to accessing the guide for complete reference: "] },
-                            {
-                                a: {
-                                    href: DOCS_URL,
-                                    strong: ["Getting Started"],
-                                },
-                            },    
+                            { span: [`
+                                You can use this library in your javascript to generate HTML directly
+                                in your page: 
+                            `] },  
                         ]                
                     },
-                    /*{h3:["Prerequisites"]},
-                    {
-                        p:["there is no prerequisites to starting using this library."]
-                    },*/
-                    {h3:["Installation"]},
-                    {
-                        ul:[{
-                            li:createCodeQuote("npm i createmeal")                         
-                        },
-                        {
-                            li:createCodeQuote("&lt;script src=\"https://cdn.jsdelivr.net/npm/createmeal@1.0.0/dist/createmeal.min.js\"&gt;&lt;/script&gt;")
-                        }]
-                    }
+                    {pre:{code:[USAGE_EXAMPLE]}}
                 ]
             },
             
