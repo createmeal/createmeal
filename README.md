@@ -183,7 +183,6 @@
     &lt;head&gt;
         &lt;title&gt;Create App With CDN&lt;/title&gt;
     &lt;/head&gt;
-
     &lt;body&gt;
         &lt;div class="container"&gt;
             &lt;h3&gt;Hello World!&lt;/h3&gt;
