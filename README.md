@@ -124,7 +124,12 @@
                 ><a href="#"><strong>Getting Started</strong></a>
             </p>
             <h3>Installation</h3>
-            <p><q>npm i createmeal</q></p>
+            <ul>
+                <li>
+                    <span>npm</span>
+                    <blockquote>npm i createmeal</blockquote>
+                </li>
+            </ul>
         </section>
         <h2>Usage</h2>
         <h2>Roadmap</h2>
