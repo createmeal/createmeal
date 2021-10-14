@@ -54,11 +54,6 @@
                     <a href="#getting-started"><span>Getting Started</span></a>
                     <ul>
                         <li>
-                            <a href="#prerequisites"
-                                ><span>Prerequisites</span></a
-                            >
-                        </li>
-                        <li>
                             <a href="#installation"
                                 ><span>Installation</span></a
                             >
@@ -97,17 +92,21 @@
                 worst then HTML.
             </p>
             <p>
-                Createmeal gives use the same HTML tag names and semantic,
-                butwith json as sintax. It decreases the need of learn a new
-                language, gives you a better way to generate layout content in a
-                better way using javascript, in additional to allow you storage
-                source easilly in database if is needed, componentize, create
-                templates and serialize to object.
+                Createmeal gives us the same HTML tag names and semantic, but
+                using json in its sintax. It decreases the need of learn a new
+                language, gives us a better way to generate layout content
+                powered by javascript, in additional to allow us storage source
+                easilly in database if is needed, componentize, create
+                templates, use other languages like yaml, and serialize text to
+                object.
             </p>
             <p>
                 Of course, for many people, HTML is excelent, but is great when
                 you have good alternatives to solve problems, and turn live
                 better.
+            </p>
+            <p align="right">
+                <a href="#top"><span>back to top</span></a>
             </p>
         </section>
         <section>
@@ -115,12 +114,18 @@
             <p>
                 The entire library is actually created using javascript and the
                 dependences and HTML is used only for Development and testing,
-                and example porpose
+                and example porpose.
             </p>
         </section>
-        <h2>Getting Started</h2>
-        <h3>Prerequisites</h3>
-        <h3>Installation</h3>
+        <section>
+            <h2>Getting Started</h2>
+            <p>
+                <span>Try to accessing the guide for complete reference: </span
+                ><a href="#"><strong>Getting Started</strong></a>
+            </p>
+            <h3>Installation</h3>
+            <p><q>npm i createmeal</q></p>
+        </section>
         <h2>Usage</h2>
         <h2>Roadmap</h2>
         <h2>Contributing</h2>

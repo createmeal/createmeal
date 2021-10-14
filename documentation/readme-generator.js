@@ -70,7 +70,7 @@ let readme = {
                                     span: ["Getting Started"],
                                 },
                                 ul: [
-                                    createTableOfContentsLine("#prerequisites", "Prerequisites"),
+                                    //createTableOfContentsLine("#prerequisites", "Prerequisites"),
                                     createTableOfContentsLine("#installation", "Installation")
                                 ]
                             }},
@@ -97,11 +97,12 @@ let readme = {
                         "strange sintax and some times worst then HTML."
                     ]},
                     {p:[
-                        "Createmeal gives use the same HTML tag names and semantic, but",
-                        "with json as sintax. It decreases the need of learn a new language, ",
-                        "gives you a better way to generate layout content in a better way using ",
-                        "javascript, in additional to allow you storage source easilly in database ", 
-                        "if is needed, componentize, create templates and serialize to object."
+                        "Createmeal gives us the same HTML tag names and semantic, but ",
+                        "using json in its sintax. It decreases the need of learn a new language, ",
+                        "gives us a better way to generate layout content powered by ",
+                        "javascript, in additional to allow us storage source easilly in database ", 
+                        "if is needed, componentize, create templates, use other languages like yaml, ",
+                        "and serialize text to object."
                     ]},
                     {p:[
                         "Of course, for many people, HTML is excelent, but is great when you have ",
@@ -124,10 +125,30 @@ let readme = {
                     }
                 ]
             },
-            
-            {h2:["Getting Started"]},
-            {h3:["Prerequisites"]},
-            {h3:["Installation"]},
+            {
+                section:[
+                    {h2:["Getting Started"]},
+                    {
+                        p:[
+                            { span: ["Try to accessing the guide for complete reference: "] },
+                            {
+                                a: {
+                                    href: DOCS_URL,
+                                    strong: ["Getting Started"],
+                                },
+                            },    
+                        ]                
+                    },
+                    /*{h3:["Prerequisites"]},
+                    {
+                        p:["there is no prerequisites to starting using this library."]
+                    },*/
+                    {h3:["Installation"]},
+                    {
+                        p:[{q:["npm i createmeal"]}]
+                    }
+                ]
+            },
             {h2:["Usage"]},
             {h2:["Roadmap"]},
             {h2:["Contributing"]},
