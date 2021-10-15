@@ -1,0 +1,8 @@
+.github
+.vscode
+test
+documentacao
+package.json
+README.pseudo.md
+README.test.mesa.md
+webpack.config.js
