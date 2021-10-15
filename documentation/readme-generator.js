@@ -123,7 +123,15 @@ let readme = {
                                     createTableOfContentsLine("#installation", "Installation")
                                 ]
                             }},
-                            createTableOfContentsLine("#usage", "Usage"),
+                            {li:{
+                                a: {
+                                    href: "#usage",
+                                    span: ["Usage"],
+                                },
+                                ul: [
+                                    createTableOfContentsLine("#simple-example-of-usage-in-an-application", "Simple example of usage in an application")
+                                ]
+                            }},
                             createTableOfContentsLine("#roadmap", "Roadmap"),
                             createTableOfContentsLine("#contributing", "Contributing"),
                             createTableOfContentsLine("#license", "License"),
@@ -209,11 +217,20 @@ let readme = {
                     {
                         p:[
                             { span: [`
+                                The main metod of createmeal is toHtml({}), so createmeal.toHtml({div:{}}),
+                                will return &lt;div&gt;&lt;/div&gt;.
+                            `] },  
+                        ]                
+                    },
+                    {
+                        p:[
+                            { span: [`
                                 You can generate HTML directly in your page, using javascript, or
                                 using npm package in server side: 
                             `] },  
                         ]                
                     },
+                    {h3:["Simple example of usage in an application"]},
                     {
                         ul:[
                         {
