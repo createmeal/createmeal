@@ -27,7 +27,8 @@
         <div align="center">
             <h3>Createmeal</h3>
             <p align="center">
-                <span>HTML generator powered by json</span><br /><a href="#"
+                <span>HTML generator powered by json</span><br /><a
+                    href="#usage"
                     ><strong>Explore the docs »</strong></a
                 >
             </p>
@@ -136,7 +137,7 @@
             <h2>Getting Started</h2>
             <p>
                 <span>Try to accessing the guide for complete reference: </span
-                ><a href="#"><strong>Getting Started</strong></a>
+                ><a href="#usage"><strong>Getting Started</strong></a>
             </p>
             <h3>Installation</h3>
             <ul>

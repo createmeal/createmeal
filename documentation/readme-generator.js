@@ -9,7 +9,7 @@ const CONTRIBUTORS_URL =
     "https://github.com/createmeal/createmeal/graphs/contributors";
 const LICENSE_URL =
     "https://github.com/createmeal/createmeal/blob/master/LICENSE";
-const DOCS_URL = "#";
+const DOCS_URL = "#usage";
 const CDN_URL =
     '&lt;script src="https://cdn.jsdelivr.net/npm/createmeal@1.0.0/dist/createmeal.min.js"&gt;&lt;/script&gt;';
 const USAGE_EXAMPLE = `
