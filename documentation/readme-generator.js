@@ -96,6 +96,7 @@ EXAMPLE_TABLE =
         ],
     }
 }
+//result of table generation:
 ${OPEN}table class="table table-success table-striped table-hover"${CLOSE}
     ${OPEN}thead${CLOSE}
         ${OPEN}tr${CLOSE}

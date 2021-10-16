@@ -215,6 +215,7 @@ toHtml({
         ],
     }
 }
+//result of table generation:
 &lt;table class="table table-success table-striped table-hover"&gt;
     &lt;thead&gt;
         &lt;tr&gt;
