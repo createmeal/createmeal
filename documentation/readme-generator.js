@@ -53,7 +53,7 @@ const USAGE_CDN_RESULT = `&lt;html lang="en"&gt;
 `;
 EXAMPLE_ATTRIBUTE = `toHtml({
     div:{
-        class:["container"]
+        class:"container"
     }
 }) 
 //${tag('tagName class="container"', "")}`;

@@ -175,7 +175,7 @@
                     <span>attributes</span>
                     <pre><code>toHtml({
     div:{
-        class:["container"]
+        class:"container"
     }
 }) 
 //&lt;tagName class="container"&gt;&lt;tagName class="container"&gt;</code></pre>
