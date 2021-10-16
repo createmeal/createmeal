@@ -22,7 +22,14 @@
             style="margin-left: 5px"
             href="https://www.jsdelivr.com/package/npm/createmeal"
             ><img
-                src="https://data.jsdelivr.com/v1/package/npm/createmeal/badge"
+                src="https://data.jsdelivr.com/v1/package/npm/createmeal/badge" /></a
+        ><a
+            style="margin-left: 5px"
+            href="https://www.npmjs.com/package/createmeal"
+            ><img src="https://img.shields.io/badge/NPM-1.0.0-red" /></a
+        ><a style="margin-left: 5px" href="#usage"
+            ><img
+                src="https://img.shields.io/badge/STATUS-DEVELOPMENT-important"
         /></a>
         <div align="center">
             <h3>Createmeal</h3>
