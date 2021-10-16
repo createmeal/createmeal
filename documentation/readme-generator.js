@@ -142,7 +142,9 @@ let readme = {
                     },
                 },
             },
+            { span: [" "] },
             createBedge(NPM_URL, "NPM", "1.0.0", "red"),
+            { span: [" "] },
             createBedge("#usage", "STATUS", "DEVELOPMENT", "important"),
             {
                 div: [
