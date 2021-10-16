@@ -1,15 +1,18 @@
 const createmeal = require("../index");
 const fs = require("fs");
 const path = require("path");
+
+const OPEN = "&lt;";
+const CLOSE = "&gt;";
 const ISSUES_URL = "https://github.com/createmeal/createmeal/issues";
 const CONTRIBUTORS_URL =
     "https://github.com/createmeal/createmeal/graphs/contributors";
 const LICENSE_URL =
     "https://github.com/createmeal/createmeal/blob/master/LICENSE";
 const DOCS_URL = "#";
-const CDN_URL = "&lt;script src=\"https://cdn.jsdelivr.net/npm/createmeal@1.0.0/dist/createmeal.min.js\"&gt;&lt;/script&gt;";
-const USAGE_EXAMPLE=
-`
+const CDN_URL =
+    '&lt;script src="https://cdn.jsdelivr.net/npm/createmeal@1.0.0/dist/createmeal.min.js"&gt;&lt;/script&gt;';
+const USAGE_EXAMPLE = `
 &lt;html&gt;
     &lt;body&gt;
         ${CDN_URL}
@@ -34,8 +37,7 @@ const USAGE_EXAMPLE=
     &lt;/body&gt;
 &lt;/html&gt;                    
 `;
-const USAGE_CDN_RESULT=
-`&lt;html lang="en"&gt;
+const USAGE_CDN_RESULT = `&lt;html lang="en"&gt;
     &lt;head&gt;
         &lt;title&gt;Create App With CDN&lt;/title&gt;
     &lt;/head&gt;
@@ -47,7 +49,77 @@ const USAGE_CDN_RESULT=
         &lt;/div&gt;
     &lt;/body&gt;
 &lt;/html&gt;
+`;
+EXAMPLE_ATTRIBUTE = `toHtml({
+    div:{
+        class:["container"]
+    }
+}) 
+//${tag('tagName class="container"', "")}`;
+
+EXAMPLE_TEXT_CONTENT = `
+toHtml({
+    p:[\"Hello World!\"]
+}) 
+//${tag("p", "Hello World!")}
+`;
+EXAMPLE_TABLE = 
 `
+{
+    table:{
+        class: \"table table-success table-striped table-hover\",
+        thead: { 
+            tr: [
+                { 
+                    th: [\"First\"] 
+                }, 
+                { th: [\"Second\"] }, 
+                { th: [\"Third\"] }
+            ]
+        },
+        tbody: [
+            {
+                tr: [
+                    { 
+                        td: [\"valor primeira coluna\"] 
+                    },
+                    { td: [\"valor segunda coluna\"] },
+                    { td: [\"valor terceira coluna\"] },
+                ],
+            },
+            {
+                tr: [
+                    { td: [\"linha 1 coluna A\"] },
+                    { td: [\"linha 2 coluna B\"] },
+                    { td: [\"linha 3 coluna C\"] },
+                ],
+            },
+        ],
+    }
+}
+${OPEN}table class="table table-success table-striped table-hover"${CLOSE}
+    ${OPEN}thead${CLOSE}
+        ${OPEN}tr${CLOSE}
+            ${OPEN}th${CLOSE}First${OPEN}/th${CLOSE}
+            ${OPEN}th${CLOSE}Second${OPEN}/th${CLOSE}
+            ${OPEN}th${CLOSE}Third${OPEN}/th${CLOSE}
+        ${OPEN}/tr${CLOSE}
+    ${OPEN}/thead${CLOSE}
+    ${OPEN}tbody${CLOSE}
+        ${OPEN}tr${CLOSE}
+            ${OPEN}td${CLOSE}valor primeira coluna${OPEN}/td${CLOSE}
+            ${OPEN}td${CLOSE}valor segunda coluna${OPEN}/td${CLOSE}
+            ${OPEN}td${CLOSE}valor terceira coluna${OPEN}/td${CLOSE}
+        ${OPEN}/tr${CLOSE}
+        ${OPEN}tr${CLOSE}
+            ${OPEN}td${CLOSE}linha 1 coluna A${OPEN}/td${CLOSE}
+            ${OPEN}td${CLOSE}linha 2 coluna B${OPEN}/td${CLOSE}
+            ${OPEN}td${CLOSE}linha 3 coluna C${OPEN}/td${CLOSE}
+        ${OPEN}/tr${CLOSE}
+    ${OPEN}/tbody${CLOSE}
+${OPEN}/table${CLOSE}
+`;
+
 let readme = {
     "!DOCTYPE html": "",
     html: {
@@ -76,7 +148,7 @@ let readme = {
                         p: [
                             { align: "center" },
                             { span: ["HTML generator powered by json"] },
-                            {br:{}},
+                            { br: {} },
                             {
                                 a: {
                                     href: DOCS_URL,
@@ -105,148 +177,212 @@ let readme = {
                 details: [
                     { summary: ["Table of Contents"] },
                     {
-                        ol:[
-                            {li:{
-                                a: {
-                                    href: "#about-the-project",
-                                    span: ["About The Project"],
+                        ol: [
+                            {
+                                li: {
+                                    a: {
+                                        href: "#about-the-project",
+                                        span: ["About The Project"],
+                                    },
+                                    ul: createTableOfContentsLine(
+                                        "#built-with",
+                                        "Built With"
+                                    ),
                                 },
-                                ul: createTableOfContentsLine("#built-with", "Built With"),
-                            }},
-                            {li:{
-                                a: {
-                                    href: "#getting-started",
-                                    span: ["Getting Started"],
+                            },
+                            {
+                                li: {
+                                    a: {
+                                        href: "#getting-started",
+                                        span: ["Getting Started"],
+                                    },
+                                    ul: [
+                                        //createTableOfContentsLine("#prerequisites", "Prerequisites"),
+                                        createTableOfContentsLine(
+                                            "#installation",
+                                            "Installation"
+                                        ),
+                                    ],
                                 },
-                                ul: [
-                                    //createTableOfContentsLine("#prerequisites", "Prerequisites"),
-                                    createTableOfContentsLine("#installation", "Installation")
-                                ]
-                            }},
-                            {li:{
-                                a: {
-                                    href: "#usage",
-                                    span: ["Usage"],
+                            },
+                            {
+                                li: {
+                                    a: {
+                                        href: "#usage",
+                                        span: ["Usage"],
+                                    },
+                                    ul: [
+                                        createTableOfContentsLine(
+                                            "#simple-example-of-usage-in-an-application",
+                                            "Simple example of usage in an application"
+                                        ),
+                                    ],
                                 },
-                                ul: [
-                                    createTableOfContentsLine("#simple-example-of-usage-in-an-application", "Simple example of usage in an application")
-                                ]
-                            }},
+                            },
                             createTableOfContentsLine("#roadmap", "Roadmap"),
-                            createTableOfContentsLine("#contributing", "Contributing"),
+                            createTableOfContentsLine(
+                                "#contributing",
+                                "Contributing"
+                            ),
                             createTableOfContentsLine("#license", "License"),
                             createTableOfContentsLine("#contact", "Contact"),
-                            createTableOfContentsLine("#acknowledgments", "Acknowledgments")                            
-                        ]
-                    }
-                    
+                            createTableOfContentsLine(
+                                "#acknowledgments",
+                                "Acknowledgments"
+                            ),
+                        ],
+                    },
                 ],
             },
             {
-                section:[
-                    {h2:["About The Project"]},
-                    {p:[
-                        "HTML is the standard way to produce web page content ",
-                        "and there are several other options to produce text estructures like markdown, ",
-                        "jsml,  WackoWiki Markup, AsciiDoc, Contentflow, and others. But to ",
-                        " work with these alternatives at first you will need learn a new language, ",
-                        "is not ease to produce content using javascript, and most of them has a ",
-                        "strange sintax and some times worst then HTML."
-                    ]},
-                    {p:[
-                        "Createmeal gives us the same HTML tag names and semantic, but ",
-                        "using json in its sintax. It decreases the need of learn a new language, ",
-                        "gives us a better way to generate layout content powered by ",
-                        "javascript, in additional to allow us storage source easilly in database ", 
-                        "if is needed, componentize, create templates, use other languages like yaml, ",
-                        "and serialize text to object."
-                    ]},
-                    {p:[
-                        "Of course, for many people, HTML is excelent, but is great when you have ",
-                        "good alternatives to solve problems, and turn live better."
-                    ]},
-                    {p:[
-                        {align:"right"},
-                        createSimpleLink("#top", "back to top")
-                    ]}
-            ]},
-            {
-                section:[
-                    {h3:["Built With"]},
+                section: [
+                    { h2: ["About The Project"] },
                     {
-                        p:[
-                            "The entire library is actually created using javascript and ",
-                            "the dependences and HTML is used only for Development and ",
-                            " testing, and example porpose."
-                        ]
-                    }
-                ]
+                        p: [
+                            "HTML is the standard way to produce web page content ",
+                            "and there are several other options to produce text estructures like markdown, ",
+                            "jsml,  WackoWiki Markup, AsciiDoc, Contentflow, and others. But to ",
+                            " work with these alternatives at first you will need learn a new language, ",
+                            "is not ease to produce content using javascript, and most of them has a ",
+                            "strange sintax and some times worst then HTML.",
+                        ],
+                    },
+                    {
+                        p: [
+                            "Createmeal gives us the same HTML tag names and semantic, but ",
+                            "using json in its sintax. It decreases the need of learn a new language, ",
+                            "gives us a better way to generate layout content powered by ",
+                            "javascript, in additional to allow us storage source easilly in database ",
+                            "if is needed, componentize, create templates, use other languages like yaml, ",
+                            "and serialize text to object.",
+                        ],
+                    },
+                    {
+                        p: [
+                            "Of course, for many people, HTML is excelent, but is great when you have ",
+                            "good alternatives to solve problems, and turn live better.",
+                        ],
+                    },
+                    {
+                        p: [
+                            { align: "right" },
+                            createSimpleLink("#top", "back to top"),
+                        ],
+                    },
+                ],
             },
             {
-                section:[
-                    {h2:["Getting Started"]},
+                section: [
+                    { h3: ["Built With"] },
                     {
-                        p:[
-                            { span: ["Try to accessing the guide for complete reference: "] },
+                        p: [
+                            "The entire library is actually created using javascript and ",
+                            "the dependences and HTML is used only for Development and ",
+                            " testing, and example porpose.",
+                        ],
+                    },
+                ],
+            },
+            {
+                section: [
+                    { h2: ["Getting Started"] },
+                    {
+                        p: [
+                            {
+                                span: [
+                                    "Try to accessing the guide for complete reference: ",
+                                ],
+                            },
                             {
                                 a: {
                                     href: DOCS_URL,
                                     strong: ["Getting Started"],
                                 },
-                            },    
-                        ]                
+                            },
+                        ],
                     },
                     /*{h3:["Prerequisites"]},
                     {
                         p:["there is no prerequisites to starting using this library."]
                     },*/
-                    {h3:["Installation"]},
+                    { h3: ["Installation"] },
                     {
-                        ul:[{
-                            li:createCodeQuote("npm","npm i createmeal")                          
-                        },
-                        {
-                            li:createCodeQuote("CDN",CDN_URL)
-                        }]
-                    }
-                ]
+                        ul: [
+                            {
+                                li: createCodeQuote("npm", "npm i createmeal"),
+                            },
+                            {
+                                li: createCodeQuote("CDN", CDN_URL),
+                            },
+                        ],
+                    },
+                ],
             },
             {
-                section:[
-                    {h2:["Usage"]},
+                section: [
+                    { h2: ["Usage"] },
                     {
-                        p:[
-                            { span: [`
+                        p: [
+                            {
+                                span: [
+                                    `
                                 The main metod of createmeal is toHtml({}), so createmeal.toHtml({div:{}}),
                                 will return &lt;div&gt;&lt;/div&gt;.
-                            `] },  
-                        ]                
+                            `,
+                                ],
+                            },
+                        ],
                     },
+                    { h3: ["Examples"] },
                     {
-                        p:[
-                            { span: [`
-                                You can generate HTML directly in your page, using javascript, or
-                                using npm package in server side: 
-                            `] },  
-                        ]                
+                        ul: [
+                            {
+                                li: createCodeQuote(
+                                    "attributes",
+                                    EXAMPLE_ATTRIBUTE
+                                ),
+                            },
+                            {
+                                li: createCodeQuote(
+                                    "textContent",
+                                    EXAMPLE_TEXT_CONTENT
+                                ),
+                            },
+                            {
+                                li: createCodeQuote("table", EXAMPLE_TABLE),
+                            },
+                            { 
+                                img: {
+                                    align:"center", 
+                                    alt:"table.png", 
+                                    title:"Table generated by createmeal",
+                                    src:"./assets/table.png"
+                                }
+                            }
+                        ],
                     },
-                    {h3:["Simple example of usage in an application"]},
+                    { h3: ["Simple example of usage in an application"] },
                     {
-                        ul:[
-                        {
-                            li:createCodeQuote("CDN",USAGE_EXAMPLE)
-                        },{
-                            li:createCodeQuote("CDN Result",USAGE_CDN_RESULT)
-                        }]
-                    }
-                ]
+                        ul: [
+                            {
+                                li: createCodeQuote("CDN", USAGE_EXAMPLE),
+                            },
+                            {
+                                li: createCodeQuote(
+                                    "CDN Result",
+                                    USAGE_CDN_RESULT
+                                ),
+                            },
+                        ],
+                    },
+                ],
             },
-            
-            {h2:["Roadmap"]},
-            {h2:["Contributing"]},
-            {h2:["License"]},
-            {h2:["Contact"]},
-            {h2:["Acknowledgments"]}
+
+            { h2: ["Roadmap"] },
+            { h2: ["Contributing"] },
+            { h2: ["License"] },
+            { h2: ["Contact"] },
+            { h2: ["Acknowledgments"] },
         ],
     },
 };
@@ -268,19 +404,23 @@ function createBedge(link, label, message, color) {
 
 function createTableOfContentsLine(href, textContent) {
     return {
-        li:createSimpleLink(href, textContent)
-    }    
+        li: createSimpleLink(href, textContent),
+    };
 }
 
-function createSimpleLink(href, textContent){
+function createSimpleLink(href, textContent) {
     return {
         a: {
             href: href,
             span: [textContent],
-        }
-    }
+        },
+    };
 }
 
-function createCodeQuote(listText,textContent){
-    return [{span:[listText]}, {pre:{code:[textContent]}}]
+function createCodeQuote(listText, textContent) {
+    return [{ span: [listText] }, { pre: { code: [textContent] } }];
+}
+
+function tag(tagName, textContent) {
+    return `${OPEN}${tagName}${CLOSE}${textContent}${OPEN}${tagName}${CLOSE}`;
 }

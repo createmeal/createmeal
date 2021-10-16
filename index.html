@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+            crossorigin="anonymous"
+        />
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,20 +14,37 @@
     </head>
     <body>
         <section id="section"></section>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
+            crossorigin="anonymous"
+        ></script>
         <script src="./dist/createmeal.js"></script>
         <script>
             let tableTemplate = {
-                class:"table table-success table-striped table-hover",
+                class: "table table-success table-striped table-hover",
                 thead: {
-                    "tr": [],
+                    tr: [],
                 },
-                tbody: []
+                tbody: [],
             };
-            let json = { };
-            json.div = {attributes:[{class:"container-fluid"}, {"attr-personalizado":"codigo"},{"attr-personalizado2":"codigo"}]};
+            let json = {};
+            json.div = {
+                attributes: [
+                    { class: "container-fluid" },
+                    { "attr-personalizado": "codigo" },
+                    { "attr-personalizado2": "codigo" },
+                ],
+            };
             json.div.h1 = ["Teste da biblioteca"];
-            json.div.p = [{span:["This <strong>example</strong> show us how construct html using this new way "]}, {strong:["deve aparecer destacado"]}]
+            json.div.p = [
+                {
+                    span: [
+                        "This <strong>example</strong> show us how construct html using this new way ",
+                    ],
+                },
+                { strong: ["deve aparecer destacado"] },
+            ];
             json.div.h2 = ["novo titulo"];
             json.div.h3 = ["novo titulo"];
             json.div.h4 = ["novo titulo"];
@@ -31,8 +53,8 @@
             for (const col of cols) {
                 json.div.table.thead.tr.push({ th: [col] });
             }
-            
-            let tr = []
+
+            let tr = [];
             const values = [
                 "valor primeira coluna",
                 "valor segunda coluna",
