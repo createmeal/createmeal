@@ -219,8 +219,16 @@ let readme = {
                                     },
                                     ul: [
                                         createTableOfContentsLine(
-                                            "#simple-example-of-usage-in-an-application",
-                                            "Simple example of usage in an application"
+                                            "#base-specification",
+                                            "Base Specification"
+                                        ),
+                                        createTableOfContentsLine(
+                                            "#examples",
+                                            "Examples"
+                                        ),
+                                        createTableOfContentsLine(
+                                            "#incorporating-in-application",
+                                            "Incorporating in application"
                                         ),
                                     ],
                                 },
@@ -268,15 +276,10 @@ let readme = {
                             "Of course, for many people, HTML is excelent, but is great when you have ",
                             "good alternatives to solve problems, and turn live better.",
                         ],
-                    },
-                    {
-                        p: [
-                            { align: "right" },
-                            createSimpleLink("#top", "back to top"),
-                        ],
-                    },
-                ],
+                    }
+                ]
             },
+            backToTop(),
             {
                 section: [
                     { h3: ["Built With"] },
@@ -289,6 +292,7 @@ let readme = {
                     },
                 ],
             },
+            backToTop(),
             {
                 section: [
                     { h2: ["Getting Started"] },
@@ -324,6 +328,7 @@ let readme = {
                     },
                 ],
             },
+            backToTop(),
             {
                 section: [
                     { h2: ["Usage"] },
@@ -338,6 +343,17 @@ let readme = {
                                 ],
                             },
                         ],
+                    },
+                    { h3:["Base Specification"]},
+                    {
+                        ul:[
+                            {
+                                li: createCodeQuote(
+                                    "Simple text",
+                                    "createmeal.toHtml([\"test\"]);\\\\ \"test\""
+                                ),
+                            }
+                        ]
                     },
                     { h3: ["Examples"] },
                     {
@@ -369,7 +385,7 @@ let readme = {
                             }
                         ],
                     },
-                    { h3: ["Simple example of usage in an application"] },
+                    { h3: ["Incorporate in your application"] },
                     {
                         ul: [
                             {
@@ -385,7 +401,7 @@ let readme = {
                     },
                 ],
             },
-
+            backToTop(),
             { h2: ["Roadmap"] },
             { h2: ["Contributing"] },
             { h2: ["License"] },
@@ -431,4 +447,13 @@ function createCodeQuote(listText, textContent) {
 
 function tag(tagName, textContent) {
     return `${OPEN}${tagName}${CLOSE}${textContent}${OPEN}${tagName}${CLOSE}`;
+}
+
+function backToTop(){
+    return {
+        p: [
+            { align: "right" },
+            createSimpleLink("#top", "back to top"),
+        ]
+    }
 }
