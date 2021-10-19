@@ -8,7 +8,7 @@
 <body>
     <script src="../../dist/createmeal.js"></script>
     <script>
-        let html = createmeal.toHtml({"p":["teste"]});
+        let html = createmeal.toHtml({"p":["test","Of","Strings"]});
         let element = new DOMParser().parseFromString(html,"text/html").body.firstChild;
         document.body.insertBefore(element,document.body.firstChild);
     </script>
