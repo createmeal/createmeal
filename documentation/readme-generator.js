@@ -349,10 +349,16 @@ let readme = {
                         ul:[
                             {
                                 li: createCodeQuote(
-                                    "Simple text",
+                                    "Simple text: Text is represented by an array of strings. ",
                                     "createmeal.toHtml([\"test\"]);\\\\ \"test\""
                                 ),
-                            }
+                            },
+                            createCodeQuoteLine("paragraphe: Tag text content can be an array of strings. ", 
+                                "{\"p\":[\"teste\"]} \\\\&lt;p&gt;teste&lt;/p&gt;"),
+                            createCodeQuoteLine("paragraphe composed by array of strings: Multiple strings compose an unique text. ", 
+                                "{\"p\":[\"test\",\"Of\",\"Strings\"]} \\\\&lt;p&gt;testOfStrings&lt;/p&gt;"),
+                            createCodeQuoteLine("paragraphe composed by array of strings: Multiple strings compose an unique text. ", 
+                                "{\"p\":[\"test\",\"Of\",\"Strings\"]} \\\\&lt;p&gt;testOfStrings&lt;/p&gt;")
                         ]
                     },
                     { h3: ["Examples"] },
@@ -439,6 +445,12 @@ function createSimpleLink(href, textContent) {
             span: [textContent],
         },
     };
+}
+
+function createCodeQuoteLine(listText, textContent){
+    return {
+        li:createCodeQuote(listText, textContent)
+    }
 }
 
 function createCodeQuote(listText, textContent) {
