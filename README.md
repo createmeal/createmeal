@@ -116,19 +116,15 @@
                 HTML is the standard way to produce web page content and there
                 are several other options to produce text estructures like
                 markdown, jsml, WackoWiki Markup, AsciiDoc, Contentflow, and
-                others. But to work with these alternatives at first you will
-                need learn a new language, is not ease to produce content using
-                javascript, and most of them has a strange sintax and some times
-                worst then HTML.
+                others.
             </p>
             <p>
-                Createmeal gives us the same HTML tag names and semantic, but
-                using json in its sintax. It decreases the need of learn a new
-                language, gives us a better way to generate layout content
-                powered by javascript, in additional to allow us storage source
-                easilly in database if is needed, componentize, create
-                templates, use other languages like yaml, and serialize text to
-                object.
+                Createmeal gives us the same HTML tag names and similar
+                semantic, but using json in its sintax instead xml. It decreases
+                the need of learn a new language, brings a better way to
+                generate layout content programatically, on javascript side, and
+                in additional, allow componentize, create templates, serialize
+                text to object, and all the flexibility of using json.
             </p>
             <p>
                 Of course, for many people, HTML is excelent, but is great when
@@ -230,6 +226,13 @@
                         object.</span
                     >
                     <pre><code>{"div":{h1:["first child"], h2:["second child"]}} \\&lt;div&gt;&lt;h1&gt;first child&lt;/h1&gt;&lt;h2&gt;second child&lt;/h2&gt;&lt;/div&gt;</code></pre>
+                </li>
+                <li>
+                    <span
+                        >Children array: array is specially good when you have
+                        more then one tag with the same name.</span
+                    >
+                    <pre><code>{"div":[p:["first child"], p:["second child"]]} \\&lt;div&gt;&lt;p&gt;first child&lt;/p&gt;&lt;p&gt;second child&lt;/p&gt;&lt;/div&gt;</code></pre>
                 </li>
                 <li>
                     <span
