@@ -79,11 +79,16 @@
                     <a href="#usage"><span>Usage</span></a>
                     <ul>
                         <li>
-                            <a href="#simple-example-of-usage-in-an-application"
-                                ><span
-                                    >Simple example of usage in an
-                                    application</span
-                                ></a
+                            <a href="#base-specification"
+                                ><span>Base Specification</span></a
+                            >
+                        </li>
+                        <li>
+                            <a href="#examples"><span>Examples</span></a>
+                        </li>
+                        <li>
+                            <a href="#incorporating-in-application"
+                                ><span>Incorporating in application</span></a
                             >
                         </li>
                     </ul>
@@ -111,37 +116,36 @@
                 HTML is the standard way to produce web page content and there
                 are several other options to produce text estructures like
                 markdown, jsml, WackoWiki Markup, AsciiDoc, Contentflow, and
-                others. But to work with these alternatives at first you will
-                need learn a new language, is not ease to produce content using
-                javascript, and most of them has a strange sintax and some times
-                worst then HTML.
+                others.
             </p>
             <p>
-                Createmeal gives us the same HTML tag names and semantic, but
-                using json in its sintax. It decreases the need of learn a new
-                language, gives us a better way to generate layout content
-                powered by javascript, in additional to allow us storage source
-                easilly in database if is needed, componentize, create
-                templates, use other languages like yaml, and serialize text to
-                object.
+                Createmeal gives us the advantage of using the same HTML tag
+                names and similar semantic, but using json in its sintax instead
+                of xml. It decreases the need of learn a new language, brings a
+                better way to generate layout content programatically on
+                javascript side, componentize, create templates, serialize text
+                to object, and all the flexibility of using json.
             </p>
             <p>
-                Of course, for many people, HTML is excelent, but is great when
+                Of course, for many people, HTML is enough, but it is great when
                 you have good alternatives to solve problems, and turn live
                 better.
             </p>
-            <p align="right">
-                <a href="#top"><span>back to top</span></a>
-            </p>
         </section>
+        <p align="right">
+            <a href="#top"><span>back to top</span></a>
+        </p>
         <section>
             <h3>Built With</h3>
             <p>
                 The entire library is actually created using javascript and the
-                dependences and HTML is used only for Development and testing,
-                and example porpose.
+                dependences, HTML, images and other things are used only for
+                Development, testing, and example porpose.
             </p>
         </section>
+        <p align="right">
+            <a href="#top"><span>back to top</span></a>
+        </p>
         <section>
             <h2>Getting Started</h2>
             <p>
@@ -160,6 +164,9 @@
                 </li>
             </ul>
         </section>
+        <p align="right">
+            <a href="#top"><span>back to top</span></a>
+        </p>
         <section>
             <h2>Usage</h2>
             <p>
@@ -169,6 +176,80 @@
                     &lt;div&gt;&lt;/div&gt;.
                 </span>
             </p>
+            <h3>Base Specification</h3>
+            <ul>
+                <li>
+                    <span
+                        >Simple text: Text is represented by an array of
+                        strings.
+                    </span>
+                    <pre><code>createmeal.toHtml(["test"]);\\ "test"</code></pre>
+                </li>
+                <li>
+                    <span
+                        >Paragraphe: Tag text content can be an array of
+                        strings.
+                    </span>
+                    <pre><code>{"p":["teste"]} \\&lt;p&gt;teste&lt;/p&gt;</code></pre>
+                </li>
+                <li>
+                    <span
+                        >paragraphe composed by array of strings: Multiple
+                        strings compose an unique text.
+                    </span>
+                    <pre><code>{"p":["test","Of","Strings"]} \\&lt;p&gt;testOfStrings&lt;/p&gt;</code></pre>
+                </li>
+                <li>
+                    <span
+                        >Tag defined by array of strings: is not the default
+                        way, but is an available option.</span
+                    >
+                    <pre><code>["&lt;h1&gt;Tag h1 generated by text&lt;/h1&gt;"] \\&lt;h1&gt;Tag h1 generated by text&lt;/h1&gt;</code></pre>
+                </li>
+                <li>
+                    <span
+                        >Self-closing Tags: Value can be an empty string or
+                        enpty object.</span
+                    >
+                    <pre><code>{"img":""} \\&lt;img&gt;</code></pre>
+                </li>
+                <li>
+                    <span
+                        >List of tags: Both, array or object are valid to
+                        evolves tags.</span
+                    >
+                    <pre><code>[{"p":""}, {"p":""}] \\&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;</code></pre>
+                </li>
+                <li>
+                    <span
+                        >Children: Children tags can be declared in array or
+                        object.</span
+                    >
+                    <pre><code>{"div":{h1:["first child"], h2:["second child"]}} \\&lt;div&gt;&lt;h1&gt;first child&lt;/h1&gt;&lt;h2&gt;second child&lt;/h2&gt;&lt;/div&gt;</code></pre>
+                </li>
+                <li>
+                    <span
+                        >Children array: array is specially good when you have
+                        more then one tag with the same name.</span
+                    >
+                    <pre><code>{"div":[p:["first child"], p:["second child"]]} \\&lt;div&gt;&lt;p&gt;first child&lt;/p&gt;&lt;p&gt;second child&lt;/p&gt;&lt;/div&gt;</code></pre>
+                </li>
+                <li>
+                    <span
+                        >Attributes: Attributes has aways a string value and can
+                        be declared like a child tag.</span
+                    >
+                    <pre><code>{"div":{class:"container", h1:["first child"]}} \\&lt;div class="container"&gt;&lt;h1&gt;first child&lt;/h1&gt;&lt;/div&gt;</code></pre>
+                </li>
+                <li>
+                    <span
+                        >Custon attributes: Attributes are verified, so to
+                        declare custon attributes, use an array of
+                        attribute.</span
+                    >
+                    <pre><code>{"div":{attributes:[{class:"container"}, {"attr-my-attr":"values"}], h1:["first child"]}} \\&lt;div class="container" attr-my-attr="values"&gt;&lt;h1&gt;first child&lt;/h1&gt;&lt;/div&gt;</code></pre>
+                </li>
+            </ul>
             <h3>Examples</h3>
             <ul>
                 <li>
@@ -256,7 +337,7 @@ toHtml({
                     />
                 </h1>
             </ul>
-            <h3>Simple example of usage in an application</h3>
+            <h3>Incorporate in your application</h3>
             <ul>
                 <li>
                     <span>CDN</span>
@@ -303,6 +384,9 @@ toHtml({
                 </li>
             </ul>
         </section>
+        <p align="right">
+            <a href="#top"><span>back to top</span></a>
+        </p>
         <h2>Roadmap</h2>
         <h2>Contributing</h2>
         <h2>License</h2>
