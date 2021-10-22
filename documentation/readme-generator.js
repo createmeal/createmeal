@@ -364,7 +364,11 @@ let readme = {
                             createCodeQuoteLine("List of tags: Both, array or object are valid to evolves tags.", 
                                 "[{\"p\":\"\"}, {\"p\":\"\"}] \\\\&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;"),
                             createCodeQuoteLine("Children: Children tags can be declared in array or object.", 
-                                "{\"div\":{h1:[\"first child\"], h2:[\"second child\"]}} \\\\&lt;h1&gt;first child&lt;/h1&gt;&lt;h2&gt;second child&lt;/p&gt;")
+                                "{\"div\":{h1:[\"first child\"], h2:[\"second child\"]}} \\\\&lt;div&gt;&lt;h1&gt;first child&lt;/h1&gt;&lt;h2&gt;second child&lt;/h2&gt;&lt;/div&gt;"),
+                            createCodeQuoteLine("Attributes: Attributes has aways a string value and can be declared like a child tag.", 
+                                "{\"div\":{class:\"container\", h1:[\"first child\"]}} \\\\&lt;div class=\"container\"&gt;&lt;h1&gt;first child&lt;/h1&gt;&lt;/div&gt;"),
+                            createCodeQuoteLine("Custon attributes: Attributes are verified, so to declare custon attributes, use an array of attribute.", 
+                                "{\"div\":{attributes:[{class:\"container\"}, {\"attr-my-attr\":\"values\"}], h1:[\"first child\"]}} \\\\&lt;div class=\"container\" attr-my-attr=\"values\"&gt;&lt;h1&gt;first child&lt;/h1&gt;&lt;/div&gt;")
                         ]
                     },
                     { h3: ["Examples"] },
