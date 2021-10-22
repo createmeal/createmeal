@@ -122,14 +122,13 @@
                 Createmeal gives us the advantage of using the same HTML tag
                 names and similar semantic, but using json in its sintax instead
                 xml. It decreases the need of learn a new language, brings a
-                better way to generate layout content programatically, on
-                javascript side, and in additional, allow componentize, create
-                templates, serialize text to object, and all the flexibility of
-                using json.
+                better way to generate layout content programatically on
+                javascript side, componentize, create templates, serialize text
+                to object, and all the flexibility of using json.
             </p>
             <p>
-                Of course, for many people, HTML is excelent, but is great when
-                you have good alternatives to solve problems, and turn live
+                Of course, for many people, HTML it is excelent, but is great
+                when you have good alternatives to solve problems, and turn live
                 better.
             </p>
         </section>
