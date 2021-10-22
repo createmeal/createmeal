@@ -364,6 +364,8 @@ let readme = {
                                 "{\"div\":{h1:[\"first child\"], h2:[\"second child\"]}} \\\\&lt;div&gt;&lt;h1&gt;first child&lt;/h1&gt;&lt;h2&gt;second child&lt;/h2&gt;&lt;/div&gt;"),
                             createCodeQuoteLine("Children array: array is specially good when you have more then one tag with the same name.", 
                                 "{\"div\":[p:[\"first child\"], p:[\"second child\"]]} \\\\&lt;div&gt;&lt;p&gt;first child&lt;/p&gt;&lt;p&gt;second child&lt;/p&gt;&lt;/div&gt;"),
+                            createCodeQuoteLine("Custon Tags: Tags are not verified, so stay free to declare your own tags.", 
+                                "{\"mat-label\":[\"Input\"]} \\\\&lt;mat-label&gt;Input&lt;/mat-label&gt;"),
                             createCodeQuoteLine("Attributes: Attributes has aways a string value and can be declared like a child tag.", 
                                 "{\"div\":{class:\"container\", h1:[\"first child\"]}} \\\\&lt;div class=\"container\"&gt;&lt;h1&gt;first child&lt;/h1&gt;&lt;/div&gt;"),
                             createCodeQuoteLine("Custon attributes: Attributes are verified, so to declare custon attributes, use an array of attribute.", 

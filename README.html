@@ -236,6 +236,13 @@
                 </li>
                 <li>
                     <span
+                        >Custon Tags: Tags are not verified, so stay free to
+                        declare your own tags.</span
+                    >
+                    <pre><code>{"mat-label":["Input"]} \\&lt;mat-label&gt;Input&lt;/mat-label&gt;</code></pre>
+                </li>
+                <li>
+                    <span
                         >Attributes: Attributes has aways a string value and can
                         be declared like a child tag.</span
                     >
