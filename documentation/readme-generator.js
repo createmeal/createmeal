@@ -260,7 +260,7 @@ let readme = {
                     },
                     {
                         p: [
-                            "Createmeal gives us the same HTML tag names and similar semantic, but ",
+                            "Createmeal gives us the advantage of using the same HTML tag names and similar semantic, but ",
                             "using json in its sintax instead xml. It decreases the need of learn a new language, ",
                             "brings a better way to generate layout content programatically, ",
                             "on javascript side, and in additional, allow  ",
