@@ -121,7 +121,7 @@
             <p>
                 Createmeal gives us the advantage of using the same HTML tag
                 names and similar semantic, but using json in its sintax instead
-                xml. It decreases the need of learn a new language, brings a
+                of xml. It decreases the need of learn a new language, brings a
                 better way to generate layout content programatically on
                 javascript side, componentize, create templates, serialize text
                 to object, and all the flexibility of using json.
@@ -139,8 +139,8 @@
             <h3>Built With</h3>
             <p>
                 The entire library is actually created using javascript and the
-                dependences and HTML is used only for Development and testing,
-                and example porpose.
+                dependences, HTML, images and other things are used only for
+                Development, testing, and example porpose.
             </p>
         </section>
         <p align="right">
