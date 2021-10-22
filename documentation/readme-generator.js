@@ -270,7 +270,7 @@ let readme = {
                     },
                     {
                         p: [
-                            "Of course, for many people, HTML it is excelent, but is great when you have ",
+                            "Of course, for many people, HTML is enough, but it is great when you have ",
                             "good alternatives to solve problems, and turn live better.",
                         ],
                     }
