@@ -1,10 +1,11 @@
-var attrs = require('../attributes.json');
-var openTags = require('../openTags.json');
-var Node = require('./Node.js');
-const AttrNode = require('./AttrNode.js');
-const StringNode = require('./StringNode.js');
-const OpenTagNode = require('./OpenTagNode.js');
-class NodeFactory {
+import attrs from "../attributes.js";
+import openTags from "../openTags.js";
+
+import Node from "./Node.js";
+import StringNode from "./StringNode.js";
+import OpenTagNode from "./OpenTagNode.js";
+
+export default class NodeFactory {
 
     static getNode(value){
         if(typeof value  === 'string'|| value instanceof String){
@@ -114,4 +115,3 @@ class NodeFactory {
     }
 
 }
-module.exports = NodeFactory;

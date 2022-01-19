@@ -1,4 +1,4 @@
-class Node {
+export default class Node {
     constructor(name){
         this.children = [];
         this.attributes = [];
@@ -25,8 +25,8 @@ class Node {
     }
 
     remove(child) {
-        var length = this.children.length;
-        for (var i = 0; i < length; i++) {
+        let length = this.children.length;
+        for (let i = 0; i < length; i++) {
             if (this.children[i] === child) {
                 this.children.splice(i, 1);
                 return;
@@ -59,12 +59,10 @@ class Node {
 
     toHtml(){
         let htmlChildren = [];
-        for (var i = 0, len = this.children.length; i < len; i++) {
+        for (let i = 0, len = this.children.length; i < len; i++) {
             htmlChildren.push(this.getChild(i).toHtml());
         }
         return this.getOpenTag() + htmlChildren.join("") + this.getCloseTag();
     }
   
 }
-
-module.exports=Node;

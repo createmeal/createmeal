@@ -1,5 +1,5 @@
-const jsml = require('../index')
-const assert = require('./assert')
+import createmeal from '../index.js';
+import assert from './assert.js';
 
 const json = {
     "!DOCTYPE": {
@@ -12,9 +12,9 @@ const json = {
     "html": {
     }
 }
-assert.assert(jsml.toHtml(json), '<!DOCTYPE html><html></html>', "01-doctype with attribute and html");
+assert.assert(createmeal.toHtml(json), '<!DOCTYPE html><html></html>', "01-doctype with attribute and html");
 
-var t ={
+let t ={
     "div": [//<div class="container">
         {"class": "container"},
         {"h1": {//<h1 content="Teste de criacao - FAILED"></h1>
@@ -75,10 +75,10 @@ var t ={
     
     ]
 }
-var result = `<div class="container"><h1 content="Teste de criacao - FAILED"></h1><h2>passou!!!</h2><div></div><ul><li class="list-group-item">Cras justo odio</li><li class="list-group-item">Dapibus ac facilisis in</li><li class="list-group-item">Morbi leo risus</li><li class="list-group-item">Porta ac consectetur ac</li><li class="list-group-item">Vestibulum at eros</li></ul><script></script><script></script><script></script></div>`;
-assert.assert(jsml.toHtml(t), result, "02-complex extructure");
+let result = `<div class="container"><h1 content="Teste de criacao - FAILED"></h1><h2>passou!!!</h2><div></div><ul><li class="list-group-item">Cras justo odio</li><li class="list-group-item">Dapibus ac facilisis in</li><li class="list-group-item">Morbi leo risus</li><li class="list-group-item">Porta ac consectetur ac</li><li class="list-group-item">Vestibulum at eros</li></ul><script></script><script></script><script></script></div>`;
+assert.assert(createmeal.toHtml(t), result, "02-complex extructure");
 
-noAttr = {
+let noAttr = {
     "!DOCTYPE": {
     },    
     "html": {
@@ -154,5 +154,5 @@ noAttr = {
         }
     }
 }
-result = `<!DOCTYPE><html><head><link></link><title></title><head><body><div class="container"><h1 content="Teste de criacao - FAILED"></h1><h2>passou!!!</h2><div></div><ul><li class="list-group-item">Cras justo odio</li><li class="list-group-item">Dapibus ac facilisis in</li><li class="list-group-item">Morbi leo risus</li><li class="list-group-item">Porta ac consectetur ac</li><li class="list-group-item">Vestibulum at eros</li></ul><script></script><script></script><script></script></div></body></html>`;
-assert.assert(jsml.toHtml(noAttr), result, "03-complex json with new ideas");
+result = `<!DOCTYPE><html><head><link><title></title><head/><body><div class="container"><h1 content="Teste de criacao - FAILED"></h1><h2>passou!!!</h2><div></div><ul><li class="list-group-item">Cras justo odio</li><li class="list-group-item">Dapibus ac facilisis in</li><li class="list-group-item">Morbi leo risus</li><li class="list-group-item">Porta ac consectetur ac</li><li class="list-group-item">Vestibulum at eros</li></ul><script></script><script></script><script></script></div></body></html>`;
+assert.assert(createmeal.toHtml(noAttr), result, "03-complex json with new ideas");

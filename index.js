@@ -1,4 +1,4 @@
-const NodeFactory = require('./composite/NodeFactory.js')
+import NodeFactory from "./composite/NodeFactory.js";
 
 /**
  * Metodo responsavel por ler o Json e converter para html Nodes
@@ -36,13 +36,14 @@ function foreEachNode(jsonDoc){
     return nodes;
 }
 
-function toHtml(json){    
+export function toHtml(json){    
     let nodes = jsonNodeToHtmlNode(json);
     let htmls= []
-    for(node of nodes){
+    for(const node of nodes){
         htmls.push(node.toHtml());
     }
     return htmls.join("");
 }
 
-module.exports ={toHtml}
+const createmeal = { toHtml }
+export default createmeal;

@@ -1,4 +1,4 @@
-{
+export default {
         "accept":{"attribute": "accept","Elements": "<form>, <input>","Description": "List of types the server accepts, typically a file type."},
         "accept-charset":{"attribute": "accept-charset","Elements": "<form>","Description": "List of supported charsets."},
         "accesskey":{"attribute": "accesskey","Elements": "Global attribute","Description": "Keyboard shortcut to activate or add focus to the element."},

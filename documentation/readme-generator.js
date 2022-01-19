@@ -219,8 +219,16 @@ let readme = {
                                     },
                                     ul: [
                                         createTableOfContentsLine(
-                                            "#simple-example-of-usage-in-an-application",
-                                            "Simple example of usage in an application"
+                                            "#base-specification",
+                                            "Base Specification"
+                                        ),
+                                        createTableOfContentsLine(
+                                            "#examples",
+                                            "Examples"
+                                        ),
+                                        createTableOfContentsLine(
+                                            "#incorporating-in-application",
+                                            "Incorporating in application"
                                         ),
                                     ],
                                 },
@@ -247,48 +255,41 @@ let readme = {
                         p: [
                             "HTML is the standard way to produce web page content ",
                             "and there are several other options to produce text estructures like markdown, ",
-                            "jsml,  WackoWiki Markup, AsciiDoc, Contentflow, and others. But to ",
-                            " work with these alternatives at first you will need learn a new language, ",
-                            "is not ease to produce content using javascript, and most of them has a ",
-                            "strange sintax and some times worst then HTML.",
+                            "jsml,  WackoWiki Markup, AsciiDoc, Contentflow, and others.",
                         ],
                     },
                     {
                         p: [
-                            "Createmeal gives us the same HTML tag names and semantic, but ",
-                            "using json in its sintax. It decreases the need of learn a new language, ",
-                            "gives us a better way to generate layout content powered by ",
-                            "javascript, in additional to allow us storage source easilly in database ",
-                            "if is needed, componentize, create templates, use other languages like yaml, ",
-                            "and serialize text to object.",
+                            "Createmeal gives us the advantage of using the same HTML tag names and similar semantic, but ",
+                            "using json in its sintax instead of xml. It decreases the need of learn a new language, ",
+                            "brings a better way to generate layout content programatically ",
+                            "on javascript side, componentize, create templates, ",
+                            "serialize text to object, ",
+                            "and all the flexibility of using json.",
                         ],
                     },
                     {
                         p: [
-                            "Of course, for many people, HTML is excelent, but is great when you have ",
+                            "Of course, for many people, HTML is enough, but it is great when you have ",
                             "good alternatives to solve problems, and turn live better.",
                         ],
-                    },
-                    {
-                        p: [
-                            { align: "right" },
-                            createSimpleLink("#top", "back to top"),
-                        ],
-                    },
-                ],
+                    }
+                ]
             },
+            backToTop(),
             {
                 section: [
                     { h3: ["Built With"] },
                     {
                         p: [
                             "The entire library is actually created using javascript and ",
-                            "the dependences and HTML is used only for Development and ",
+                            "the dependences, HTML, images and other things are used only for Development, ",
                             " testing, and example porpose.",
                         ],
                     },
                 ],
             },
+            backToTop(),
             {
                 section: [
                     { h2: ["Getting Started"] },
@@ -324,6 +325,7 @@ let readme = {
                     },
                 ],
             },
+            backToTop(),
             {
                 section: [
                     { h2: ["Usage"] },
@@ -338,6 +340,37 @@ let readme = {
                                 ],
                             },
                         ],
+                    },
+                    { h3:["Base Specification"]},
+                    {
+                        ul:[
+                            {
+                                li: createCodeQuote(
+                                    "Simple text: Text is represented by an array of strings. ",
+                                    "createmeal.toHtml([\"test\"]);\\\\ \"test\""
+                                ),
+                            },
+                            createCodeQuoteLine("Paragraphe: Tag text content can be an array of strings. ", 
+                                "{\"p\":[\"teste\"]} \\\\&lt;p&gt;teste&lt;/p&gt;"),
+                            createCodeQuoteLine("paragraphe composed by array of strings: Multiple strings compose an unique text. ", 
+                                "{\"p\":[\"test\",\"Of\",\"Strings\"]} \\\\&lt;p&gt;testOfStrings&lt;/p&gt;"),
+                            createCodeQuoteLine("Tag defined by array of strings: is not the default way, but is an available option.", 
+                                "[\"&lt;h1&gt;Tag h1 generated by text&lt;/h1&gt;\"] \\\\&lt;h1&gt;Tag h1 generated by text&lt;/h1&gt;"),
+                            createCodeQuoteLine("Self-closing Tags: Value can be an empty string or enpty object.", 
+                                "{\"img\":\"\"} \\\\&lt;img&gt;"),
+                            createCodeQuoteLine("List of tags: Both, array or object are valid to evolves tags.", 
+                                "[{\"p\":\"\"}, {\"p\":\"\"}] \\\\&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;"),
+                            createCodeQuoteLine("Children: Children tags can be declared in array or object.", 
+                                "{\"div\":{h1:[\"first child\"], h2:[\"second child\"]}} \\\\&lt;div&gt;&lt;h1&gt;first child&lt;/h1&gt;&lt;h2&gt;second child&lt;/h2&gt;&lt;/div&gt;"),
+                            createCodeQuoteLine("Children array: array is specially good when you have more then one tag with the same name.", 
+                                "{\"div\":[p:[\"first child\"], p:[\"second child\"]]} \\\\&lt;div&gt;&lt;p&gt;first child&lt;/p&gt;&lt;p&gt;second child&lt;/p&gt;&lt;/div&gt;"),
+                            createCodeQuoteLine("Custon Tags: Tags are not verified, so stay free to declare your own tags.", 
+                                "{\"mat-label\":[\"Input\"]} \\\\&lt;mat-label&gt;Input&lt;/mat-label&gt;"),
+                            createCodeQuoteLine("Attributes: Attributes has aways a string value and can be declared like a child tag.", 
+                                "{\"div\":{class:\"container\", h1:[\"first child\"]}} \\\\&lt;div class=\"container\"&gt;&lt;h1&gt;first child&lt;/h1&gt;&lt;/div&gt;"),
+                            createCodeQuoteLine("Custon attributes: Attributes are verified, so to declare custon attributes, use an array of attribute.", 
+                                "{\"div\":{attributes:[{class:\"container\"}, {\"attr-my-attr\":\"values\"}], h1:[\"first child\"]}} \\\\&lt;div class=\"container\" attr-my-attr=\"values\"&gt;&lt;h1&gt;first child&lt;/h1&gt;&lt;/div&gt;")
+                        ]
                     },
                     { h3: ["Examples"] },
                     {
@@ -369,7 +402,7 @@ let readme = {
                             }
                         ],
                     },
-                    { h3: ["Simple example of usage in an application"] },
+                    { h3: ["Incorporate in your application"] },
                     {
                         ul: [
                             {
@@ -385,7 +418,7 @@ let readme = {
                     },
                 ],
             },
-
+            backToTop(),
             { h2: ["Roadmap"] },
             { h2: ["Contributing"] },
             { h2: ["License"] },
@@ -425,10 +458,25 @@ function createSimpleLink(href, textContent) {
     };
 }
 
+function createCodeQuoteLine(listText, textContent){
+    return {
+        li:createCodeQuote(listText, textContent)
+    }
+}
+
 function createCodeQuote(listText, textContent) {
     return [{ span: [listText] }, { pre: { code: [textContent] } }];
 }
 
 function tag(tagName, textContent) {
     return `${OPEN}${tagName}${CLOSE}${textContent}${OPEN}${tagName}${CLOSE}`;
+}
+
+function backToTop(){
+    return {
+        p: [
+            { align: "right" },
+            createSimpleLink("#top", "back to top"),
+        ]
+    }
 }
