@@ -1,7 +1,6 @@
-var Node = require('./Node');
-class AttrNode extends Node {
+import Node from "./Node.js";
+export default class AttrNode extends Node {
     constructor(name){
         super(name);
     }
 }
-module.exports = AttrNode;

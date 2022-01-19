@@ -10,4 +10,4 @@ function success(testDescription){
     console.log("%s: OK! :D",testDescription);
 }
 
-module.exports = {assert, failed, success}
+export default {assert, failed, success}

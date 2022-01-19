@@ -1,5 +1,4 @@
-const jsml = require('../index')
-const assert = require('./assert')
+import createmeal from '../index.js';
 
 let json = [{"!DOCTYPE html":null},{"html":{
     "title": ["Teste de geração"],
@@ -7,4 +6,4 @@ let json = [{"!DOCTYPE html":null},{"html":{
         h1:["Hello World!"]
     }]
 }}];
-console.log(jsml.toHtml(json))
+console.log(createmeal.toHtml(json))

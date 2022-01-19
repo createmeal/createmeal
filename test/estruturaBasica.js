@@ -1,44 +1,44 @@
-const jsml = require('../index')
-const assert = require('./assert')
+import createmeal from '../index.js';
+import assert from './assert.js';
 
 /**
  * html String
  * 
  * Converte um array de strings para uma html string
  */
-assert.assert(jsml.toHtml(["teste"]), 'teste', "01-basic string array node");
+assert.assert(createmeal.toHtml(["teste"]), 'teste', "01-basic string array node");
 /**
  * html String as element child
  * 
  * Converte um array de strings para uma html string
  */
- assert.assert(jsml.toHtml({"p":["teste"]}), '<p>teste</p>', "01b-basic string array node");
+ assert.assert(createmeal.toHtml({"p":["teste"]}), '<p>teste</p>', "01b-basic string array node");
  /**
  * html String as element child - multiple strings
  * 
  * Converte um array de strings para uma html string
  */
-  assert.assert(jsml.toHtml({"p":["teste","de","strings"]}), '<p>testedestrings</p>', "01c-basic string array node - multiple strings");
+  assert.assert(createmeal.toHtml({"p":["teste","de","strings"]}), '<p>testedestrings</p>', "01c-basic string array node - multiple strings");
 
 /**
  * html String to writing html
  * 
  * Convert an string array to html string
  */
- assert.assert(jsml.toHtml(["<!DOCTYPE>"]), '<!DOCTYPE>', "02-Write html by stringarray");
+ assert.assert(createmeal.toHtml(["<!DOCTYPE>"]), '<!DOCTYPE>', "02-Write html by stringarray");
  /**
  * html String to writing html
  * 
  * Convert an string array to html
  */
-  assert.assert(jsml.toHtml(["<!DOCTYPE>", '<html lang="pt-BR"></html>']), '<!DOCTYPE><html lang="pt-BR"></html>', "03-Write html by stringarray - mor then one tag");
+  assert.assert(createmeal.toHtml(["<!DOCTYPE>", '<html lang="pt-BR"></html>']), '<!DOCTYPE><html lang="pt-BR"></html>', "03-Write html by stringarray - mor then one tag");
 /**
  * html DOCTYPE tag
  * 
  * Converte um array de strings para uma html string
  */
-assert.assert(jsml.toHtml({"!DOCTYPE":""}), "<!DOCTYPE>", "DOCTYPE tag");
-assert.assert(jsml.toHtml({"!DOCTYPE html":""}), "<!DOCTYPE html>", "04-DOCTYPE tag with html attr");
+assert.assert(createmeal.toHtml({"!DOCTYPE":""}), "<!DOCTYPE>", "DOCTYPE tag");
+assert.assert(createmeal.toHtml({"!DOCTYPE html":""}), "<!DOCTYPE html>", "04-DOCTYPE tag with html attr");
 /**
  * html tag 
 {
@@ -47,30 +47,30 @@ assert.assert(jsml.toHtml({"!DOCTYPE html":""}), "<!DOCTYPE html>", "04-DOCTYPE 
     }
 }
 <html></html>*/
-assert.assert(jsml.toHtml({"html":""}), "<html></html>", "05-html tag");
-assert.assert(jsml.toHtml({"html":{}}), "<html></html>", "06-html tag with empty object value");
-assert.assert(jsml.toHtml({"html":{}}), "<html></html>", "07-html tag with null value");
-assert.assert(jsml.toHtml({"html":[]}), "<html></html>", "08-html tag with empty array value");
+assert.assert(createmeal.toHtml({"html":""}), "<html></html>", "05-html tag");
+assert.assert(createmeal.toHtml({"html":{}}), "<html></html>", "06-html tag with empty object value");
+assert.assert(createmeal.toHtml({"html":{}}), "<html></html>", "07-html tag with null value");
+assert.assert(createmeal.toHtml({"html":[]}), "<html></html>", "08-html tag with empty array value");
 
 /**
  * !DOCTYPE e HTML
  */
- assert.assert(jsml.toHtml([{"!DOCTYPE":""},{"html":""}]), "<!DOCTYPE><html></html>", "09-doctype and html tag");
+ assert.assert(createmeal.toHtml([{"!DOCTYPE":""},{"html":""}]), "<!DOCTYPE><html></html>", "09-doctype and html tag");
  /**
  * !DOCTYPE e HTML in a object
  */
-  assert.assert(jsml.toHtml({"!DOCTYPE":{}, "html":{}}), "<!DOCTYPE><html></html>", "09b-doctype and html tag");
+  assert.assert(createmeal.toHtml({"!DOCTYPE":{}, "html":{}}), "<!DOCTYPE><html></html>", "09b-doctype and html tag");
  /**
   * Html with children
   */
- assert.assert(jsml.toHtml([{"!DOCTYPE":""},{"html":{"div":{}}}]), "<!DOCTYPE><html><div></div></html>", "10-html with div child tag");
+ assert.assert(createmeal.toHtml([{"!DOCTYPE":""},{"html":{"div":{}}}]), "<!DOCTYPE><html><div></div></html>", "10-html with div child tag");
 
  /**
 * multiple divs
 */
-input = {"body":[{"div":{}},{"div":{}}]};
-output = "<body><div></div><div></div></body>";
-assert.assert(jsml.toHtml(input), output, "11-multiple divs");
+let input = {"body":[{"div":{}},{"div":{}}]};
+let output = "<body><div></div><div></div></body>";
+assert.assert(createmeal.toHtml(input), output, "11-multiple divs");
 /*
 ["teste-strint-array"]
 var a= {"test-string-object":""}
