@@ -1,5 +1,5 @@
-var Node = require('./Node');
-class StringNode extends Node {
+import Node from "./Node.js";
+export default class StringNode extends Node {
     constructor(name){
         super(name);
     }
@@ -13,4 +13,3 @@ class StringNode extends Node {
     }
 
 }
-module.exports = StringNode;

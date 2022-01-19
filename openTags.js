@@ -1,4 +1,4 @@
-{
+export default {
     "!DOCTYPE":true,
     "!DOCTYPE html":true,
     "img":true, 
