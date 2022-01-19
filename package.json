@@ -4,6 +4,7 @@
   "description": "A library to render HTML",
   "main": "dist/createmeal.js",
   "scripts": {
+    "eslint": "eslint index.js",
     "build": "webpack"
   },
   "author": "Julio Cezar da Silva (https://github.com/jcezardasilva)",
@@ -27,10 +28,12 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "eslint": "^8.7.0",
     "webpack": "^5.58.0",
     "webpack-cli": "^4.9.0"
   },
   "directories": {
     "test": "test"
-  }
+  },
+  "type": "module"
 }

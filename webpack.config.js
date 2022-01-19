@@ -1,12 +1,16 @@
-const path = require('path');
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-module.exports = {
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const DIST_PATH = path.join(__dirname,"./dist");
+
+const universalConfig = {
     mode: 'production',
     target: "web",
     entry: './index.js',
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'createmeal.js',
+        path: DIST_PATH,
+        filename: 'createmeal-legacy.js',
         library: {
             name: "createmeal",
             type: "umd",
@@ -15,3 +19,21 @@ module.exports = {
         globalObject: "this"
     }
 }
+
+const esmConfig = {
+    mode: 'production',
+    target: "web",
+    entry: './index.js',
+    output: {
+        path: DIST_PATH,
+        filename: 'createmeal.js',
+        library: {
+            type: "module"
+        },
+        globalObject: "this"
+    },
+    experiments: {
+        outputModule: true
+    }
+}
+export default [universalConfig,esmConfig];
