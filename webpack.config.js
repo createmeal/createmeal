@@ -4,7 +4,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST_PATH = path.join(__dirname,"./dist");
 
-const universalConfig = {
+const legacyConfig = {
     mode: 'production',
     target: "web",
     entry: './index.js',
@@ -36,4 +36,4 @@ const esmConfig = {
         outputModule: true
     }
 }
-export default [universalConfig,esmConfig];
+export default [legacyConfig,esmConfig];
