@@ -7,7 +7,7 @@ const DIST_PATH = path.join(__dirname,"./dist");
 const legacyConfig = {
     mode: 'production',
     target: "web",
-    entry: './index.js',
+    entry: './src/index.js',
     output: {
         path: DIST_PATH,
         filename: 'createmeal-legacy.js',
@@ -23,7 +23,7 @@ const legacyConfig = {
 const esmConfig = {
     mode: 'production',
     target: "web",
-    entry: './index.js',
+    entry: './src/index.js',
     output: {
         path: DIST_PATH,
         filename: 'createmeal.js',
