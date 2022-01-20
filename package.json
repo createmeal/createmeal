@@ -5,7 +5,7 @@
   "main": "dist/createmeal.js",
   "scripts": {
     "eslint": "eslint index.js",
-    "build": "webpack"
+    "build": "webpack & tsc --build"
   },
   "author": "Julio Cezar da Silva (https://github.com/jcezardasilva)",
   "contributors": [
