@@ -31,6 +31,25 @@ assert.assert(createmeal.toHtml(json), result, "04-div with attribute array");
  result='<!DOCTYPE html attr-personalizado="valor-attr">'
 assert.assert(createmeal.toHtml(json), result, "05-user defined attributes");
 
+/**
+ * new option for user defined attributes
+*/
+json= {"!DOCTYPE":{"_html":null, "_attr-personalizado":"valor-attr"}};
+result='<!DOCTYPE html attr-personalizado="valor-attr">'
+assert.assert(createmeal.toHtml(json), result, "05.1-new option for user defined attributes");
+
+json = {
+  "!DOCTYPE": {
+      "_html":null,
+      "_attr-personalizado":"valor-attr"
+      },
+  "html": {
+    "_option":"personalized"
+  }
+}
+result='<!DOCTYPE html attr-personalizado="valor-attr"><html></html>'
+assert.assert(createmeal.toHtml(json), result, "05.2-new option for user defined attributes - with two elements");
+
 json = {
     "!DOCTYPE": {
         "attributes":[
