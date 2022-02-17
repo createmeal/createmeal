@@ -43,14 +43,18 @@ export default class NodeFactory {
                     let children  = this.getNode(entryValue);
                     node.addChildren(children);
                 }
-                let attrs  = this.getAttrs(entryValue);
-                if(attrs && attrs.length>0)
-                    for(const attr of attrs)
-                        node.setAttribute(attr.key, attr.value);  
+                NodeFactory.setNodeAttributes(entryValue, node);  
                 nodes.push(node);      
             }    
             return nodes;
         }        
+    }
+
+    static setNodeAttributes(entryValue, node) {
+        let attrs = this.getAttrs(entryValue);
+        if (attrs && attrs.length > 0)
+            for (const attr of attrs)
+                node.setAttribute(attr.key, attr.value);
     }
 
     static isOpenTag(key) {
