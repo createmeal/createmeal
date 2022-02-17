@@ -28,7 +28,7 @@ export default class NodeFactory {
                 if(this.isAttr(key, entryValue)){
                     continue;
                 }
-                if(key==="attributes"){
+                if(NodeFactory.isObjFieldAnAttribute(key)){
                     /**
                      * TODO:return; susbtituido o return por um continue para que o codigo continue a tratar os demais children. necessario validar.
                      * 
@@ -48,6 +48,12 @@ export default class NodeFactory {
             }    
             return nodes;
         }        
+    }
+
+    static isObjFieldAnAttribute(objectFieldKey) {
+        if(objectFieldKey.startsWith("_"))
+            return true;
+        return objectFieldKey === "attributes";
     }
 
     static setNodeAttributes(node, jsonFieldValue) {
