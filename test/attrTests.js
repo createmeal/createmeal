@@ -74,3 +74,17 @@ assert.assert(createmeal.toHtml(json), result, "06-user defined attributes - wit
   }];
   let output = '<html><body class="container"></body></html>';
   assert.assert(createmeal.toHtml(input), output, "07-html with head, and head with link and title");
+
+  /**
+  * event attributes
+  */
+ input = [{
+  "html":{
+    "body":{
+      "onload":"callSomeBehavior()",
+      "class": "container"
+    }
+  }
+}];
+output = '<html><body onload="callSomeBehavior()" class="container"></body></html>';
+assert.assert(createmeal.toHtml(input), output, "08-event Attributes");
