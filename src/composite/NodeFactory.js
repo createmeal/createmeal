@@ -50,6 +50,12 @@ export default class NodeFactory {
         }        
     }
 
+    /**
+     * check if the parameter is a "attributes" field
+     * or it starts with "_" representing a custom attribute
+     * @param {*} objectFieldKey the name of an object field
+     * @returns true if represents an attribute.
+     */
     static isObjFieldAnAttribute(objectFieldKey) {
         if(objectFieldKey.startsWith("_"))
             return true;
