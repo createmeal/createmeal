@@ -25,14 +25,11 @@ export default class NodeFactory {
             let nodes = [];          
             for(let [key, entryValue] of Object.entries(value)){
                 //validation to prevent processing a value that represents an attribute as a child
+                //when wants handler only children
                 if(this.isAttr(key, entryValue)){
                     continue;
                 }
-                if(NodeFactory.isObjFieldAnAttribute(key)){
-                    /**
-                     * TODO:return; susbtituido o return por um continue para que o codigo continue a tratar os demais children. necessario validar.
-                     * 
-                     */
+                if(NodeFactory.isFieldRepresentingAttributes(key)){
                     continue;
                 }  
                 let node;            
@@ -56,7 +53,7 @@ export default class NodeFactory {
      * @param {*} objectFieldKey the name of an object field
      * @returns true if represents an attribute.
      */
-    static isObjFieldAnAttribute(objectFieldKey) {
+    static isFieldRepresentingAttributes(objectFieldKey) {
         if(objectFieldKey.startsWith("_"))
             return true;
         return objectFieldKey === "attributes";
