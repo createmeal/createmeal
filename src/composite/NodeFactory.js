@@ -71,6 +71,13 @@ export default class NodeFactory {
         return new Node(name); 
     }
 
+    /**
+     * extracts attr of objects or arrays.
+     * 
+     * @param {*} value an object or array containing attributes
+     * @param {*} skipAttrValidation used for the field "attributes", once these attributes must never be checked
+     * @returns array of attributes
+     */
     static getAttrs(value, skipAttrValidation=false){
         if(!value)
             return;
