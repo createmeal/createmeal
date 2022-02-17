@@ -25,14 +25,11 @@ export default class NodeFactory {
             let nodes = [];          
             for(let [key, entryValue] of Object.entries(value)){
                 //validation to prevent processing a value that represents an attribute as a child
+                //when wants handler only children
                 if(this.isAttr(key, entryValue)){
                     continue;
                 }
-                if(key==="attributes"){
-                    /**
-                     * TODO:return; susbtituido o return por um continue para que o codigo continue a tratar os demais children. necessario validar.
-                     * 
-                     */
+                if(NodeFactory.isFieldRepresentingAttributes(key)){
                     continue;
                 }  
                 let node;            
@@ -43,14 +40,30 @@ export default class NodeFactory {
                     let children  = this.getNode(entryValue);
                     node.addChildren(children);
                 }
-                let attrs  = this.getAttrs(entryValue);
-                if(attrs && attrs.length>0)
-                    for(const attr of attrs)
-                        node.setAttribute(attr.key, attr.value);  
+                NodeFactory.setNodeAttributes(node, entryValue);  
                 nodes.push(node);      
             }    
             return nodes;
         }        
+    }
+
+    /**
+     * check if the parameter is a "attributes" field
+     * or it starts with "_" representing a custom attribute
+     * @param {*} objectFieldKey the name of an object field
+     * @returns true if represents an attribute.
+     */
+    static isFieldRepresentingAttributes(objectFieldKey) {
+        if(objectFieldKey.startsWith("_"))
+            return true;
+        return objectFieldKey === "attributes";
+    }
+
+    static setNodeAttributes(node, jsonFieldValue) {
+        let attrs = this.getAttrs(jsonFieldValue);
+        if (attrs && attrs.length > 0)
+            for (const attr of attrs)
+                node.setAttribute(attr.key, attr.value);
     }
 
     static isOpenTag(key) {
@@ -67,6 +80,16 @@ export default class NodeFactory {
         return new Node(name); 
     }
 
+    /**
+     * extracts attr of objects or arrays.
+     * 
+     * an object field will be considered an attribute when
+     * the field name starts with "_", the name of fild is equals
+     * to "attributes" and field name is in list of attribute.js
+     * @param {*} value an object or array containing attributes
+     * @param {*} skipAttrValidation used for the field "attributes", once these attributes must never be checked
+     * @returns array of attributes
+     */
     static getAttrs(value, skipAttrValidation=false){
         if(!value)
             return;
@@ -85,9 +108,13 @@ export default class NodeFactory {
         }
         else if(typeof value ==='object'){
             for(let [key, entryValue] of Object.entries(value)){
+                if(key.startsWith("_")){
+                    attrs.push({"key":key.substring(1),"value":entryValue}); 
+                    continue;
+                }
                 if(key==="attributes"){
                     return NodeFactory.processAttributeArray(entryValue);
-                }  
+                }                 
                 if(skipAttrValidation||this.isAttr(key, entryValue))
                     attrs.push({"key":key,"value":entryValue});    
             }
