@@ -47,7 +47,7 @@ json = {
     "_option":"personalized"
   }
 }
-result='<!DOCTYPE html attr-personalizado="valor-attr"><html></html>'
+result='<!DOCTYPE html attr-personalizado="valor-attr"><html option="personalized"></html>'
 assert.assert(createmeal.toHtml(json), result, "05.2-new option for user defined attributes - with two elements");
 
 json = {
