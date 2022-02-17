@@ -43,15 +43,15 @@ export default class NodeFactory {
                     let children  = this.getNode(entryValue);
                     node.addChildren(children);
                 }
-                NodeFactory.setNodeAttributes(entryValue, node);  
+                NodeFactory.setNodeAttributes(node, entryValue);  
                 nodes.push(node);      
             }    
             return nodes;
         }        
     }
 
-    static setNodeAttributes(entryValue, node) {
-        let attrs = this.getAttrs(entryValue);
+    static setNodeAttributes(node, jsonFieldValue) {
+        let attrs = this.getAttrs(jsonFieldValue);
         if (attrs && attrs.length > 0)
             for (const attr of attrs)
                 node.setAttribute(attr.key, attr.value);
