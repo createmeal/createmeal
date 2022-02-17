@@ -111,11 +111,13 @@ export default class NodeFactory {
         }
         else if(typeof value ==='object'){
             for(let [key, entryValue] of Object.entries(value)){
+                if(key.startsWith("_")){
+                    attrs.push({"key":key.substring(1),"value":entryValue}); 
+                    continue;
+                }
                 if(key==="attributes"){
                     return NodeFactory.processAttributeArray(entryValue);
-                }
-                if(key.startsWith("_"))
-                    attrs.push({"key":key.substring(1),"value":entryValue});  
+                }                 
                 if(skipAttrValidation||this.isAttr(key, entryValue))
                     attrs.push({"key":key,"value":entryValue});    
             }
