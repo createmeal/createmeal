@@ -86,6 +86,9 @@ export default class NodeFactory {
     /**
      * extracts attr of objects or arrays.
      * 
+     * an object field will be considered an attribute when
+     * the field name starts with "_", the name of fild is equals
+     * to "attributes" and field name is in list of attribute.js
      * @param {*} value an object or array containing attributes
      * @param {*} skipAttrValidation used for the field "attributes", once these attributes must never be checked
      * @returns array of attributes
@@ -110,7 +113,9 @@ export default class NodeFactory {
             for(let [key, entryValue] of Object.entries(value)){
                 if(key==="attributes"){
                     return NodeFactory.processAttributeArray(entryValue);
-                }  
+                }
+                if(key.startsWith("_"))
+                    attrs.push({"key":key.substring(1),"value":entryValue});  
                 if(skipAttrValidation||this.isAttr(key, entryValue))
                     attrs.push({"key":key,"value":entryValue});    
             }
