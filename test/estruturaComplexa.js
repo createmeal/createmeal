@@ -1,4 +1,4 @@
-import createmeal from '../index.js';
+import createmeal from '../src/index.js';
 import assert from './assert.js';
 
 const json = {
@@ -17,11 +17,13 @@ assert.assert(createmeal.toHtml(json), '<!DOCTYPE html><html></html>', "01-docty
 let t ={
     "div": [//<div class="container">
         {"class": "container"},
-        {"h1": {//<h1 content="Teste de criacao - FAILED"></h1>
-            "content": "Teste de criacao - FAILED"
+        {"h1": {//<h1 content="Teste de criacao - FAILED" non-verified="non verified attribute"></h1>
+            "content": "Teste de criacao - FAILED",
+            "_non-verified":"non verified attribute"
         }},
         {"h2":["passou!!!"]},//<h2>passou!!!</h2>
-        {"div": {//<div></div>
+        {"div": {//<div><non-verified>non verified attribute</non-verified></div>
+            "non-verified":["non verified tag"]
         }},
         {
             "ul": [//<ul>
@@ -75,7 +77,7 @@ let t ={
     
     ]
 }
-let result = `<div class="container"><h1 content="Teste de criacao - FAILED"></h1><h2>passou!!!</h2><div></div><ul><li class="list-group-item">Cras justo odio</li><li class="list-group-item">Dapibus ac facilisis in</li><li class="list-group-item">Morbi leo risus</li><li class="list-group-item">Porta ac consectetur ac</li><li class="list-group-item">Vestibulum at eros</li></ul><script></script><script></script><script></script></div>`;
+let result = `<div class="container"><h1 content="Teste de criacao - FAILED" non-verified="non verified attribute"></h1><h2>passou!!!</h2><div><non-verified>non verified tag</non-verified></div><ul><li class="list-group-item">Cras justo odio</li><li class="list-group-item">Dapibus ac facilisis in</li><li class="list-group-item">Morbi leo risus</li><li class="list-group-item">Porta ac consectetur ac</li><li class="list-group-item">Vestibulum at eros</li></ul><script></script><script></script><script></script></div>`;
 assert.assert(createmeal.toHtml(t), result, "02-complex extructure");
 
 let noAttr = {

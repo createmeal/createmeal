@@ -1,12 +1,12 @@
 .github
 .vscode
 test
-documentacao
 README.pseudo.md
 README.test.mesa.md
+publish.md
 webpack.config.js
 examples
 documentation
 composite
 index.js
-srv
+src
