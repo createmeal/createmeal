@@ -1,4 +1,4 @@
-import createmeal from '../index.js';
+import createmeal from '../src/index.js';
 import assert from './assert.js';
 
 /**
@@ -31,6 +31,25 @@ assert.assert(createmeal.toHtml(json), result, "04-div with attribute array");
  result='<!DOCTYPE html attr-personalizado="valor-attr">'
 assert.assert(createmeal.toHtml(json), result, "05-user defined attributes");
 
+/**
+ * new option for user defined attributes
+*/
+json= {"!DOCTYPE":{"_html":null, "_attr-personalizado":"valor-attr"}};
+result='<!DOCTYPE html attr-personalizado="valor-attr">'
+assert.assert(createmeal.toHtml(json), result, "05.1-new option for user defined attributes");
+
+json = {
+  "!DOCTYPE": {
+      "_html":null,
+      "_attr-personalizado":"valor-attr"
+      },
+  "html": {
+    "_option":"personalized"
+  }
+}
+result='<!DOCTYPE html attr-personalizado="valor-attr"><html option="personalized"></html>'
+assert.assert(createmeal.toHtml(json), result, "05.2-new option for user defined attributes - with two elements");
+
 json = {
     "!DOCTYPE": {
         "attributes":[
@@ -55,3 +74,17 @@ assert.assert(createmeal.toHtml(json), result, "06-user defined attributes - wit
   }];
   let output = '<html><body class="container"></body></html>';
   assert.assert(createmeal.toHtml(input), output, "07-html with head, and head with link and title");
+
+  /**
+  * event attributes
+  */
+ input = [{
+  "html":{
+    "body":{
+      "onload":"callSomeBehavior()",
+      "class": "container"
+    }
+  }
+}];
+output = '<html><body onload="callSomeBehavior()" class="container"></body></html>';
+assert.assert(createmeal.toHtml(input), output, "08-event Attributes");

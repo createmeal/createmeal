@@ -1,4 +1,4 @@
-import createmeal from '../index.js';
+import createmeal from '../src/index.js';
 import assert from './assert.js';
 
 /**
