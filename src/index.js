@@ -36,7 +36,7 @@ function foreEachNode(jsonDoc){
     return nodes;
 }
 
-export function toHtml(json){    
+export function toHtml(json, options={}){    
     let nodes = jsonNodeToHtmlNode(json);
     let htmls= []
     for(const node of nodes){
