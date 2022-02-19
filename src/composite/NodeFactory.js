@@ -7,7 +7,11 @@ import OpenTagNode from "./OpenTagNode.js";
 
 export default class NodeFactory {
 
-    static getNode(value){
+    constructor(options={}){
+        this.options = options;
+    }
+
+    getNode(value){
         if(typeof value  === 'string'|| value instanceof String){
             return new StringNode(value);
         }        
@@ -29,18 +33,18 @@ export default class NodeFactory {
                 if(this.isAttr(key, entryValue)){
                     continue;
                 }
-                if(NodeFactory.isFieldRepresentingAttributes(key)){
+                if(this.isFieldRepresentingAttributes(key)){
                     continue;
                 }  
                 let node;            
-                if(openTags[NodeFactory.isOpenTag(key)])
+                if(openTags[this.isOpenTag(key)])
                     node = new OpenTagNode(key);
                 else {
                     node = new Node(key);
                     let children  = this.getNode(entryValue);
                     node.addChildren(children);
                 }
-                NodeFactory.setNodeAttributes(node, entryValue);  
+                this.setNodeAttributes(node, entryValue);  
                 nodes.push(node);      
             }    
             return nodes;
@@ -53,20 +57,20 @@ export default class NodeFactory {
      * @param {*} objectFieldKey the name of an object field
      * @returns true if represents an attribute.
      */
-    static isFieldRepresentingAttributes(objectFieldKey) {
+    isFieldRepresentingAttributes(objectFieldKey) {
         if(objectFieldKey.startsWith("_"))
             return true;
         return objectFieldKey === "attributes";
     }
 
-    static setNodeAttributes(node, jsonFieldValue) {
+    setNodeAttributes(node, jsonFieldValue) {
         let attrs = this.getAttrs(jsonFieldValue);
         if (attrs && attrs.length > 0)
             for (const attr of attrs)
                 node.setAttribute(attr.key, attr.value);
     }
 
-    static isOpenTag(key) {
+    isOpenTag(key) {
         let opentag;
         if (key) {
             let words = key.split(' ');
@@ -76,7 +80,7 @@ export default class NodeFactory {
         return opentag;
     }
 
-    static getObjectNode(name){
+    getObjectNode(name){
         return new Node(name); 
     }
 
@@ -90,14 +94,14 @@ export default class NodeFactory {
      * @param {*} skipAttrValidation used for the field "attributes", once these attributes must never be checked
      * @returns array of attributes
      */
-    static getAttrs(value, skipAttrValidation=false){
+    getAttrs(value, skipAttrValidation=false){
         if(!value)
             return;
         let attrs = [];
         if(Array.isArray(value)){
             for(const item of value){
                 if(item==="attributes"){
-                    return NodeFactory.processAttributeArray(item);
+                    return this.processAttributeArray(item);
                 }  
                 let newAttrs = this.getAttrs(item);
                 if(Array.isArray(newAttrs))
@@ -113,7 +117,7 @@ export default class NodeFactory {
                     continue;
                 }
                 if(key==="attributes"){
-                    return NodeFactory.processAttributeArray(entryValue);
+                    return this.processAttributeArray(entryValue);
                 }                 
                 if(skipAttrValidation||this.isAttr(key, entryValue))
                     attrs.push({"key":key,"value":entryValue});    
@@ -122,7 +126,7 @@ export default class NodeFactory {
         return attrs;
     }
 
-    static processAttributeArray(value) {
+    processAttributeArray(value) {
         let attrs = [];
         for (const attr of value) {
             attrs =attrs.concat(this.getAttrs(attr, true));
@@ -130,7 +134,7 @@ export default class NodeFactory {
         return attrs;
     }
 
-    static isAttr(name, value=""){
+    isAttr(name, value=""){
         if(attrs[name] && typeof value==="string")
             return true;
         if(typeof name === 'object'){ 

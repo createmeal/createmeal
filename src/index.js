@@ -17,17 +17,18 @@ import NodeFactory from "./composite/NodeFactory.js";
  * @param {*} jsonDoc 
  */
 function foreEachNode(jsonDoc){
+    const nodeFactory = new NodeFactory();
     let nodes = [];
     if(Array.isArray(jsonDoc)){
         for(let child of jsonDoc){
-            let node = NodeFactory.getNode(child);
+            let node = nodeFactory.getNode(child);
             if(Array.isArray(node))
                 nodes = nodes.concat(node);
             else
                 nodes.push(node);
         }
     } else if(typeof jsonDoc ==="object"){
-        let newnodes = NodeFactory.getNode(jsonDoc);
+        let newnodes = nodeFactory.getNode(jsonDoc);
         if(Array.isArray(newnodes))
             nodes = nodes.concat(newnodes);
         else
