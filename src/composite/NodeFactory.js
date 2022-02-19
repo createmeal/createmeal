@@ -11,6 +11,56 @@ export default class NodeFactory {
         this.options = options;
     }
 
+    /**
+     * check main node if it is an object or array
+     * to call right method to create nodes.
+     * @param {[]|{}} jsonDoc 
+     */
+    createMainNodes(jsonDoc){
+        let nodes = [];
+        if(Array.isArray(jsonDoc)){
+            nodes = this.createNodesFromArray(jsonDoc, nodes);
+        } else if(typeof jsonDoc ==="object"){
+            nodes = this.createNodesFromObject(jsonDoc, nodes);
+        }
+        return nodes;
+    }
+
+    /**
+     * Iterates over a jsonDoc array to extract nodes
+     * @param {[]} jsonDoc 
+     * @param {[]} nodes 
+     * @returns nodes
+     */
+    createNodesFromObject(jsonDoc, nodes) {
+        let newnodes = this.getNode(jsonDoc);
+        if (Array.isArray(newnodes))
+            nodes = nodes.concat(newnodes);
+
+        else
+            nodes.push(newnodes);
+        return nodes;
+    }
+
+    /**
+     * Get children of jsonDoc objec to
+     * create nodes
+     * @param {{}} jsonDoc 
+     * @param {[]} nodes 
+     * @returns nodes
+     */
+    createNodesFromArray(jsonDoc, nodes) {
+        for (let child of jsonDoc) {
+            let node = this.getNode(child);
+            if (Array.isArray(node))
+                nodes = nodes.concat(node);
+
+            else
+                nodes.push(node);
+        }
+        return nodes;
+    }
+
     getNode(value){
         if(typeof value  === 'string'|| value instanceof String){
             return new StringNode(value);
