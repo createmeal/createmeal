@@ -5,7 +5,7 @@ import NodeFactory from "./composite/NodeFactory.js";
  * to call right method to create nodes.
  * @param {[]|{}} jsonDoc 
  */
-function foreEachNode(jsonDoc){
+function nodesFromObjectOrArray(jsonDoc){
     const nodeFactory = new NodeFactory();
     let nodes = [];
     if(Array.isArray(jsonDoc)){
@@ -52,7 +52,7 @@ function createNodesFromArray(jsonDoc, nodeFactory, nodes) {
 }
 
 export function toHtml(json){    
-    let nodes = foreEachNode(json);
+    let nodes = nodesFromObjectOrArray(json);
     let htmls= []
     for(const node of nodes){
         htmls.push(node.toHtml());
