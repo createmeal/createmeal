@@ -10,7 +10,7 @@ describe('Option', function() {
         }
         const expected=`<div *ngIf="let i == tsField.value"></div>`;
         const options={
-          attributesPrefixAdd:["*"]
+          attributePrefixAdd:["*", "data-", "aria-"],attributeScapeAdd:["$"]
         }
       assert.equal(createmeal.toHtml(input,), expected);
     });
