@@ -15,9 +15,12 @@ export default class NodeFactory {
      * @param {*} objectFieldKey the name of an object field
      * @returns {boolean} true if represents an attribute.
      */
-    isFieldRepresentingAttributes(objectFieldKey) {
+     isFieldRepresentingAttributes(objectFieldKey, entryValue) {
         if(objectFieldKey.startsWith("_"))
             return true;
+        if(this.isAttr(objectFieldKey, entryValue)){
+            return true;
+        }
         return objectFieldKey === "attributes";
     }
 
@@ -27,12 +30,12 @@ export default class NodeFactory {
      * @param {Node.js} node instance of Node.js
      * @param {[]|{}} jsonFieldValue value of a field in json
      */
-    setNodeAttributes(node, jsonFieldValue) {
+     setNodeAttributes(node, jsonFieldValue) {
         let attrs = this.getAttrs(jsonFieldValue);
         if (attrs && attrs.length > 0)
             for (const attr of attrs)
                 node.setAttribute(attr.key, attr.value);
-    }
+     }
 
     /**
      * extracts attr of objects or arrays.
@@ -44,7 +47,7 @@ export default class NodeFactory {
      * @param {boolean} skipAttrValidation used for the field "attributes", once these attributes must never be checked
      * @returns {[]} array of attributes
      */
-    getAttrs(value, skipAttrValidation=false){
+     getAttrs(value, skipAttrValidation=false){
         if(!value)
             return;
         let attrs = [];
@@ -64,6 +67,10 @@ export default class NodeFactory {
             for(let [key, entryValue] of Object.entries(value)){
                 if(key.startsWith("_")){
                     attrs.push({"key":key.substring(1),"value":entryValue}); 
+                    continue;
+                }
+                if(this.isAttibutePrefix(key)){
+                    attrs.push({"key":key,"value":entryValue});
                     continue;
                 }
                 if(key==="attributes"){
@@ -95,15 +102,35 @@ export default class NodeFactory {
      * @param {String|Object} value 
      * @returns 
      */
-    isAttr(name, value=""){
+     isAttr(name, value=""){
         if(attrs[name] && typeof value==="string")
             return true;
         if(typeof name === 'object'){ 
             for(let [key, entryValue] of Object.entries(name)){
                 if(attrs[key]&&typeof entryValue==="string")
                     return true;
+                if(this.isAttibutePrefix(name))
+                    return true
             }
         }
+        return this.isAttibutePrefix(name);
+    }
+
+    /**
+     * attributePrefixAdd:["*", "data-", "aria-"]
+     * @param {String} fieldKey 
+     * @returns
+     */
+     isAttibutePrefix(fieldKey){
+        let prefixes = this.options.attributePrefixAdd;
+        if(prefixes && prefixes.length>0){
+            for(const prefix of prefixes){
+                if(fieldKey.startsWith(prefix)){
+                    return true
+                }
+            }
+        }
+        return false;
     }
 
 }

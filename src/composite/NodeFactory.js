@@ -4,11 +4,13 @@ import openTags from "../openTags.js";
 import Node from "./Node.js";
 import StringNode from "./StringNode.js";
 import OpenTagNode from "./OpenTagNode.js";
+import AttributeFactory from "./AttributeFactory.js";
 
 export default class NodeFactory {
 
     constructor(options={}){
         this.options = options;
+        this.attributeFacotory = new AttributeFactory(options);
     }
 
     /**
