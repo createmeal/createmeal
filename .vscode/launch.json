@@ -7,6 +7,15 @@
         {
             "type": "pwa-node",
             "request": "launch",
+            "name": "test option",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\test\\test_option.js"
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
             "name": "test jsml",
             "skipFiles": [
                 "<node_internals>/**"

@@ -1,7 +1,7 @@
 import NodeFactory from "./composite/NodeFactory.js";
 
-export function toHtml(json){    
-    const nodeFactory = new NodeFactory();
+export function toHtml(json, options={}){    
+    const nodeFactory = new NodeFactory(options);
     let nodes = nodeFactory.createMainNodes(json);
     let htmls= []
     for(const node of nodes){
