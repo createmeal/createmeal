@@ -10,7 +10,7 @@ export default class NodeFactory {
     }
 
     /**
-     * check if the parameter is a "attributes" field
+     * check whether the parameter is an "attributes" field
      * or it starts with "_" representing a custom attribute
      * @param {*} objectFieldKey the name of an object field
      * @returns {boolean} true if represents an attribute.
