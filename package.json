@@ -4,10 +4,10 @@
   "description": "A library to render HTML",
   "main": "dist/createmeal.js",
   "scripts": {
-    "eslint": "eslint index.js",
+    "eslint": "eslint ./src/**/*",
     "build": "webpack & tsc --build",
     "docs": "node --experimental-json-modules ./documentation/readme-generator.js",
-    "test": "nyc mocha"
+    "test": "mocha"
   },
   "author": "Julio Cezar da Silva (https://github.com/jcezardasilva)",
   "contributors": [
