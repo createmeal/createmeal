@@ -77,7 +77,11 @@ export default class NodeFactory {
             }
             return nodes;
         } else if(typeof value === 'object'){            
-            let nodes = [];          
+            let nodes = [];  
+            // handle a null attribute
+            if(value === null) {
+                return nodes;
+            }
             for(let [key, entryValue] of Object.entries(value)){
                 //validation to prevent processing a value that represents an attribute as a child
                 //when wants handler only children                
