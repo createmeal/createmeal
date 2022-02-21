@@ -6,7 +6,7 @@
   "scripts": {
     "eslint": "eslint index.js",
     "build": "webpack & tsc --build",
-    "docs": "node --experimental-json-modules ./documentation/readme-generator.js",
+    "docs": "node ./documentation/readme-generator.js",
     "test": "nyc mocha"
   },
   "author": "Julio Cezar da Silva (https://github.com/jcezardasilva)",

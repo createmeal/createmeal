@@ -3,9 +3,10 @@ import fs from "fs";
 import path from 'path';
 import { fileURLToPath } from 'url';
 import fetch from "node-fetch";
-import pkgJson from "../package.json";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+const pkgJson = fs.readFileSync(path.resolve(__dirname, "../package.json"));
 
 const PACKAGE_VERSION = pkgJson.version;
 const ISSUES_URL = "https://github.com/createmeal/createmeal/issues";
