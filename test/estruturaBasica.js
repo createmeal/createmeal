@@ -71,6 +71,14 @@ assert.assert(createmeal.toHtml({"html":[]}), "<html></html>", "08-html tag with
 let input = {"body":[{"div":{}},{"div":{}}]};
 let output = "<body><div></div><div></div></body>";
 assert.assert(createmeal.toHtml(input), output, "11-multiple divs");
+
+ /**
+* multiple divs
+*/
+assert.assert(createmeal.toHtml({"html":null}), "", "handles null");
+
+
+
 /*
 ["teste-strint-array"]
 var a= {"test-string-object":""}
