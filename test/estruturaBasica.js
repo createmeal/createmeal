@@ -73,7 +73,7 @@ let output = "<body><div></div><div></div></body>";
 assert.assert(createmeal.toHtml(input), output, "11-multiple divs");
 
  /**
-* multiple divs
+* test null document
 */
 assert.assert(createmeal.toHtml({"html":null}), "", "handles null");
 
