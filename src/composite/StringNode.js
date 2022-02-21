@@ -4,6 +4,11 @@ export default class StringNode extends Node {
         super(name);
     }
 
+    /* eslint-disable no-unused-vars */
+    add(child) {
+        
+    }
+
     getOpenTag(){
         return this.name;
     }

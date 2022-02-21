@@ -16,5 +16,14 @@ describe('Option', function() {
         }
       assert.equal(createmeal.toHtml(input,options), expected);
     });
+    it('should return div with an attribute "custon-attr"', function() {
+      const input = {
+          div: {
+              "_custon-attr":"value of a customized attr"
+          }
+      }
+      const expected=`<div custon-attr="value of a customized attr"></div>`;
+    assert.equal(createmeal.toHtml(input), expected);
+  });
   });
 });
