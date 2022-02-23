@@ -16,7 +16,7 @@ export default class NodeFactory {
      * @returns {boolean} true if represents an attribute.
      */
      isFieldRepresentingAttributes(objectFieldKey, entryValue) {
-        if(objectFieldKey.startsWith("_"))
+        if(objectFieldKey.indexOf("_")===0)
             return true;
         if(this.isAttr(objectFieldKey, entryValue)){
             return true;
@@ -65,7 +65,7 @@ export default class NodeFactory {
         }
         else if(typeof value ==='object'){
             for(let [key, entryValue] of Object.entries(value)){
-                if(key.startsWith("_")){
+                if(key.indexOf("_")===0){
                     attrs.push({"key":key.substring(1),"value":entryValue}); 
                     continue;
                 }
@@ -125,7 +125,7 @@ export default class NodeFactory {
         let prefixes = this.options.attributePrefixAdd;
         if(prefixes && prefixes.length>0){
             for(const prefix of prefixes){
-                if(fieldKey.startsWith(prefix)){
+                if(fieldKey.indexOf(prefix)===0){
                     return true
                 }
             }
