@@ -299,9 +299,29 @@ describe('tag', function() {
     });   
   });
 
-  describe(`31 - tag "${tags["data"].tag}": ${tags["data"].Description}`, function() {
+  /*describe(`31 - tag "${tags["data"].tag}": ${tags["data"].Description}`, function() {
     const tagName = "data";   
     it(`31.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });*/
+
+  describe(`32 - tag "${tags["datagrid"].tag}": ${tags["datagrid"].Description}`, function() {
+    const tagName = "datagrid";   
+    it(`32.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
+
+  describe(`33 - tag "${tags["datalist"].tag}": ${tags["datalist"].Description}`, function() {
+    const tagName = "datalist";   
+    it(`33.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
         let input = {}
         input[tagName] = "textContent value"
         const expected=`<${tagName}>textContent value</${tagName}>`;
@@ -310,9 +330,6 @@ describe('tag', function() {
   });
 
 //
-//
-//datagrid
-//datalist
 //dd
 //del
 //details
