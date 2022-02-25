@@ -1,4 +1,4 @@
-{
+export default {
         "!--...--":{"tag": "!--...--","Description": "Describe a comment text in the source code"},
         "!doctype":{"tag": "!doctype","Description": "Defines a document type"},
         "a":{"tag": "a","Description": "Specific a anchor (Hyperlink). Use for link in internal/external web documents."},
