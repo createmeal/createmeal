@@ -339,8 +339,16 @@ describe('tag', function() {
     });   
   });
 
-//
-//dd
+  describe(`35 - tag "${tags["del"].tag}": ${tags["del"].Description}`, function() {
+    const tagName = "del";   
+    it(`35.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
+
 //del
 //details
 //dfn
