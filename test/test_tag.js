@@ -238,8 +238,17 @@ describe('tag', function() {
     });   
   });
 
-//caption
-//center
+  describe(`25 - tag "${tags["center"].tag}": ${tags["center"].Description}`, function() {
+    const tagName = "center";   
+    it(`25.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
+
+//
 //cite
 //code
 //col
