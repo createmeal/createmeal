@@ -248,7 +248,7 @@ describe('tag', function() {
     });   
   });
 
-  /*describe(`26 - tag "${tags["cite"].tag}": ${tags["cite"].Description}`, function() {
+  describe(`26 - tag "${tags["cite"].tag}": ${tags["cite"].Description}`, function() {
     const tagName = "cite";   
     it(`26.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
         let input = {}
@@ -256,9 +256,9 @@ describe('tag', function() {
         const expected=`<${tagName}>textContent value</${tagName}>`;
       assert.equal(createmeal.toHtml(input), expected);
     });   
-  });*/
+  });
 
-  /*describe(`27 - tag "${tags["code"].tag}": ${tags["code"].Description}`, function() {
+  describe(`27 - tag "${tags["code"].tag}": ${tags["code"].Description}`, function() {
     const tagName = "code";   
     it(`27.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
         let input = {}
@@ -266,7 +266,7 @@ describe('tag', function() {
         const expected=`<${tagName}>textContent value</${tagName}>`;
       assert.equal(createmeal.toHtml(input), expected);
     });   
-  });*/
+  });
 
   
   describe(`28 - tag "${tags["col"].tag}": ${tags["col"].Description}`, function() {
@@ -299,7 +299,7 @@ describe('tag', function() {
     });   
   });
 
-  /*describe(`31 - tag "${tags["data"].tag}": ${tags["data"].Description}`, function() {
+  describe(`31 - tag "${tags["data"].tag}": ${tags["data"].Description}`, function() {
     const tagName = "data";   
     it(`31.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
         let input = {}
@@ -307,7 +307,7 @@ describe('tag', function() {
         const expected=`<${tagName}>textContent value</${tagName}>`;
       assert.equal(createmeal.toHtml(input), expected);
     });   
-  });*/
+  });
 
   describe(`32 - tag "${tags["datagrid"].tag}": ${tags["datagrid"].Description}`, function() {
     const tagName = "datagrid";   
@@ -431,10 +431,10 @@ describe('tag', function() {
 
   describe(`45 - tag "${tags["embed"].tag}": ${tags["embed"].Description}`, function() {
     const tagName = "embed";   
-    it(`45.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+    it(`45.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>`, function() {
         let input = {}
         input[tagName] = "textContent value"
-        const expected=`<${tagName}>textContent value</${tagName}>`;
+        const expected=`<${tagName}>`;
       assert.equal(createmeal.toHtml(input), expected);
     });   
   });
