@@ -268,16 +268,16 @@ describe('tag', function() {
     });   
   });*/
 
-  /*
+  
   describe(`28 - tag "${tags["col"].tag}": ${tags["col"].Description}`, function() {
     const tagName = "col";   
-    it(`28.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+    it(`28.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>`, function() {
         let input = {}
         input[tagName] = "textContent value"
-        const expected=`<${tagName}>textContent value</${tagName}>`;
+        const expected=`<${tagName}>`;
       assert.equal(createmeal.toHtml(input), expected);
     });   
-  });*/
+  });
   
   describe(`29 - tag "${tags["colgroup"].tag}": ${tags["colgroup"].Description}`, function() {
     const tagName = "colgroup";   
