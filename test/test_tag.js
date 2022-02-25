@@ -208,8 +208,17 @@ describe('tag', function() {
     });   
   });
   
+  describe(`22 - tag "${tags["button"].tag}": ${tags["button"].Description}`, function() {
+    const tagName = "button";   
+    it(`22.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
 //
-//button
+//
 //canvas
 //caption
 //center
