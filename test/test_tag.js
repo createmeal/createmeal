@@ -248,11 +248,48 @@ describe('tag', function() {
     });   
   });
 
+  /*describe(`26 - tag "${tags["cite"].tag}": ${tags["cite"].Description}`, function() {
+    const tagName = "cite";   
+    it(`26.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });*/
+
+  /*describe(`27 - tag "${tags["code"].tag}": ${tags["code"].Description}`, function() {
+    const tagName = "code";   
+    it(`27.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });*/
+
+  /*
+  describe(`28 - tag "${tags["col"].tag}": ${tags["col"].Description}`, function() {
+    const tagName = "col";   
+    it(`28.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });*/
+  
+  describe(`29 - tag "${tags["colgroup"].tag}": ${tags["colgroup"].Description}`, function() {
+    const tagName = "colgroup";   
+    it(`29.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
+
 //
-//cite
-//code
-//col
-//colgroup
 //command
 //datagrid
 //datalist
