@@ -349,7 +349,16 @@ describe('tag', function() {
     });   
   });
 
-//del
+  describe(`37 - tag "${tags["details"].tag}": ${tags["details"].Description}`, function() {
+    const tagName = "details";   
+    it(`37.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
+
 //details
 //dfn
 //dialog
