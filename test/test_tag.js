@@ -359,24 +359,177 @@ describe('tag', function() {
     });   
   });
 
-//details
-//dfn
-//dialog
-//dir
-//div
-//dl
-//dt
-//em
-//embed
-//eventsource
-//fieldset
-//figcaption
-//figure
-//font
-//footer
-//form
-//frame
-//frameset
+  describe(`38 - tag "${tags["dfn"].tag}": ${tags["dfn"].Description}`, function() {
+    const tagName = "dfn";   
+    it(`38.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
+  
+  describe(`39 - tag "${tags["dialog"].tag}": ${tags["dialog"].Description}`, function() {
+    const tagName = "dialog";   
+    it(`39.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
+
+  describe(`40 - tag "${tags["dir"].tag}": ${tags["dir"].Description}`, function() {
+    const tagName = "dir";   
+    it(`40.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
+
+  describe(`41 - tag "${tags["div"].tag}": ${tags["div"].Description}`, function() {
+    const tagName = "div";   
+    it(`41.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
+
+  describe(`42 - tag "${tags["dl"].tag}": ${tags["dl"].Description}`, function() {
+    const tagName = "dl";   
+    it(`42.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
+
+  describe(`43 - tag "${tags["dt"].tag}": ${tags["dt"].Description}`, function() {
+    const tagName = "dt";   
+    it(`43.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
+
+  describe(`44 - tag "${tags["em"].tag}": ${tags["em"].Description}`, function() {
+    const tagName = "em";   
+    it(`44.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
+
+  describe(`45 - tag "${tags["embed"].tag}": ${tags["embed"].Description}`, function() {
+    const tagName = "embed";   
+    it(`45.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
+
+  describe(`46 - tag "${tags["eventsource"].tag}": ${tags["eventsource"].Description}`, function() {
+    const tagName = "eventsource";   
+    it(`46.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
+
+  describe(`47 - tag "${tags["fieldset"].tag}": ${tags["fieldset"].Description}`, function() {
+    const tagName = "fieldset";   
+    it(`47.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
+
+  describe(`48 - tag "${tags["figcaption"].tag}": ${tags["figcaption"].Description}`, function() {
+    const tagName = "figcaption";   
+    it(`48.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
+
+  describe(`49 - tag "${tags["figure"].tag}": ${tags["figure"].Description}`, function() {
+    const tagName = "figure";   
+    it(`49.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
+
+  describe(`50 - tag "${tags["font"].tag}": ${tags["font"].Description}`, function() {
+    const tagName = "font";   
+    it(`50.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
+
+  describe(`51 - tag "${tags["footer"].tag}": ${tags["footer"].Description}`, function() {
+    const tagName = "footer";   
+    it(`51.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
+
+  describe(`52 - tag "${tags["form"].tag}": ${tags["form"].Description}`, function() {
+    const tagName = "form";   
+    it(`52.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
+
+  describe(`53 - tag "${tags["frame"].tag}": ${tags["frame"].Description}`, function() {
+    const tagName = "frame";   
+    it(`53.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
+
+  describe(`54 - tag "${tags["frameset"].tag}": ${tags["frameset"].Description}`, function() {
+    const tagName = "frameset";   
+    it(`54.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
+
+
 //h1
 //head
 //header
