@@ -77,4 +77,14 @@ describe('tag', function() {
       assert.equal(createmeal.toHtml(input), expected);
     });   
   });
+
+  describe(`10 - tag "${tags["aside"].tag}": ${tags["aside"].Description}`, function() {
+    const tagName = "aside";   
+    it(`10.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
 });
