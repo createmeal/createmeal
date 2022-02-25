@@ -14,6 +14,7 @@ export default {
         "base":{"tag": "base","Description": "Define a base URL for all the links with in a web page"},
         "basefont":{"tag": "basefont","Description": "Describes a default font color, size, face in a document","In HTML5?": "REMOVE"},
         "bb":{"tag": "bb","Description": "Define browser command, that command invoke as per client action","In HTML5?": "NEW/ REMOVE"},
+        "bdi":{"tag": "bdi","Description": "Isolate the usernames from the surrounding text-direction settings"},
         "bdo":{"tag": "bdo","Description": "Specific direction of text display"},
         "big":{"tag": "big","Description": "Defines a big text","In HTML5?": "REMOVE"},
         "blockquote":{"tag": "blockquote","Description": "Specifies a long quotation"},

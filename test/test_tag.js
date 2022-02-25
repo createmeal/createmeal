@@ -147,4 +147,24 @@ describe('tag', function() {
       assert.equal(createmeal.toHtml(input), expected);
     });   
   });
+
+  describe(`16 - tag "${tags["bdi"].tag}": ${tags["bdi"].Description}`, function() {
+    const tagName = "bdi";   
+    it(`16.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
+
+  describe(`17 - tag "${tags["bdo"].tag}": ${tags["bdo"].Description}`, function() {
+    const tagName = "bdo";   
+    it(`17.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
 });
