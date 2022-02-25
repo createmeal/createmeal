@@ -197,8 +197,18 @@ describe('tag', function() {
       assert.equal(createmeal.toHtml(input), expected);
     });   
   });
+
+  describe(`21 - tag "${tags["br"].tag}": ${tags["br"].Description}`, function() {
+    const tagName = "br";   
+    it(`21.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
   
-//br
+//
 //button
 //canvas
 //caption
