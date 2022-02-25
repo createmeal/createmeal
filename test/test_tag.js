@@ -289,8 +289,28 @@ describe('tag', function() {
     });   
   });
 
+  describe(`30 - tag "${tags["command"].tag}": ${tags["command"].Description}`, function() {
+    const tagName = "command";   
+    it(`30.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
+
+  describe(`31 - tag "${tags["data"].tag}": ${tags["data"].Description}`, function() {
+    const tagName = "data";   
+    it(`31.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
+
 //
-//command
+//
 //datagrid
 //datalist
 //dd

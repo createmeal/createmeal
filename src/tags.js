@@ -29,6 +29,7 @@ export default {
         "col":{"tag": "col","Description": "Specifies a each column within a <colgroup> element in table"},
         "colgroup":{"tag": "colgroup","Description": "Defines a group of one or more columns inside table"},
         "command":{"tag": "command","Description": "Define a command button, invoke as per user action","In HTML5?": "NEW"},
+        "data":{"tag": "data","Description": "The following example displays product names but also associates each name with a product number"},
         "datagrid":{"tag": "datagrid","Description": "Define a represent data in datagrid either list wise or tree wise","In HTML5?": "NEW/ REMOVE"},
         "datalist":{"tag": "datalist","Description": "Define a list of pre-defined options surrounding <input> tag","In HTML5?": "NEW"},
         "dd":{"tag": "dd","Description": "Defines a definition description in a definition list"},
