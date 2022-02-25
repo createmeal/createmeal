@@ -57,4 +57,14 @@ describe('tag', function() {
       assert.equal(createmeal.toHtml(input), expected);
     });   
   });
+  
+  describe(`8 - tag "${tags["area"].tag}": ${tags["area"].Description}`, function() {
+    const tagName = "area";   
+    it(`8.1 - when {"area":"textContent value"}, should return: <${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
 });
