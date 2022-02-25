@@ -1,4 +1,4 @@
-declare var u: any;
 declare var h: any;
-export { u as default, h as toHtml };
+declare var p: any;
+export { h as default, p as toHtml };
 //# sourceMappingURL=createmeal.d.ts.map
