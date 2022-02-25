@@ -228,7 +228,16 @@ describe('tag', function() {
     });   
   });
 
-//canvas
+  describe(`24 - tag "${tags["caption"].tag}": ${tags["caption"].Description}`, function() {
+    const tagName = "caption";   
+    it(`24.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
+
 //caption
 //center
 //cite
