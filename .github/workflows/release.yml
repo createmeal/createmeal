@@ -29,12 +29,12 @@ jobs:
 
       - name: Release Patch
         if: |
-          "!startsWith(github.event.pull_request.title, 'no_release_version') && 
+          !startsWith(github.event.pull_request.title, 'no_release_version') && 
           !startsWith(github.event.head_commit.message, 'no_release_version') && 
           !startsWith(github.event.pull_request.title, 'release_minor') && 
           !startsWith(github.event.head_commit.message, 'release_minor') && 
           !startsWith(github.event.pull_request.title, 'release_major') && 
-          !startsWith(github.event.head_commit.message, 'release_major')" 
+          !startsWith(github.event.head_commit.message, 'release_major')
         run: |
           npm ci
           npm run build
