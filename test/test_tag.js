@@ -35,4 +35,15 @@ describe('tag', function() {
       assert.equal(createmeal.toHtml(input), expected);
     });   
   });
+
+  testNumber=6;
+  tagName = "address";
+  describe(`${testNumber} - tag "${tags[tagName].tag}": ${tags[tagName].Description}`, function() {    
+    it(`${testNumber}.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
 });
