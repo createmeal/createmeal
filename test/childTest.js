@@ -1,71 +1,59 @@
-import createmeal from '../src/index.js';
-import assert from './assert.js';
+import { toHtml } from '../src/index.js';
+import assert from 'assert';
+import {describe,it} from "mocha";
 
- /**
-  * Html with children
-  */
- assert.assert(createmeal.toHtml({"html":{"div":{}}}), "<html><div></div></html>", "01-html with div child tag");
-
-  /**
-  * Html with children
-  */
-   assert.assert(createmeal.toHtml({"html":{"head":{}}}), "<html><head></head></html>", "02-html with head child tag");
-
-   /**
-  * Html with children
-  */
-    assert.assert(createmeal.toHtml({"html":{"head":{}, "body":{}}}), "<html><head></head><body></body></html>", "03-html with head and body children");
-  
-  /**
-  * body with children
-  */
-let input = {"html":{"head":{}, "body":{"div":{}}}};
-let output = "<html><head></head><body><div></div></body></html>";
-assert.assert(createmeal.toHtml(input), output, "04-html with head, body and body children");
-
-  /**
-  * doctype, html and body with children
-  */
-   input = [{"!DOCTYPE html":""},{"html":{"head":{}, "body":{"div":{}}}}];
-   output = "<!DOCTYPE html><html><head></head><body><div></div></body></html>";
-   assert.assert(createmeal.toHtml(input), output, "05-doctype, html with head, body and body children");
-
- /**
-  * doctype, html and body with children
-  */
-  input = [{
-    "html":{
-      "head":{
-        "link": {},
-        "title": {}
+describe("Children",function(){
+  it("Should return a HTML tag with a DIV child",function(){
+    assert.equal(toHtml({"html":{"div":{}}}),"<html><div></div></html>");
+  })
+  it("Should return a HTML tag with a HEAD child",function(){
+    assert.equal(toHtml({"html":{"head":{}}}), "<html><head></head></html>");
+  })
+  it("Should return a HTML tag with HEAD and BODY children",function(){
+    assert.equal(toHtml({"html":{"head":{}, "body":{}}}), "<html><head></head><body></body></html>");
+  })
+  it("Should return a HTML tag with HEAD, BODY and a BODY child",function(){
+    const template = {"html":{"head":{}, "body":{"div":{}}}};
+    const expected = "<html><head></head><body><div></div></body></html>";
+    assert.equal(toHtml(template), expected);
+  })
+  it("Should return a basic HTML template",function(){
+    const template = [{"!DOCTYPE html":""},{"html":{"head":{}, "body":{"div":{}}}}];
+    const expected = "<!DOCTYPE html><html><head></head><body><div></div></body></html>";
+    assert.equal(toHtml(template), expected);
+  })
+  it("Should return a HTML template with HEAD children",function(){
+    const template = [{
+      "html":{
+        "head":{
+          "link": {},
+          "title": {}
+        }
       }
-    }
-  }];
-  output = "<html><head><link><title></title></head></html>";
-  assert.assert(createmeal.toHtml(input), output, "06-html with head, and head with link and title");
-
-  /**
-  * doctype, html and body with children
-  */
-   input = [{
-    "html":{
-      "head":{
-        "link ref": {},
-        "title": {}
-      }
-    }
-  }];
-  output = "<html><head><link ref><title></title></head></html>";
-  assert.assert(createmeal.toHtml(input), output, "06-html with head, and head with link and title");
-
-  /**
-  * body multiple children
-  */
-  input = {
-      "body":{
-        "class": "container",
-        "h1": {}
-      }
-  };
-  output = '<body class="container"><h1></h1></body>';
-  assert.assert(createmeal.toHtml(input), output, "07-body multiple children");
+    }];
+    const expected = "<html><head><link><title></title></head></html>";
+    assert.equal(toHtml(template), expected);
+  })
+  it("Should return a HTML template with HEAD children. A LINK tag with ref attribute",function(){
+    const template = [{
+     "html":{
+       "head":{
+         "link ref": {},
+         "title": {}
+       }
+     }
+   }];
+   const expected = "<html><head><link ref><title></title></head></html>";
+   assert.equal(toHtml(template), expected);
+  })
+  it("Should return a BODY tag with children",function(){
+    const template = {
+        "body":{
+          "class": "container",
+          "h1": {}
+        }
+    };
+    const expected = '<body class="container"><h1></h1></body>';
+    assert.equal(toHtml(template), expected);
+  })
+})
