@@ -329,6 +329,16 @@ describe('tag', function() {
     });   
   });
 
+  describe(`34 - tag "${tags["dd"].tag}": ${tags["dd"].Description}`, function() {
+    const tagName = "dd";   
+    it(`34.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
+
 //
 //dd
 //del
