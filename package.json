@@ -5,9 +5,15 @@
   "main": "dist/createmeal.js",
   "scripts": {
     "eslint": "eslint ./src/**/*",
-    "build": "webpack & tsc --build",
+    "build": "webpack",
+    "build-tsc": "tsc --build",
     "docs": "node ./documentation/readme-generator.js",
-    "test": "mocha"
+    "test": "mocha",
+    "release": "node release.js",
+    "release_patch": "node release.js patch",
+    "release_minor": "node release.js minor",
+    "release_major": "node release.js major",
+    "git_tag": "git tag -a $(echo $(npm pkg get version) | sed -e 's/\"//g') -m 'release new version'"
   },
   "author": "Julio Cezar da Silva (https://github.com/jcezardasilva)",
   "contributors": [
