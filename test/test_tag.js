@@ -217,8 +217,17 @@ describe('tag', function() {
       assert.equal(createmeal.toHtml(input), expected);
     });   
   });
-//
-//
+  
+  describe(`23 - tag "${tags["canvas"].tag}": ${tags["canvas"].Description}`, function() {
+    const tagName = "canvas";   
+    it(`23.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>textContent value</${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
+
 //canvas
 //caption
 //center
