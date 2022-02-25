@@ -1,12 +1,16 @@
 .github
 .vscode
+.eslintrc.json
+.gitignore
+release.js
+tsconfig.json
 test
+README.html
 README.pseudo.md
 README.test.mesa.md
 publish.md
 webpack.config.js
 examples
 documentation
-composite
 index.js
 src
