@@ -11,7 +11,7 @@ export default class Node {
     addChildren(child) {
         if(Array.isArray(child)&&child&&child.length>0)
             this.children = this.children.concat(child);
-        else if(typeof child==='object'&&child.length>0)
+        else if(!Array.isArray(child) && typeof child==='object')
             this.add(child);
         
     }

@@ -1,13 +1,68 @@
-import attrs from "../attributes.js";
 import openTags from "../openTags.js";
 
 import Node from "./Node.js";
 import StringNode from "./StringNode.js";
 import OpenTagNode from "./OpenTagNode.js";
+import AttributeFactory from "./AttributeFactory.js";
 
 export default class NodeFactory {
 
-    static getNode(value){
+    constructor(options={}){
+        this.options = options;
+        this.attributeFacotory = new AttributeFactory(options);
+    }
+
+    /**
+     * check main node if it is an object or array
+     * to call right method to create nodes.
+     * @param {[]|{}} jsonDoc 
+     */
+    createMainNodes(jsonDoc){
+        let nodes = [];
+        if(Array.isArray(jsonDoc)){
+            nodes = this.createNodesFromArray(jsonDoc, nodes);
+        } else if(typeof jsonDoc ==="object"){
+            nodes = this.createNodesFromObject(jsonDoc, nodes);
+        }
+        return nodes;
+    }
+
+    /**
+     * Iterates over a jsonDoc array to extract nodes
+     * @param {[]} jsonDoc 
+     * @param {[]} nodes 
+     * @returns nodes
+     */
+    createNodesFromObject(jsonDoc, nodes) {
+        let newnodes = this.getNode(jsonDoc);
+        if (Array.isArray(newnodes))
+            nodes = nodes.concat(newnodes);
+
+        else
+            nodes.push(newnodes);
+        return nodes;
+    }
+
+    /**
+     * Get children of jsonDoc objec to
+     * create nodes
+     * @param {{}} jsonDoc 
+     * @param {[]} nodes 
+     * @returns nodes
+     */
+    createNodesFromArray(jsonDoc, nodes) {
+        for (let child of jsonDoc) {
+            let node = this.getNode(child);
+            if (Array.isArray(node))
+                nodes = nodes.concat(node);
+
+            else
+                nodes.push(node);
+        }
+        return nodes;
+    }
+
+    getNode(value){
         if(typeof value  === 'string'|| value instanceof String){
             return new StringNode(value);
         }        
@@ -29,48 +84,26 @@ export default class NodeFactory {
             }
             for(let [key, entryValue] of Object.entries(value)){
                 //validation to prevent processing a value that represents an attribute as a child
-                //when wants handler only children
-                if(this.isAttr(key, entryValue)){
-                    continue;
-                }
-                if(NodeFactory.isFieldRepresentingAttributes(key)){
+                //when wants handler only children                
+                if(this.attributeFacotory.isFieldRepresentingAttributes(key,entryValue)){
                     continue;
                 }  
                 let node;            
-                if(openTags[NodeFactory.isOpenTag(key)])
+                if(openTags[this.isOpenTag(key)])
                     node = new OpenTagNode(key);
                 else {
                     node = new Node(key);
                     let children  = this.getNode(entryValue);
                     node.addChildren(children);
                 }
-                NodeFactory.setNodeAttributes(node, entryValue);  
+                this.attributeFacotory.setNodeAttributes(node, entryValue);  
                 nodes.push(node);      
             }    
             return nodes;
         }        
     }
 
-    /**
-     * check if the parameter is a "attributes" field
-     * or it starts with "_" representing a custom attribute
-     * @param {*} objectFieldKey the name of an object field
-     * @returns true if represents an attribute.
-     */
-    static isFieldRepresentingAttributes(objectFieldKey) {
-        if(objectFieldKey.startsWith("_"))
-            return true;
-        return objectFieldKey === "attributes";
-    }
-
-    static setNodeAttributes(node, jsonFieldValue) {
-        let attrs = this.getAttrs(jsonFieldValue);
-        if (attrs && attrs.length > 0)
-            for (const attr of attrs)
-                node.setAttribute(attr.key, attr.value);
-    }
-
-    static isOpenTag(key) {
+    isOpenTag(key) {
         let opentag;
         if (key) {
             let words = key.split(' ');
@@ -79,70 +112,4 @@ export default class NodeFactory {
         }
         return opentag;
     }
-
-    static getObjectNode(name){
-        return new Node(name); 
-    }
-
-    /**
-     * extracts attr of objects or arrays.
-     * 
-     * an object field will be considered an attribute when
-     * the field name starts with "_", the name of fild is equals
-     * to "attributes" and field name is in list of attribute.js
-     * @param {*} value an object or array containing attributes
-     * @param {*} skipAttrValidation used for the field "attributes", once these attributes must never be checked
-     * @returns array of attributes
-     */
-    static getAttrs(value, skipAttrValidation=false){
-        if(!value)
-            return;
-        let attrs = [];
-        if(Array.isArray(value)){
-            for(const item of value){
-                if(item==="attributes"){
-                    return NodeFactory.processAttributeArray(item);
-                }  
-                let newAttrs = this.getAttrs(item);
-                if(Array.isArray(newAttrs))
-                    attrs = attrs.concat(newAttrs);    
-                else
-                    attrs.push(newAttrs);
-            }
-        }
-        else if(typeof value ==='object'){
-            for(let [key, entryValue] of Object.entries(value)){
-                if(key.startsWith("_")){
-                    attrs.push({"key":key.substring(1),"value":entryValue}); 
-                    continue;
-                }
-                if(key==="attributes"){
-                    return NodeFactory.processAttributeArray(entryValue);
-                }                 
-                if(skipAttrValidation||this.isAttr(key, entryValue))
-                    attrs.push({"key":key,"value":entryValue});    
-            }
-        }        
-        return attrs;
-    }
-
-    static processAttributeArray(value) {
-        let attrs = [];
-        for (const attr of value) {
-            attrs =attrs.concat(this.getAttrs(attr, true));
-        }
-        return attrs;
-    }
-
-    static isAttr(name, value=""){
-        if(attrs[name] && typeof value==="string")
-            return true;
-        if(typeof name === 'object'){ 
-            for(let [key, entryValue] of Object.entries(name)){
-                if(attrs[key]&&typeof entryValue==="string")
-                    return true;
-            }
-        }
-    }
-
 }
