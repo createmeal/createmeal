@@ -117,4 +117,14 @@ describe('tag', function() {
       assert.equal(createmeal.toHtml(input), expected);
     });   
   });
+
+  describe(`13 - tag "${tags["base"].tag}": ${tags["base"].Description}`, function() {
+    const tagName = "base";   
+    it(`13.1 - when {"area":"textContent value"}, should return: <${tagName}>`, function() {
+        let input = {}
+        input[tagName] = "textContent value"
+        const expected=`<${tagName}>`;
+      assert.equal(createmeal.toHtml(input), expected);
+    });   
+  });
 });
