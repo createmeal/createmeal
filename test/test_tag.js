@@ -642,97 +642,97 @@ describe("tag", function () {
     });
 
     describe(`Test textContent for self-closing tags`, function () {
-        it(`Should return text content for tag source`, function () {
+        it(`Should return tag source`, function () {
             assert.equal(
                 createmeal.toHtml({ source: "textContent value" }),
                 `<source>`
             );
         });
-        it(`Should return text content for tag input`, function () {
+        it(`Should return tag input`, function () {
             assert.equal(
                 createmeal.toHtml({ input: "textContent value" }),
                 `<input>`
             );
         });
-        it(`Should return text content for tag embed`, function () {
+        it(`Should return tag embed`, function () {
             assert.equal(
                 createmeal.toHtml({ embed: "textContent value" }),
                 `<embed>`
             );
         });
-        it(`Should return text content for tag col`, function () {
+        it(`Should return tag col`, function () {
             assert.equal(
                 createmeal.toHtml({ col: "textContent value" }),
                 `<col>`
             );
         });
-        it(`Should return text content for tag base`, function () {
+        it(`Should return tag base`, function () {
             assert.equal(
                 createmeal.toHtml({ base: "textContent value" }),
                 `<base>`
             );
         });
-        it(`Should return text content for tag area`, function () {
+        it(`Should return tag area`, function () {
             assert.equal(
                 createmeal.toHtml({ area: "textContent value" }),
                 `<area>`
             );
         });
-        it(`Should return text content for tag br`, function () {
+        it(`Should return tag br`, function () {
             assert.equal(
                 createmeal.toHtml({ br: "textContent value" }),
                 `<br>`
             );
         });
-        it(`Should return text content for tag hr`, function () {
+        it(`Should return tag hr`, function () {
             assert.equal(
                 createmeal.toHtml({ hr: "textContent value" }),
                 `<hr>`
             );
         });
-        it(`Should return text content for tag img`, function () {
+        it(`Should return tag img`, function () {
             assert.equal(
                 createmeal.toHtml({ img: "textContent value" }),
                 `<img>`
             );
         });
-        it(`Should return text content for tag input`, function () {
+        it(`Should return tag input`, function () {
             assert.equal(
                 createmeal.toHtml({ input: "textContent value" }),
                 `<input>`
             );
         });
-        it(`Should return text content for tag link`, function () {
+        it(`Should return tag link`, function () {
             assert.equal(
                 createmeal.toHtml({ link: "textContent value" }),
                 `<link>`
             );
         });
-        it(`Should return text content for tag meta`, function () {
+        it(`Should return tag meta`, function () {
             assert.equal(
                 createmeal.toHtml({ meta: "textContent value" }),
                 `<meta>`
             );
         });
-        it(`Should return text content for tag param`, function () {
+        it(`Should return tag param`, function () {
             assert.equal(
                 createmeal.toHtml({ param: "textContent value" }),
                 `<param>`
             );
         });
-        it(`Should return text content for tag source`, function () {
+        it(`Should return tag source`, function () {
             assert.equal(
                 createmeal.toHtml({ source: "textContent value" }),
                 `<source>`
             );
         });
-        it(`Should return text content for tag track`, function () {
+        it(`Should return tag track`, function () {
             assert.equal(
                 createmeal.toHtml({ track: "textContent value" }),
                 `<track>`
             );
         });
-        it(`Should return text content for tag wbr`, function () {
+        it(`Should return tag wbr`, function () {
             assert.equal(
                 createmeal.toHtml({ wbr: "textContent value" }),
                 `<wbr>`
