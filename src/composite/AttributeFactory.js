@@ -4,10 +4,11 @@ import tags from "../tags.js";
 /**
  * Class specialized in manage attributes
  */
-export default class NodeFactory {
+export default class AttributeFactory {
 
     constructor(options={}){
         this.options = options;
+        this.booleanAttibutes = Object.values(attrs).filter(attribute=> attribute.datatype?.includes("boolean"));
     }
 
     /**
@@ -82,6 +83,10 @@ export default class NodeFactory {
             }
         }        
         return attrs;
+    }
+
+    isBooleanAttribute(fieldKey){
+        return this.booleanAttibutes.find(attribute => attribute.attribute === fieldKey) !== undefined;
     }
 
     /**
