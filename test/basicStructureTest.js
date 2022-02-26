@@ -57,4 +57,15 @@ describe("Basic Strictures",function(){
             assert.equal(toHtml({"body":[{"div":{}},{"div":{}}]}),"<body><div></div><div></div></body>");
         })
     })
+    describe("04-Concurrence bettwen tag and attributes",function(){
+        it("Should return a tag",function(){
+            assert.equal(toHtml({"span":"text content"}),'<span>text content</span>');
+        })
+        it("Should return the chield tag cite",function(){
+            assert.equal(toHtml({"div":{"cite":"text content"}}), '<div><cite>text content</cite></div>');
+        })
+        it("Should return the chield tag code",function(){
+            assert.equal(toHtml({"div":{"code":"text content"}}), '<div><code>text content</code></div>');
+        })
+    })
 })
