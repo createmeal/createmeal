@@ -1,0 +1,85 @@
+name: Release Version
+
+on:
+  pull_request:
+    branches: [ master ]
+    types: [closed]
+
+jobs:
+  release:
+    if: github.event.pull_request.merged == true
+    name: build dist packages
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Config Nodejs
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+          
+      - name: Config Git
+        run: |
+          git status
+          git config --global user.email "jcezardasilva@outlook.com"
+          git config --global user.name "Bot Publisher"
+          git branch
+
+      - name: Release Patch
+        if: |
+          !startsWith(github.event.pull_request.title, 'no_release_version') && 
+          !startsWith(github.event.head_commit.message, 'no_release_version') && 
+          !startsWith(github.event.pull_request.title, 'release_minor') && 
+          !startsWith(github.event.head_commit.message, 'release_minor') && 
+          !startsWith(github.event.pull_request.title, 'release_major') && 
+          !startsWith(github.event.head_commit.message, 'release_major')
+        run: |
+          npm ci
+          npm run build
+          npm run build-tsc
+          npm run release_patch
+          npm run docs
+          npm publish --access public
+          git add .
+          git commit -m "bot: release new patch version"
+          npm run git_tag
+          git pull origin master --rebase
+          git push --follow-tags origin master
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+      - name: Release Minor
+        if: "startsWith(github.event.pull_request.title, 'release_minor') || startsWith(github.event.head_commit.message, 'release_minor')" 
+        run: |
+          npm ci
+          npm run build
+          npm run build-tsc
+          npm run release_minor
+          npm run docs
+          npm publish --access public
+          git add .
+          git commit -m "bot: release new minor version"
+          npm run git_tag
+          git pull origin master --rebase
+          git push --follow-tags origin master
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+      - name: Release Major
+        if: "startsWith(github.event.pull_request.title, 'release_major') || startsWith(github.event.head_commit.message, 'release_major')" 
+        run: |
+          npm ci
+          npm run build
+          npm run build-tsc
+          npm run release_major
+          npm run docs
+          npm publish --access public
+          git add .
+          git commit -m "bot: release new major version"
+          npm run git_tag
+          git pull origin master --rebase
+          git push --follow-tags origin master
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
