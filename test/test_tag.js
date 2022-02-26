@@ -553,12 +553,6 @@ describe("tag", function () {
                 `<hgroup>textContent value</hgroup>`
             );
         });
-        it(`Should return text content for tag hr`, function () {
-            assert.equal(
-                createmeal.toHtml({ hr: "textContent value" }),
-                `<hr>textContent value</hr>`
-            );
-        });
         it(`Should return text content for tag html`, function () {
             assert.equal(
                 createmeal.toHtml({ html: "textContent value" }),
@@ -575,18 +569,6 @@ describe("tag", function () {
             assert.equal(
                 createmeal.toHtml({ iframe: "textContent value" }),
                 `<iframe>textContent value</iframe>`
-            );
-        });
-        it(`Should return text content for tag img`, function () {
-            assert.equal(
-                createmeal.toHtml({ img: "textContent value" }),
-                `<img>textContent value</img>`
-            );
-        });
-        it(`Should return text content for tag input`, function () {
-            assert.equal(
-                createmeal.toHtml({ input: "textContent value" }),
-                `<input>textContent value</input>`
             );
         });
         it(`Should return text content for tag ins`, function () {
@@ -631,12 +613,6 @@ describe("tag", function () {
                 `<li>textContent value</li>`
             );
         });
-        it(`Should return text content for tag link`, function () {
-            assert.equal(
-                createmeal.toHtml({ link: "textContent value" }),
-                `<link>textContent value</link>`
-            );
-        });
         it(`Should return text content for tag map`, function () {
             assert.equal(
                 createmeal.toHtml({ map: "textContent value" }),
@@ -653,12 +629,6 @@ describe("tag", function () {
             assert.equal(
                 createmeal.toHtml({ menu: "textContent value" }),
                 `<menu>textContent value</menu>`
-            );
-        });
-        it(`Should return text content for tag meta`, function () {
-            assert.equal(
-                createmeal.toHtml({ meta: "textContent value" }),
-                `<meta>textContent value</meta>`
             );
         });
         it(`Should return text content for tag meter`, function () {
@@ -719,12 +689,6 @@ describe("tag", function () {
             assert.equal(
                 createmeal.toHtml({ p: "textContent value" }),
                 `<p>textContent value</p>`
-            );
-        });
-        it(`Should return text content for tag param`, function () {
-            assert.equal(
-                createmeal.toHtml({ param: "textContent value" }),
-                `<param>textContent value</param>`
             );
         });
         it(`Should return text content for tag pre`, function () {
@@ -797,12 +761,6 @@ describe("tag", function () {
             assert.equal(
                 createmeal.toHtml({ small: "textContent value" }),
                 `<small>textContent value</small>`
-            );
-        });
-        it(`Should return text content for tag source`, function () {
-            assert.equal(
-                createmeal.toHtml({ source: "textContent value" }),
-                `<source>textContent value</source>`
             );
         });
         it(`Should return text content for tag span`, function () {
@@ -901,12 +859,6 @@ describe("tag", function () {
                 `<tr>textContent value</tr>`
             );
         });
-        it(`Should return text content for tag track`, function () {
-            assert.equal(
-                createmeal.toHtml({ track: "textContent value" }),
-                `<track>textContent value</track>`
-            );
-        });
         it(`Should return text content for tag tt`, function () {
             assert.equal(
                 createmeal.toHtml({ tt: "textContent value" }),
@@ -935,6 +887,57 @@ describe("tag", function () {
             assert.equal(
                 createmeal.toHtml({ video: "textContent value" }),
                 `<video>textContent value</video>`
+            );
+        });
+    });
+
+    describe(`56 - Test textContent for self-closing tags`, function () {        
+        it(`Should return text content for tag hr`, function () {
+            assert.equal(
+                createmeal.toHtml({ hr: "textContent value" }),
+                `<hr>textContent value</hr>`
+            );
+        });
+        it(`Should return text content for tag img`, function () {
+            assert.equal(
+                createmeal.toHtml({ img: "textContent value" }),
+                `<img>textContent value</img>`
+            );
+        });
+        it(`Should return text content for tag input`, function () {
+            assert.equal(
+                createmeal.toHtml({ input: "textContent value" }),
+                `<input>textContent value</input>`
+            );
+        });
+        it(`Should return text content for tag link`, function () {
+            assert.equal(
+                createmeal.toHtml({ link: "textContent value" }),
+                `<link>textContent value</link>`
+            );
+        });
+        it(`Should return text content for tag meta`, function () {
+            assert.equal(
+                createmeal.toHtml({ meta: "textContent value" }),
+                `<meta>textContent value</meta>`
+            );
+        });
+        it(`Should return text content for tag param`, function () {
+            assert.equal(
+                createmeal.toHtml({ param: "textContent value" }),
+                `<param>textContent value</param>`
+            );
+        });
+        it(`Should return text content for tag source`, function () {
+            assert.equal(
+                createmeal.toHtml({ source: "textContent value" }),
+                `<source>textContent value</source>`
+            );
+        });        
+        it(`Should return text content for tag track`, function () {
+            assert.equal(
+                createmeal.toHtml({ track: "textContent value" }),
+                `<track>textContent value</track>`
             );
         });
         it(`Should return text content for tag wbr`, function () {
