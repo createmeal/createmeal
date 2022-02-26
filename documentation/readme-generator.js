@@ -3,10 +3,11 @@ import fs from "fs";
 import path from 'path';
 import { fileURLToPath } from 'url';
 import fetch from "node-fetch";
+import pretty from "pretty";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const pkgJson = fs.readFileSync(path.resolve(__dirname, "../package.json"));
+const pkgJson = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../package.json")));
 
 const PACKAGE_VERSION = pkgJson.version;
 const ISSUES_URL = "https://github.com/createmeal/createmeal/issues";
@@ -388,7 +389,7 @@ function createCDNBadge(){
             },
         };        
         const README = toHtml(readme);
-        fs.writeFileSync(path.resolve(__dirname, "../README.html"), README);
-        fs.writeFileSync(path.resolve(__dirname, "../README.md"), README);
+        fs.writeFileSync(path.resolve(__dirname, "../README.html"), pretty(README));
+        fs.writeFileSync(path.resolve(__dirname, "../README.md"), pretty(README));
     }
 )()

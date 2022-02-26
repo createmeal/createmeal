@@ -29,17 +29,18 @@ jobs:
 
       - name: Release Patch
         if: |
-          "!startsWith(github.event.pull_request.title, 'no_release_version') && 
+          !startsWith(github.event.pull_request.title, 'no_release_version') && 
           !startsWith(github.event.head_commit.message, 'no_release_version') && 
           !startsWith(github.event.pull_request.title, 'release_minor') && 
           !startsWith(github.event.head_commit.message, 'release_minor') && 
           !startsWith(github.event.pull_request.title, 'release_major') && 
-          !startsWith(github.event.head_commit.message, 'release_major')" 
+          !startsWith(github.event.head_commit.message, 'release_major')
         run: |
           npm ci
           npm run build
           npm run build-tsc
           npm run release_patch
+          npm run docs
           npm publish --access public
           git add .
           git commit -m "bot: release new patch version"
@@ -56,6 +57,7 @@ jobs:
           npm run build
           npm run build-tsc
           npm run release_minor
+          npm run docs
           npm publish --access public
           git add .
           git commit -m "bot: release new minor version"
@@ -72,6 +74,7 @@ jobs:
           npm run build
           npm run build-tsc
           npm run release_major
+          npm run docs
           npm publish --access public
           git add .
           git commit -m "bot: release new major version"
