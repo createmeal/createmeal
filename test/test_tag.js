@@ -1,474 +1,284 @@
 import assert from "assert";
 import createmeal from "../src/index.js";
-import tags from "../src/tags.js";
-describe("tag", function () {
-    let testNumber = "03";
-    let tagName = "a";
-    describe(`${testNumber} - tag "${tags[tagName].tag}": ${tags[tagName].Description}`, function () {
-        it(`${testNumber}.1 - when value is string, should set textContent`, function () {
-            const input = {
-                a: "textContent value",
-            };
-            const expected = `<a>textContent value</a>`;
-            assert.equal(createmeal.toHtml(input), expected);
-        });
-    });
 
-    testNumber = 4;
-    tagName = "abbr";
-    describe(`${testNumber} - tag "${tags[tagName].tag}": ${tags[tagName].Description}`, function () {
-        it(`${testNumber}.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+describe("tag", function () { 
+    describe(`Test textContent for non-self-closing tags`, function () {
+      it(`Should return text content for tag a`, function () {
+        assert.equal(
+            createmeal.toHtml({ "a": "textContent value" }),
+            `<a>textContent value</a>`
+            );
         });
-    });
-
-    testNumber = 5;
-    tagName = "acronym";
-    describe(`${testNumber} - tag "${tags[tagName].tag}": ${tags[tagName].Description}`, function () {
-        it(`${testNumber}.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag abbr`, function () {
+        assert.equal(
+            createmeal.toHtml({ "abbr": "textContent value" }),
+            `<abbr>textContent value</abbr>`
+            );
         });
-    });
-
-    testNumber = 6;
-    tagName = "address";
-    describe(`${testNumber} - tag "${tags[tagName].tag}": ${tags[tagName].Description}`, function () {
-        it(`${testNumber}.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag acronym`, function () {
+        assert.equal(
+            createmeal.toHtml({ "acronym": "textContent value" }),
+            `<acronym>textContent value</acronym>`
+            );
         });
-    });
-
-    testNumber = 7;
-    tagName = "applet";
-    describe(`${testNumber} - tag "${tags[tagName].tag}": ${tags[tagName].Description}`, function () {
-        it(`${testNumber}.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag address`, function () {
+        assert.equal(
+            createmeal.toHtml({ "address": "textContent value" }),
+            `<address>textContent value</address>`
+            );
         });
-    });
-
-    describe(`9 - tag "${tags["article"].tag}": ${tags["article"].Description}`, function () {
-        const tagName = "article";
-        it(`9.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag applet`, function () {
+        assert.equal(
+            createmeal.toHtml({ "applet": "textContent value" }),
+            `<applet>textContent value</applet>`
+            );
         });
-    });
-
-    describe(`10 - tag "${tags["aside"].tag}": ${tags["aside"].Description}`, function () {
-        const tagName = "aside";
-        it(`10.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag article`, function () {
+        assert.equal(
+            createmeal.toHtml({ "article": "textContent value" }),
+            `<article>textContent value</article>`
+            );
         });
-    });
-
-    describe(`11 - tag "${tags["audio"].tag}": ${tags["audio"].Description}`, function () {
-        const tagName = "audio";
-        it(`11.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag aside`, function () {
+        assert.equal(
+            createmeal.toHtml({ "aside": "textContent value" }),
+            `<aside>textContent value</aside>`
+            );
         });
-    });
-
-    describe(`11 - tag "${tags["audio"].tag}": ${tags["audio"].Description}`, function () {
-        const tagName = "audio";
-        it(`11.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag audio`, function () {
+        assert.equal(
+            createmeal.toHtml({ "audio": "textContent value" }),
+            `<audio>textContent value</audio>`
+            );
         });
-    });
-
-    describe(`12 - tag "${tags["b"].tag}": ${tags["b"].Description}`, function () {
-        const tagName = "b";
-        it(`12.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag b`, function () {
+        assert.equal(
+            createmeal.toHtml({ "b": "textContent value" }),
+            `<b>textContent value</b>`
+            );
         });
-    });
-
-    describe(`14 - tag "${tags["basefont"].tag}": ${tags["basefont"].Description}`, function () {
-        const tagName = "basefont";
-        it(`14.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag basefont`, function () {
+        assert.equal(
+            createmeal.toHtml({ "basefont": "textContent value" }),
+            `<basefont>textContent value</basefont>`
+            );
         });
-    });
-
-    describe(`15 - tag "${tags["bb"].tag}": ${tags["bb"].Description}`, function () {
-        const tagName = "bb";
-        it(`15.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag bb`, function () {
+        assert.equal(
+            createmeal.toHtml({ "bb": "textContent value" }),
+            `<bb>textContent value</bb>`
+            );
         });
-    });
-
-    describe(`16 - tag "${tags["bdi"].tag}": ${tags["bdi"].Description}`, function () {
-        const tagName = "bdi";
-        it(`16.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag bdi`, function () {
+        assert.equal(
+            createmeal.toHtml({ "bdi": "textContent value" }),
+            `<bdi>textContent value</bdi>`
+            );
         });
-    });
-
-    describe(`17 - tag "${tags["bdo"].tag}": ${tags["bdo"].Description}`, function () {
-        const tagName = "bdo";
-        it(`17.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag bdo`, function () {
+        assert.equal(
+            createmeal.toHtml({ "bdo": "textContent value" }),
+            `<bdo>textContent value</bdo>`
+            );
         });
-    });
-
-    describe(`18 - tag "${tags["big"].tag}": ${tags["big"].Description}`, function () {
-        const tagName = "big";
-        it(`18.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag big`, function () {
+        assert.equal(
+            createmeal.toHtml({ "big": "textContent value" }),
+            `<big>textContent value</big>`
+            );
         });
-    });
-
-    describe(`19 - tag "${tags["blockquote"].tag}": ${tags["blockquote"].Description}`, function () {
-        const tagName = "blockquote";
-        it(`19.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag blockquote`, function () {
+        assert.equal(
+            createmeal.toHtml({ "blockquote": "textContent value" }),
+            `<blockquote>textContent value</blockquote>`
+            );
         });
-    });
-
-    describe(`20 - tag "${tags["body"].tag}": ${tags["body"].Description}`, function () {
-        const tagName = "body";
-        it(`20.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag body`, function () {
+        assert.equal(
+            createmeal.toHtml({ "body": "textContent value" }),
+            `<body>textContent value</body>`
+            );
         });
-    });
-
-    describe(`22 - tag "${tags["button"].tag}": ${tags["button"].Description}`, function () {
-        const tagName = "button";
-        it(`22.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag button`, function () {
+        assert.equal(
+            createmeal.toHtml({ "button": "textContent value" }),
+            `<button>textContent value</button>`
+            );
         });
-    });
-
-    describe(`23 - tag "${tags["canvas"].tag}": ${tags["canvas"].Description}`, function () {
-        const tagName = "canvas";
-        it(`23.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag canvas`, function () {
+        assert.equal(
+            createmeal.toHtml({ "canvas": "textContent value" }),
+            `<canvas>textContent value</canvas>`
+            );
         });
-    });
-
-    describe(`24 - tag "${tags["caption"].tag}": ${tags["caption"].Description}`, function () {
-        const tagName = "caption";
-        it(`24.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag caption`, function () {
+        assert.equal(
+            createmeal.toHtml({ "caption": "textContent value" }),
+            `<caption>textContent value</caption>`
+            );
         });
-    });
-
-    describe(`25 - tag "${tags["center"].tag}": ${tags["center"].Description}`, function () {
-        const tagName = "center";
-        it(`25.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag center`, function () {
+        assert.equal(
+            createmeal.toHtml({ "center": "textContent value" }),
+            `<center>textContent value</center>`
+            );
         });
-    });
-
-    describe(`26 - tag "${tags["cite"].tag}": ${tags["cite"].Description}`, function () {
-        const tagName = "cite";
-        it(`26.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag cite`, function () {
+        assert.equal(
+            createmeal.toHtml({ "cite": "textContent value" }),
+            `<cite>textContent value</cite>`
+            );
         });
-    });
-
-    describe(`27 - tag "${tags["code"].tag}": ${tags["code"].Description}`, function () {
-        const tagName = "code";
-        it(`27.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag code`, function () {
+        assert.equal(
+            createmeal.toHtml({ "code": "textContent value" }),
+            `<code>textContent value</code>`
+            );
         });
-    });
-
-    describe(`29 - tag "${tags["colgroup"].tag}": ${tags["colgroup"].Description}`, function () {
-        const tagName = "colgroup";
-        it(`29.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag colgroup`, function () {
+        assert.equal(
+            createmeal.toHtml({ "colgroup": "textContent value" }),
+            `<colgroup>textContent value</colgroup>`
+            );
         });
-    });
-
-    describe(`30 - tag "${tags["command"].tag}": ${tags["command"].Description}`, function () {
-        const tagName = "command";
-        it(`30.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag command`, function () {
+        assert.equal(
+            createmeal.toHtml({ "command": "textContent value" }),
+            `<command>textContent value</command>`
+            );
         });
-    });
-
-    describe(`31 - tag "${tags["data"].tag}": ${tags["data"].Description}`, function () {
-        const tagName = "data";
-        it(`31.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag data`, function () {
+        assert.equal(
+            createmeal.toHtml({ "data": "textContent value" }),
+            `<data>textContent value</data>`
+            );
         });
-    });
-
-    describe(`32 - tag "${tags["datagrid"].tag}": ${tags["datagrid"].Description}`, function () {
-        const tagName = "datagrid";
-        it(`32.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag datagrid`, function () {
+        assert.equal(
+            createmeal.toHtml({ "datagrid": "textContent value" }),
+            `<datagrid>textContent value</datagrid>`
+            );
         });
-    });
-
-    describe(`33 - tag "${tags["datalist"].tag}": ${tags["datalist"].Description}`, function () {
-        const tagName = "datalist";
-        it(`33.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag datalist`, function () {
+        assert.equal(
+            createmeal.toHtml({ "datalist": "textContent value" }),
+            `<datalist>textContent value</datalist>`
+            );
         });
-    });
-
-    describe(`34 - tag "${tags["dd"].tag}": ${tags["dd"].Description}`, function () {
-        const tagName = "dd";
-        it(`34.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag dd`, function () {
+        assert.equal(
+            createmeal.toHtml({ "dd": "textContent value" }),
+            `<dd>textContent value</dd>`
+            );
         });
-    });
-
-    describe(`35 - tag "${tags["del"].tag}": ${tags["del"].Description}`, function () {
-        const tagName = "del";
-        it(`35.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag del`, function () {
+        assert.equal(
+            createmeal.toHtml({ "del": "textContent value" }),
+            `<del>textContent value</del>`
+            );
         });
-    });
-
-    describe(`37 - tag "${tags["details"].tag}": ${tags["details"].Description}`, function () {
-        const tagName = "details";
-        it(`37.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag details`, function () {
+        assert.equal(
+            createmeal.toHtml({ "details": "textContent value" }),
+            `<details>textContent value</details>`
+            );
         });
-    });
-
-    describe(`38 - tag "${tags["dfn"].tag}": ${tags["dfn"].Description}`, function () {
-        const tagName = "dfn";
-        it(`38.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag dfn`, function () {
+        assert.equal(
+            createmeal.toHtml({ "dfn": "textContent value" }),
+            `<dfn>textContent value</dfn>`
+            );
         });
-    });
-
-    describe(`39 - tag "${tags["dialog"].tag}": ${tags["dialog"].Description}`, function () {
-        const tagName = "dialog";
-        it(`39.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag dialog`, function () {
+        assert.equal(
+            createmeal.toHtml({ "dialog": "textContent value" }),
+            `<dialog>textContent value</dialog>`
+            );
         });
-    });
-
-    describe(`40 - tag "${tags["dir"].tag}": ${tags["dir"].Description}`, function () {
-        const tagName = "dir";
-        it(`40.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag dir`, function () {
+        assert.equal(
+            createmeal.toHtml({ "dir": "textContent value" }),
+            `<dir>textContent value</dir>`
+            );
         });
-    });
-
-    describe(`41 - tag "${tags["div"].tag}": ${tags["div"].Description}`, function () {
-        const tagName = "div";
-        it(`41.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag div`, function () {
+        assert.equal(
+            createmeal.toHtml({ "div": "textContent value" }),
+            `<div>textContent value</div>`
+            );
         });
-    });
-
-    describe(`42 - tag "${tags["dl"].tag}": ${tags["dl"].Description}`, function () {
-        const tagName = "dl";
-        it(`42.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag dl`, function () {
+        assert.equal(
+            createmeal.toHtml({ "dl": "textContent value" }),
+            `<dl>textContent value</dl>`
+            );
         });
-    });
-
-    describe(`43 - tag "${tags["dt"].tag}": ${tags["dt"].Description}`, function () {
-        const tagName = "dt";
-        it(`43.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag dt`, function () {
+        assert.equal(
+            createmeal.toHtml({ "dt": "textContent value" }),
+            `<dt>textContent value</dt>`
+            );
         });
-    });
-
-    describe(`44 - tag "${tags["em"].tag}": ${tags["em"].Description}`, function () {
-        const tagName = "em";
-        it(`44.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag em`, function () {
+        assert.equal(
+            createmeal.toHtml({ "em": "textContent value" }),
+            `<em>textContent value</em>`
+            );
         });
-    });
-
-    describe(`47 - tag "${tags["fieldset"].tag}": ${tags["fieldset"].Description}`, function () {
-        const tagName = "fieldset";
-        it(`47.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag eventsource`, function () {
+        assert.equal(
+            createmeal.toHtml({ "eventsource": "textContent value" }),
+            `<eventsource>textContent value</eventsource>`
+            );
         });
-    });
-
-    describe(`48 - tag "${tags["figcaption"].tag}": ${tags["figcaption"].Description}`, function () {
-        const tagName = "figcaption";
-        it(`48.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag fieldset`, function () {
+        assert.equal(
+            createmeal.toHtml({ "fieldset": "textContent value" }),
+            `<fieldset>textContent value</fieldset>`
+            );
         });
-    });
-
-    describe(`49 - tag "${tags["figure"].tag}": ${tags["figure"].Description}`, function () {
-        const tagName = "figure";
-        it(`49.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag figcaption`, function () {
+        assert.equal(
+            createmeal.toHtml({ "figcaption": "textContent value" }),
+            `<figcaption>textContent value</figcaption>`
+            );
         });
-    });
-
-    describe(`50 - tag "${tags["font"].tag}": ${tags["font"].Description}`, function () {
-        const tagName = "font";
-        it(`50.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag figure`, function () {
+        assert.equal(
+            createmeal.toHtml({ "figure": "textContent value" }),
+            `<figure>textContent value</figure>`
+            );
         });
-    });
-
-    describe(`51 - tag "${tags["footer"].tag}": ${tags["footer"].Description}`, function () {
-        const tagName = "footer";
-        it(`51.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag font`, function () {
+        assert.equal(
+            createmeal.toHtml({ "font": "textContent value" }),
+            `<font>textContent value</font>`
+            );
         });
-    });
-
-    describe(`52 - tag "${tags["form"].tag}": ${tags["form"].Description}`, function () {
-        const tagName = "form";
-        it(`52.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag footer`, function () {
+        assert.equal(
+            createmeal.toHtml({ "footer": "textContent value" }),
+            `<footer>textContent value</footer>`
+            );
         });
-    });
-
-    describe(`53 - tag "${tags["frame"].tag}": ${tags["frame"].Description}`, function () {
-        const tagName = "frame";
-        it(`53.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag form`, function () {
+        assert.equal(
+            createmeal.toHtml({ "form": "textContent value" }),
+            `<form>textContent value</form>`
+            );
         });
-    });
-
-    describe(`54 - tag "${tags["frameset"].tag}": ${tags["frameset"].Description}`, function () {
-        const tagName = "frameset";
-        it(`54.1 - when {${tagName}:"textContent value"}, should return: <${tagName}>textContent value</${tagName}>`, function () {
-            let input = {};
-            input[tagName] = "textContent value";
-            const expected = `<${tagName}>textContent value</${tagName}>`;
-            assert.equal(createmeal.toHtml(input), expected);
+    it(`Should return text content for tag frame`, function () {
+        assert.equal(
+            createmeal.toHtml({ "frame": "textContent value" }),
+            `<frame>textContent value</frame>`
+            );
         });
-    });
-
-    describe(`55 - Test textContent for non-self-closing tags`, function () {
+    it(`Should return text content for tag frameset`, function () {
+        assert.equal(
+            createmeal.toHtml({ "frameset": "textContent value" }),
+            `<frameset>textContent value</frameset>`
+            );
+        });
         it(`Should return text content for tag h1`, function () {
             assert.equal(
                 createmeal.toHtml({ h1: "textContent value" }),
@@ -831,7 +641,7 @@ describe("tag", function () {
         });
     });
 
-    describe(`56 - Test textContent for self-closing tags`, function () {      
+    describe(`Test textContent for self-closing tags`, function () {      
       it(`Should return text content for tag source`, function () {
         assert.equal(
             createmeal.toHtml({ source: "textContent value" }),
