@@ -895,55 +895,55 @@ describe("tag", function () {
         it(`Should return text content for tag hr`, function () {
             assert.equal(
                 createmeal.toHtml({ hr: "textContent value" }),
-                `<hr>textContent value</hr>`
+                `<hr>`
             );
         });
         it(`Should return text content for tag img`, function () {
             assert.equal(
                 createmeal.toHtml({ img: "textContent value" }),
-                `<img>textContent value</img>`
+                `<img>`
             );
         });
         it(`Should return text content for tag input`, function () {
             assert.equal(
                 createmeal.toHtml({ input: "textContent value" }),
-                `<input>textContent value</input>`
+                `<input>`
             );
         });
         it(`Should return text content for tag link`, function () {
             assert.equal(
                 createmeal.toHtml({ link: "textContent value" }),
-                `<link>textContent value</link>`
+                `<link>`
             );
         });
         it(`Should return text content for tag meta`, function () {
             assert.equal(
                 createmeal.toHtml({ meta: "textContent value" }),
-                `<meta>textContent value</meta>`
+                `<meta>`
             );
         });
         it(`Should return text content for tag param`, function () {
             assert.equal(
                 createmeal.toHtml({ param: "textContent value" }),
-                `<param>textContent value</param>`
+                `<param>`
             );
         });
         it(`Should return text content for tag source`, function () {
             assert.equal(
                 createmeal.toHtml({ source: "textContent value" }),
-                `<source>textContent value</source>`
+                `<source>`
             );
         });        
         it(`Should return text content for tag track`, function () {
             assert.equal(
                 createmeal.toHtml({ track: "textContent value" }),
-                `<track>textContent value</track>`
+                `<track>`
             );
         });
         it(`Should return text content for tag wbr`, function () {
             assert.equal(
                 createmeal.toHtml({ wbr: "textContent value" }),
-                `<wbr>textContent value</wbr>`
+                `<wbr>`
             );
         });
     });
