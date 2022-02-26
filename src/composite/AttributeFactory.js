@@ -1,4 +1,5 @@
 import attrs from "../attributes.js";
+import tags from "../tags.js";
 
 /**
  * Class specialized in manage attributes
@@ -103,7 +104,7 @@ export default class NodeFactory {
      * @returns 
      */
      isAttr(name, value=""){
-        if(attrs[name] && typeof value==="string")
+        if(typeof value==="string" && attrs[name] && !tags[name])
             return true;
         if(typeof name === 'object'){ 
             for(let [key, entryValue] of Object.entries(name)){
