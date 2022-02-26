@@ -535,12 +535,6 @@ describe("tag", function () {
                 `<h1>textContent value</h1>`
             );
         });
-        it(`Should return text content for tag h1`, function () {
-            assert.equal(
-                createmeal.toHtml({ h1: "textContent value" }),
-                `<h1>textContent value</h1>`
-            );
-        });
         it(`Should return text content for tag head`, function () {
             assert.equal(
                 createmeal.toHtml({ head: "textContent value" }),
