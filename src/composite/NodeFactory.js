@@ -1,8 +1,7 @@
-import openTags from "../openTags.js";
-
+import selfClosingTags from "../selfClosingTags.js";
 import Node from "./Node.js";
 import StringNode from "./StringNode.js";
-import OpenTagNode from "./OpenTagNode.js";
+import SelfClosingTag from "./SelfClosingTag.js";
 import AttributeFactory from "./AttributeFactory.js";
 
 export default class NodeFactory {
@@ -101,8 +100,8 @@ export default class NodeFactory {
                     continue;
                 }  
                 let node;            
-                if(openTags[this.isOpenTag(key)])
-                    node = new OpenTagNode(key);
+                if(this.isSelfClosingTag(key))
+                    node = new SelfClosingTag(key);
                 else {
                     node = new Node(key);
                     let children  = this.getNode(entryValue);
@@ -115,13 +114,7 @@ export default class NodeFactory {
         }        
     }
 
-    isOpenTag(key) {
-        let opentag;
-        if (key) {
-            let words = key.split(' ');
-            if (words && words.length > 0)
-                opentag = words[0];
-        }
-        return opentag;
+    isSelfClosingTag(key) {
+        return selfClosingTags[key.split(' ')[0]] !== undefined;
     }
 }
