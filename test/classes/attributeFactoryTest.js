@@ -89,4 +89,30 @@ describe("AttributeFactory", function () {
         })
         //TODO: add test for all not boolean attributes checking to return false like "accept"
     })
+    describe("getAttribute",function(){
+        it("Should return an object with key for the boolean attribute with key and value",function(){
+            const attribute = new AttributeFactory().getAttribute("allowfullscreen","allowfullscreen");
+            assert.deepStrictEqual(attribute,{"key": "allowfullscreen"});
+        })
+        it("Should return an object with key for the boolean attribute with key and string empty value",function(){
+            const attribute = new AttributeFactory().getAttribute("allowfullscreen","");
+            assert.deepStrictEqual(attribute,{"key": "allowfullscreen"});
+        })
+        it("Should return an object with key for the boolean attribute with null value",function(){
+            const attribute = new AttributeFactory().getAttribute("allowfullscreen",null);
+            assert.deepStrictEqual(attribute,{"key": "allowfullscreen"});
+        })
+        it("Should return an object with key for the boolean attribute with undefined value",function(){
+            const attribute = new AttributeFactory().getAttribute("allowfullscreen",undefined);
+            assert.deepStrictEqual(attribute,{"key": "allowfullscreen"});
+        })
+        it("Should return an object with key for the boolean attribute with object value",function(){
+            const attribute = new AttributeFactory().getAttribute("allowfullscreen", {});
+            assert.deepStrictEqual(attribute,{"key": "allowfullscreen"});
+        })
+        it("Should return an object with key for the boolean attribute with array value",function(){
+            const attribute = new AttributeFactory().getAttribute("allowfullscreen", {});
+            assert.deepStrictEqual(attribute,{"key": "allowfullscreen"});
+        })
+    })
 })
