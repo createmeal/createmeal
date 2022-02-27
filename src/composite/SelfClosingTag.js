@@ -1,5 +1,5 @@
 import Node from "./Node.js";
-export default class OpenTagNode extends Node {
+export default class SelfClosingTag extends Node {
     constructor(name){
         super(name);
     }
