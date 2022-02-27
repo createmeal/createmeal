@@ -1,5 +1,6 @@
 import assert from "assert";
 import createmeal from "../src/index.js";
+import {describe,it} from "mocha";
 
 describe("tag", function () {
     describe(`Test textContent for non-self-closing tags`, function () {

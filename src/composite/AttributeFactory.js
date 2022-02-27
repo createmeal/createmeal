@@ -4,10 +4,11 @@ import tags from "../tags.js";
 /**
  * Class specialized in manage attributes
  */
-export default class NodeFactory {
+export default class AttributeFactory {
 
     constructor(options={}){
         this.options = options;
+        this.booleanAttibutes = Object.values(attrs).filter(attribute=> attribute.datatype?.includes("boolean"));
     }
 
     /**
@@ -67,21 +68,41 @@ export default class NodeFactory {
         else if(typeof value ==='object'){
             for(let [key, entryValue] of Object.entries(value)){
                 if(key.indexOf("_")===0){
-                    attrs.push({"key":key.substring(1),"value":entryValue}); 
+                    attrs.push(this.getAttribute(key.substring(1),entryValue)); 
                     continue;
                 }
                 if(this.isAttibutePrefix(key)){
-                    attrs.push({"key":key,"value":entryValue});
+                    attrs.push(this.getAttribute(key,entryValue));
                     continue;
                 }
                 if(key==="attributes"){
                     return this.processAttributeArray(entryValue);
                 }                 
                 if(skipAttrValidation||this.isAttr(key, entryValue))
-                    attrs.push({"key":key,"value":entryValue});    
+                    attrs.push(this.getAttribute(key,entryValue));
             }
         }        
         return attrs;
+    }
+    /**
+     * Generate an object that represents the key/value of an attribute.
+     * @param {string} key name of attribute
+     * @param {string} value value of atribute
+     * @returns 
+     */
+    getAttribute(key,value){
+        if(this.isBooleanAttribute(key)){
+            return {"key":key};
+        }
+        return {"key":key,"value":value};
+    }
+    /**
+     * Check if an attribute is boolean or not.
+     * @param {string} fieldKey 
+     * @returns 
+     */
+    isBooleanAttribute(fieldKey){
+        return this.booleanAttibutes.find(attribute => attribute.attribute === fieldKey) !== undefined;
     }
 
     /**

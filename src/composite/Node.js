@@ -15,10 +15,13 @@ export default class Node {
             this.add(child);
         
     }
-
+    /**
+     * 
+     * @param {string} key attribute name
+     * @param {*} value Must not be set for boolean attributes
+     */
     setAttribute(key, value){
-        const NOVALUEATTRIBUTES=['html'];
-        if(NOVALUEATTRIBUTES.includes(key)||value===null)
+        if(!value)
             this.attributes.push(`${key}`);
         else
             this.attributes.push(`${key}="${value}"`);
