@@ -127,14 +127,6 @@ export default class AttributeFactory {
      isAttr(name, value=""){
         if(typeof value==="string" && attrs[name] && !tags[name])
             return true;
-        if(typeof name === 'object'){ 
-            for(let [key, entryValue] of Object.entries(name)){
-                if(attrs[key]&&typeof entryValue==="string")
-                    return true;
-                if(this.isAttibutePrefix(name))
-                    return true
-            }
-        }
         return this.isAttibutePrefix(name);
     }
 
