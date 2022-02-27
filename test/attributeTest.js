@@ -4,12 +4,22 @@ import {describe,it} from "mocha";
 
 
 describe("Attributes",function(){
-  describe("boolean attributes",function(){ //list of boolean attributes https://meiert.com/en/blog/boolean-attributes-of-html/
+  describe("boolean attributes",function(){
       it("Should return a tag with boolean attribute for object value input",function(){
           assert.equal(
               createmeal.toHtml({
                   a: {
                       _hidden: {}
+                  }
+              }),
+              `<a hidden></a>`
+          );
+      })
+      it("Should return a tag with boolean attribute for array value input",function(){
+          assert.equal(
+              createmeal.toHtml({
+                  a: {
+                      _hidden: []
                   }
               }),
               `<a hidden></a>`
@@ -25,11 +35,31 @@ describe("Attributes",function(){
               `<a hidden></a>`
           );
       })
-      it("Should return a tag with boolean attribute for some string value input",function(){
+      it("Should return a tag with boolean attribute for undefined value input",function(){
+          assert.equal(
+              createmeal.toHtml({
+                  a: {
+                      _hidden: undefined
+                  }
+              }),
+              `<a hidden></a>`
+          );
+      })
+      it("Should return a tag with boolean attribute for string value input",function(){
           assert.equal(
               createmeal.toHtml({
                   a: {
                       _hidden: "_hidden"
+                  }
+              }),
+              `<a hidden></a>`
+          );
+      })
+      it("Should return a tag with boolean attribute for number value input",function(){
+          assert.equal(
+              createmeal.toHtml({
+                  a: {
+                      _hidden: 0
                   }
               }),
               `<a hidden></a>`
