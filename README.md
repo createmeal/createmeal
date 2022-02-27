@@ -2,7 +2,7 @@
 <html>
 
   <body>
-    <div id="top"></div><a style="margin-left:5px;" class="badge badge-contributors" href="https://github.com/createmeal/createmeal/graphs/contributors"><img src="https://img.shields.io/badge/CONTRIBUTORS-3-brightgreen"></a><span> </span><a style="margin-left:5px;" class="badge badge-issues" href="https://github.com/createmeal/createmeal/issues"><img src="https://img.shields.io/badge/ISSUES-11-yellow"></a><span> </span><a style="margin-left:5px;" class="badge" href="https://github.com/createmeal/createmeal/blob/master/LICENSE"><img src="https://img.shields.io/badge/LICENSE-MIT-blue"></a><span> </span><a style="margin-left:5px;" href="https://www.jsdelivr.com/package/npm/createmeal"><img src="https://data.jsdelivr.com/v1/package/npm/createmeal/badge"></a><span> </span><a style="margin-left:5px;" class="badge" href="https://www.npmjs.com/package/createmeal"><img src="https://img.shields.io/badge/NPM-1.5.0-red"></a><span> </span><a style="margin-left:5px;" class="badge" href="#usage"><img src="https://img.shields.io/badge/REPO STATUS-ACTIVE-green"></a>
+    <div id="top"></div><a style="margin-left:5px;" class="badge badge-contributors" href="https://github.com/createmeal/createmeal/graphs/contributors"><img src="https://img.shields.io/badge/CONTRIBUTORS-3-brightgreen"></a><span> </span><a style="margin-left:5px;" class="badge badge-issues" href="https://github.com/createmeal/createmeal/issues"><img src="https://img.shields.io/badge/ISSUES-11-yellow"></a><span> </span><a style="margin-left:5px;" class="badge" href="https://github.com/createmeal/createmeal/blob/master/LICENSE"><img src="https://img.shields.io/badge/LICENSE-MIT-blue"></a><span> </span><a style="margin-left:5px;" href="https://www.jsdelivr.com/package/npm/createmeal"><img src="https://data.jsdelivr.com/v1/package/npm/createmeal/badge"></a><span> </span><a style="margin-left:5px;" class="badge" href="https://www.npmjs.com/package/createmeal"><img src="https://img.shields.io/badge/NPM-2.0.0-red"></a><span> </span><a style="margin-left:5px;" class="badge" href="#usage"><img src="https://img.shields.io/badge/REPO STATUS-ACTIVE-green"></a>
     <div align="center">
       <h3>Createmeal</h3>
       <p align="center"><span>HTML generator powered by json</span><br><a href="https://createmeal.org"><strong>Explore the full documentation »</strong></a></p>
@@ -49,7 +49,7 @@
       <ul>
         <li><span>NPM</span><pre><code>npm i createmeal</code></pre>
         </li>
-        <li><span>CDN</span><pre><code>&lt;script src="https://cdn.jsdelivr.net/npm/createmeal@1.5.0/dist/createmeal-legacy.js"&gt;&lt;/script&gt;</code></pre>
+        <li><span>CDN</span><pre><code>&lt;script src="https://cdn.jsdelivr.net/npm/createmeal@2.0.0/dist/createmeal-legacy.js"&gt;&lt;/script&gt;</code></pre>
         </li>
       </ul>
       <h3>Loading</h3>
@@ -83,7 +83,7 @@
         <li><span>CDN</span><pre><code>
 &lt;html&gt;
     &lt;body&gt;
-        &lt;script src="https://cdn.jsdelivr.net/npm/createmeal@1.5.0/dist/createmeal-legacy.js"&gt;&lt;/script&gt;
+        &lt;script src="https://cdn.jsdelivr.net/npm/createmeal@2.0.0/dist/createmeal-legacy.js"&gt;&lt;/script&gt;
         &lt;script&gt;
         let helloWorld = {
             div: [
