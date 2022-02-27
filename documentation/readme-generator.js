@@ -67,9 +67,9 @@ async function getContributorsCount(){
 function createBadge(link, label, message, color, className="badge") {
     return {
         a: {
-            style: "margin-left:5px;",
-            class: className,
-            href: link,
+            _style: "margin-left:5px;",
+            _class: className,
+            _href: link,
             img: {
                 src: `https://img.shields.io/badge/${label}-${message}-${color}`,
             },
@@ -200,8 +200,8 @@ function createUsage(){
 function createCDNBadge(){
     return {
         a: {
-            style: "margin-left:5px;",
-            href: "https://www.jsdelivr.com/package/npm/createmeal",
+            _style: "margin-left:5px;",
+            _href: "https://www.jsdelivr.com/package/npm/createmeal",
             img: {
                 src: `https://data.jsdelivr.com/v1/package/npm/createmeal/badge`,
             },
