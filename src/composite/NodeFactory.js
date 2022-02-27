@@ -24,9 +24,21 @@ export default class NodeFactory {
         } else if(typeof jsonDoc ==="object"){
             nodes = this.createNodesFromObject(jsonDoc, nodes);
         }
+        else if (typeof jsonDoc ==="string"){
+            const response = this.tryParseObject(jsonDoc);
+            if(typeof response === "object"){
+                nodes = this.createNodesFromObject(response, nodes);
+            }
+        }
         return nodes;
     }
-
+    tryParseObject(jsonDoc){
+        try {
+            return JSON.parse(jsonDoc);
+        } catch {
+            return jsonDoc;
+        }
+    }
     /**
      * Iterates over a jsonDoc array to extract nodes
      * @param {[]} jsonDoc 

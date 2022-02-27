@@ -4,11 +4,14 @@ import { describe, it } from 'mocha';
 
 describe("Basic Strictures",function(){
     describe("01-strings and arrays",function(){
+        it('Should return a string for a string input', function(){
+            assert.equal(toHtml("test"),"test");
+        })  
+        it("Should return a P tag with string content from a serialized object",function(){
+            assert.equal(toHtml('{"p":["test"]}'),'<p>test</p>');
+        })      
         it('Should return a clean string for a string array input', function(){
             assert.equal(toHtml(["test"]),"test");
-        })
-        it('Should return an empty string for an string input', function(){
-            assert.equal(toHtml("test"),"");
         })
         it("Should return a P tag with string content",function(){
             assert.equal(toHtml({"p":["test"]}),'<p>test</p>');
