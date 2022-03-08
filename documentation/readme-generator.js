@@ -231,8 +231,9 @@ function createCDNBadge(){
                     createBadge("#usage", "REPO STATUS", "ACTIVE", "green"),
                     createTitleArea(),
                     {
-                        div:{
+                        a:{
                             align: "center" ,
+                            "href": "https://createmeal.org",                            
                             img: {
                                     src: `assets/demo2-1080.gif`,
                             }
