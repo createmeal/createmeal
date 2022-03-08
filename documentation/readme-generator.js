@@ -234,7 +234,7 @@ function createCDNBadge(){
                         div:{
                             align: "center" ,
                             img: {
-                                    src: `assets/demo2.gif`,
+                                    src: `assets/demo2-1080.gif`,
                             }
                         }
                     },                    
