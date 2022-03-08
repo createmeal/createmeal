@@ -235,7 +235,7 @@ function createCDNBadge(){
                             align: "center" ,
                             "href": "https://createmeal.org",                            
                             img: {
-                                    src: `assets/demo2-1080.gif`,
+                                    src: `assets/demo2.gif`,
                             }
                         }
                     },                    
