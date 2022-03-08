@@ -230,15 +230,15 @@ function createCDNBadge(){
                     { span: [" "] },
                     createBadge("#usage", "REPO STATUS", "ACTIVE", "green"),
                     createTitleArea(),
-                    {
-                        a:{
-                            align: "center" ,
-                            "href": "https://createmeal.org",                            
-                            img: {
-                                    src: `assets/demo2.gif`,
+                    {div:{
+                        align: "center" ,
+                            a:{
+                                "href": "https://createmeal.org",                            
+                                img: {
+                                        src: `assets/demo2.gif`,
+                                }
                             }
-                        }
-                    },                    
+                    }},                   
                     {
                         details: [
                             { summary: ["Table of Contents"] },
