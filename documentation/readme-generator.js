@@ -231,10 +231,13 @@ function createCDNBadge(){
                     createBadge("#usage", "REPO STATUS", "ACTIVE", "green"),
                     createTitleArea(),
                     {
-                        img: {
-                            src: `assets/demo2.gif`,
-                        },
-                    },
+                        div:{
+                            align: "center" ,
+                            img: {
+                                    src: `assets/demo2.gif`,
+                            }
+                        }
+                    },                    
                     {
                         details: [
                             { summary: ["Table of Contents"] },
