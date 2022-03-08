@@ -7,7 +7,7 @@
       <h3>Createmeal</h3>
       <p align="center"><span>HTML generator powered by json</span><br><a href="https://createmeal.org"><strong>Explore the full documentation »</strong></a></p>
       <p><a href="#"><span>View Demo</span></a><span> · </span><a href="https://github.com/createmeal/createmeal/issues"><span>Report Bug</span></a><span> · </span><a href="https://github.com/createmeal/createmeal/issues"><span>Request Feature</span></a></p>
-    </div>
+    </div><img src="assets/demo2.gif">
     <details>
       <summary>Table of Contents</summary>
       <ol>
