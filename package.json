@@ -8,7 +8,7 @@
     "build": "webpack",
     "build-tsc": "tsc --build",
     "docs": "node ./documentation/readme-generator.js",
-    "test": "jest ./test/attributeTest.js",
+    "test": "c8 mocha ./test/**/*.js",
     "release": "node release.js",
     "release_patch": "node release.js patch",
     "release_minor": "node release.js minor",
@@ -36,6 +36,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "c8": "^7.11.0",
     "chai": "^4.3.6",
     "eslint": "^8.9.0",
     "jest": "^27.5.1",
@@ -50,5 +51,11 @@
   "directories": {
     "test": "test"
   },
-  "type": "module"
+  "type": "module",
+  "c8": {
+    "src": [
+      "/src"
+    ],
+    "check-coverage": true
+  }
 }
