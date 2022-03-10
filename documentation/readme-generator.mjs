@@ -30,10 +30,10 @@ const USAGE_EXAMPLE = `
                         class: "container"
                     },
                     {
-                        h3: ["Hello World!"]
+                        h3: "Hello World!"
                     },
                     {
-                        p: ["This is a simple way to generate DOM without write HTML."]
+                        p: "This is a simple way to generate DOM without write HTML."
                     }
                 ]
             }
