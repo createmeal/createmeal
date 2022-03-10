@@ -1,8 +1,8 @@
-import selfClosingTags from "../selfClosingTags.js";
-import Node from "./Node.js";
-import StringNode from "./StringNode.js";
-import SelfClosingTag from "./SelfClosingTag.js";
-import AttributeFactory from "./AttributeFactory.js";
+import selfClosingTags from "../selfClosingTags.mjs";
+import Node from "./Node.mjs";
+import StringNode from "./StringNode.mjs";
+import SelfClosingTag from "./SelfClosingTag.mjs";
+import AttributeFactory from "./AttributeFactory.mjs";
 
 export default class NodeFactory {
 

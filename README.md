@@ -2,13 +2,12 @@
 <html>
 
   <body>
-    <div id="top"></div><a style="margin-left:5px;" class="badge badge-contributors" href="https://github.com/createmeal/createmeal/graphs/contributors"><img src="https://img.shields.io/badge/CONTRIBUTORS-3-brightgreen"></a><span> </span><a style="margin-left:5px;" class="badge badge-issues" href="https://github.com/createmeal/createmeal/issues"><img src="https://img.shields.io/badge/ISSUES-7-yellow"></a><span> </span><a style="margin-left:5px;" class="badge" href="https://github.com/createmeal/createmeal/blob/master/LICENSE"><img src="https://img.shields.io/badge/LICENSE-MIT-blue"></a><span> </span><a style="margin-left:5px;" href="https://www.jsdelivr.com/package/npm/createmeal"><img src="https://data.jsdelivr.com/v1/package/npm/createmeal/badge"></a><span> </span><a style="margin-left:5px;" class="badge" href="https://www.npmjs.com/package/createmeal"><img src="https://img.shields.io/badge/NPM-2.1.0-red"></a><span> </span><a style="margin-left:5px;" class="badge" href="#usage"><img src="https://img.shields.io/badge/REPO STATUS-ACTIVE-green"></a>
+    <div id="top"></div><a style="margin-left:5px;" class="badge badge-tryonline" href="https://npm.runkit.com/createmeal"><img src="https://img.shields.io/badge/Try it online on-RunKit-f55fa6"></a><span> </span><a style="margin-left:5px;" class="badge badge-contributors" href="https://github.com/createmeal/createmeal/graphs/contributors"><img src="https://img.shields.io/badge/CONTRIBUTORS-3-brightgreen"></a><span> </span><a style="margin-left:5px;" class="badge badge-issues" href="https://github.com/createmeal/createmeal/issues"><img src="https://img.shields.io/badge/ISSUES-7-yellow"></a><span> </span><a style="margin-left:5px;" class="badge" href="https://github.com/createmeal/createmeal/blob/master/LICENSE"><img src="https://img.shields.io/badge/LICENSE-MIT-blue"></a><span> </span><a style="margin-left:5px;" href="https://www.jsdelivr.com/package/npm/createmeal"><img src="https://data.jsdelivr.com/v1/package/npm/createmeal/badge"></a><span> </span><a style="margin-left:5px;" class="badge" href="https://www.npmjs.com/package/createmeal"><img src="https://img.shields.io/badge/NPM-2.1.0-red"></a><span> </span><a style="margin-left:5px;" class="badge" href="#usage"><img src="https://img.shields.io/badge/REPO STATUS-ACTIVE-green"></a><span> </span><a href="https://openbase.com/js/createmeal?utm_source=embedded&amp;utm_medium=badge&amp;utm_campaign=rate-badge"><img src="https://badges.openbase.com/js/featured/createmeal.svg?token=qN8WsbWRkOBtfXJ9tNG0KnUwxkjPAjs6HUSniqdmrCU=" alt="Featured on Openbase"></a><span> </span><a href="https://codecov.io/gh/createmeal/createmeal"><img src="https://codecov.io/gh/createmeal/createmeal/branch/master/graph/badge.svg?token=RG5SQ286T0"></a>
     <div align="center">
       <h3>Createmeal</h3>
       <p align="center"><span>HTML generator powered by json</span><br><a href="https://createmeal.org"><strong>Explore the full documentation »</strong></a></p>
       <p><a href="#"><span>View Demo</span></a><span> · </span><a href="https://github.com/createmeal/createmeal/issues"><span>Report Bug</span></a><span> · </span><a href="https://github.com/createmeal/createmeal/issues"><span>Request Feature</span></a></p>
     </div>
-    <div align="center"><a href="https://createmeal.org"><img src="https://user-images.githubusercontent.com/13664081/157149662-9b549fd3-659f-46c1-8341-368ba9668a08.gif"></a></div>
     <details>
       <summary>Table of Contents</summary>
       <ol>
@@ -40,7 +39,7 @@
     <p align="right"><a href="#top"><span>back to top</span></a></p>
     <section>
       <h3>Built With</h3>
-      <p>The entire library is actually created using javascript and the dependences, HTML, images and other things are used only for Development, testing, and example porpose.</p>
+      <p>The entire library is created using vanilla javascript. All dependencies, HTML, images and other things are used only for Development, testing, and example porpose.</p>
     </section>
     <p align="right"><a href="#top"><span>back to top</span></a></p>
     <section>
@@ -70,15 +69,13 @@
                                     </span></p>
       <h3>Base Specification</h3>
       <ul>
-        <li><span>Simple text: Text is represented by a strings.</span><pre><code>createmeal.toHtml("test");\\ "test"</code></pre>
+        <li><span>Simple text: Text is represented by an array of strings. </span><pre><code>createmeal.toHtml(["test"]);\\ "test"</code></pre>
         </li>
-        <li><span>Text: text can be represented by an array of strings. </span><pre><code>createmeal.toHtml(["test"]);\\ "test"</code></pre>
-        </li>
-        <li><span>Paragraphe: Tag text content is a simple strings. </span><pre><code>{"p":"teste"} \\&lt;p&gt;teste&lt;/p&gt;</code></pre>
+        <li><span>Paragraphe: Tag text content can be an array of strings. </span><pre><code>{"p":["teste"]} \\&lt;p&gt;teste&lt;/p&gt;</code></pre>
         </li>
         <li><span>paragraphe composed by array of strings: Multiple strings compose an unique text. </span><pre><code>{"p":["test","Of","Strings"]} \\&lt;p&gt;testOfStrings&lt;/p&gt;</code></pre>
         </li>
-        <li><span>Tag defined by strings: is not the default way, but is an available option.</span><pre><code>toJson("&lt;h1&gt;Tag h1 generated by text&lt;/h1&gt;") \\&lt;h1&gt;Tag h1 generated by text&lt;/h1&gt;</code></pre>
+        <li><span>Tag defined by array of strings: is not the default way, but is an available option.</span><pre><code>["&lt;h1&gt;Tag h1 generated by text&lt;/h1&gt;"] \\&lt;h1&gt;Tag h1 generated by text&lt;/h1&gt;</code></pre>
         </li>
       </ul>
       <h3>Incorporate in your application</h3>
@@ -125,7 +122,9 @@
       </ul>
     </section>
     <p align="right"><a href="#top"><span>back to top</span></a></p>
-    <h2>License</h2><a href="https://github.com/createmeal/createmeal/blob/master/LICENSE"><span>MIT</span></a>
+    <section>
+      <h2>License</h2><a href="https://github.com/createmeal/createmeal/blob/master/LICENSE"><span>MIT</span></a>
+    </section>
     <p align="right"><a href="#top"><span>back to top</span></a></p>
   </body>
 

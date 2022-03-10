@@ -1,5 +1,5 @@
 node_modules
 workspace.code-workspace
-.nyc_output
 .vscode
 /dist
+coverage

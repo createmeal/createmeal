@@ -1,5 +1,5 @@
 const express = require("express");
-const createmeal = require("createmeal");
+const createmeal = require("../../dist/createmeal-legacy-node").createmeal;
 
 const fs = require("fs");
 const path = require("path");
