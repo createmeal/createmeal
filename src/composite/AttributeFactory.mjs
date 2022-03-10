@@ -1,5 +1,5 @@
-import attrs from "../attributes.js";
-import tags from "../tags.js";
+import attrs from "../attributes.mjs";
+import tags from "../tags.mjs";
 
 /**
  * Class specialized in manage attributes

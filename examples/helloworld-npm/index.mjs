@@ -1,5 +1,5 @@
 import express from "express";
-import createmeal from "../../dist/createmeal.js";
+import createmeal from "../../dist/createmeal.mjs";
 
 import fs from "fs";
 import path from "path";
