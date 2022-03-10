@@ -4,13 +4,11 @@ on:
     branches: [ master ]
     types: [closed]
 jobs:
-  run:
+  coverage:
+    if: github.event.pull_request.merged == true
+    name: check test coverage
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-    env:
-      OS: ubuntu-latest
+    
     steps:
       - uses: actions/checkout@v2
 
