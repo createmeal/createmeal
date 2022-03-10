@@ -17,8 +17,19 @@ const CONTRIBUTORS_DATA_URL = "https://api.github.com/repos/createmeal/createmea
 const LICENSE_URL = "https://github.com/createmeal/createmeal/blob/master/LICENSE";
 const NPM_URL = "https://www.npmjs.com/package/createmeal";
 const DOCS_URL = "https://createmeal.org";
+const CDN_URL_ESM = `&lt;script type="module" src="https://cdn.jsdelivr.net/npm/createmeal@${PACKAGE_VERSION}/dist/createmeal.js"&gt;&lt;/script&gt;`;
 const CDN_URL = `&lt;script src="https://cdn.jsdelivr.net/npm/createmeal@${PACKAGE_VERSION}/dist/createmeal-legacy.js"&gt;&lt;/script&gt;`;
 const RUNKIT_URL = "https://npm.runkit.com/createmeal";
+
+const LOADING_CDN_ESM = `${CDN_URL_ESM}
+&lt;script type="module"&gt;
+    import {toHtml} from "createmeal"
+&lt;/script&gt;`;
+
+const LOADING_CDN = `${CDN_URL}
+&lt;script type="application/javascript"&gt;
+    createmeal.toHtml();
+&lt;/script&gt;`;
 
 const USAGE_EXAMPLE = `
 &lt;html&gt;
@@ -296,10 +307,19 @@ function createGetStartedSection() {
             {
                 ul: [
                     {
-                        li: createCodeQuote("ES Module (ESM) - from version 1.2", "import {toHtml} from 'createmeal';")
+                        li: createCodeQuote("ES Module Browser (ESM)", LOADING_CDN_ESM)
                     },
                     {
-                        li: createCodeQuote("CommonJS - only on version 1.0", "const {toHtml} = require('createmeal');")
+                        li: createCodeQuote("HTML script type='application/javascript'", LOADING_CDN)
+                    },
+                    {
+                        li: createCodeQuote("ES Module NodeJs (MJS)", "import {toHtml} from 'createmeal';")
+                    },
+                    {
+                        li: createCodeQuote("Typescript", "import {toHtml} from 'createmeal';")
+                    },
+                    {
+                        li: createCodeQuote("CommonJS (CJS)", "const {toHtml} = require('createmeal/dist/createmeal-legacy-node').createmeal;")
                     }
                 ],
             }
