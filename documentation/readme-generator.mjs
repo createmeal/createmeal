@@ -18,6 +18,7 @@ const LICENSE_URL = "https://github.com/createmeal/createmeal/blob/master/LICENS
 const NPM_URL = "https://www.npmjs.com/package/createmeal";
 const DOCS_URL = "https://createmeal.org";
 const CDN_URL = `&lt;script src="https://cdn.jsdelivr.net/npm/createmeal@${PACKAGE_VERSION}/dist/createmeal-legacy.js"&gt;&lt;/script&gt;`;
+const RUNKIT_URL = "https://npm.runkit.com/createmeal";
 
 const USAGE_EXAMPLE = `
 &lt;html&gt;
@@ -408,6 +409,8 @@ function createLicenseSection() {
             html: {
                 body: [
                     { div: { id: "top" } },
+                    createBadge(RUNKIT_URL, "Try it online on", "RunKit", "f55fa6","badge badge-tryonline"),
+                    { span: [" "] },
                     createBadge(CONTRIBUTORS_URL, "CONTRIBUTORS", contributors, "brightgreen","badge badge-contributors"),
                     { span: [" "] },
                     createBadge(ISSUES_URL, "ISSUES", openIssues, "yellow","badge badge-issues"),
