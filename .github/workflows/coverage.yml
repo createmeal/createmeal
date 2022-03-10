@@ -1,0 +1,34 @@
+name: Codecov Coverage
+on:
+  pull_request:
+    branches: [master]
+    types: [closed]
+jobs:
+  coverage:
+    if: github.event.pull_request.merged == true
+    name: check test coverage
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Nodejs
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
+
+      - uses: actions/checkout@master
+
+      - name: Generate coverage report
+        run: |
+          npm ci
+          npm run test
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v2
+        with:
+          directory: ./coverage/
+          fail_ci_if_error: true
+          files: ./cobertura-coverage.xml
+          name: codecov-umbrella
+          path_to_write_report: ./coverage/codecov_report.txt
+          verbose: true

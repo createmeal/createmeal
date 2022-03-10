@@ -1,4 +1,4 @@
-import {toHtml} from "../../dist/createmeal.js"
+import {toHtml} from "../../dist/createmeal.mjs"
 
 const template = {
     "html": {
