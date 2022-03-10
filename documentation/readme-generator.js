@@ -77,6 +77,27 @@ function createBadge(link, label, message, color, className="badge") {
     };
 }
 
+function createOpenbaseBadge(){
+    return {
+        a: {
+            _href: "https://openbase.com/js/createmeal?utm_source=embedded&amp;utm_medium=badge&amp;utm_campaign=rate-badge",
+            img: {
+                _src: "https://badges.openbase.com/js/featured/createmeal.svg?token=qN8WsbWRkOBtfXJ9tNG0KnUwxkjPAjs6HUSniqdmrCU=",
+                _alt: "Featured on Openbase"
+            }
+        }
+    }
+}
+function createCodecovBadge(){
+    return {
+        a: {
+            _href: "https://codecov.io/gh/createmeal/createmeal",
+            img: {
+                _src: "https://codecov.io/gh/createmeal/createmeal/branch/master/graph/badge.svg?token=RG5SQ286T0"
+            }
+        }
+    }
+}
 function createTableOfContentsLine(href, textContent) {
     return {
         li: createSimpleLink(href, textContent),
@@ -229,6 +250,10 @@ function createCDNBadge(){
                     createBadge(NPM_URL, "NPM", PACKAGE_VERSION, "red"),
                     { span: [" "] },
                     createBadge("#usage", "REPO STATUS", "ACTIVE", "green"),
+                    { span: [" "] },
+                    createOpenbaseBadge(),
+                    { span: [" "] },
+                    createCodecovBadge(),
                     createTitleArea(),
                     {
                         details: [

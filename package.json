@@ -39,7 +39,6 @@
     "c8": "^7.11.0",
     "chai": "^4.3.6",
     "eslint": "^8.9.0",
-    "jest": "^27.5.1",
     "mocha": "^9.2.1",
     "node-fetch": "^3.2.0",
     "pretty": "^2.0.0",
@@ -56,6 +55,11 @@
     "src": [
       "/src"
     ],
-    "check-coverage": true
+    "check-coverage": true,
+    "reporter": [
+      "text",
+      "lcov",
+      "cobertura"
+    ]
   }
 }
