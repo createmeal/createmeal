@@ -1,4 +1,4 @@
-import Node from "./Node.js";
+import Node from "./Node.mjs";
 export default class StringNode extends Node {
     constructor(name){
         super(name);

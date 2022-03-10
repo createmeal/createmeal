@@ -1,4 +1,4 @@
-import NodeFactory from "./composite/NodeFactory.js";
+import NodeFactory from "./composite/NodeFactory.mjs";
 
 export function toHtml(json, options={}){    
     const nodeFactory = new NodeFactory(options);

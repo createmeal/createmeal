@@ -39,7 +39,7 @@
     <p align="right"><a href="#top"><span>back to top</span></a></p>
     <section>
       <h3>Built With</h3>
-      <p>The entire library is actually created using javascript and the dependences, HTML, images and other things are used only for Development, testing, and example porpose.</p>
+      <p>The entire library is created using vanilla javascript. All dependencies, HTML, images and other things are used only for Development, testing, and example porpose.</p>
     </section>
     <p align="right"><a href="#top"><span>back to top</span></a></p>
     <section>
@@ -122,7 +122,9 @@
       </ul>
     </section>
     <p align="right"><a href="#top"><span>back to top</span></a></p>
-    <h2>License</h2><a href="https://github.com/createmeal/createmeal/blob/master/LICENSE"><span>MIT</span></a>
+    <section>
+      <h2>License</h2><a href="https://github.com/createmeal/createmeal/blob/master/LICENSE"><span>MIT</span></a>
+    </section>
     <p align="right"><a href="#top"><span>back to top</span></a></p>
   </body>
 
