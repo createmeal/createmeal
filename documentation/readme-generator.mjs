@@ -209,6 +209,17 @@ function createTitleArea(){
         ],
     }
 }
+function createGifShow(){
+    return {div:{
+        align: "center" ,
+            a:{
+                "href": "https://createmeal.org",                            
+                img: {
+                        src: `https://user-images.githubusercontent.com/13664081/157149662-9b549fd3-659f-46c1-8341-368ba9668a08.gif`,
+                }
+            }
+    }}
+}
 function createAboutSummary(){
     return {
         li: {
@@ -400,7 +411,7 @@ function createBuiltWithSection() {
                 p: [
                     "The entire library is created using vanilla javascript. ",
                     "All dependencies, HTML, images and other things are used only for Development, ",
-                    " testing, and example porpose.",
+                    " testing, and example purpose.",
                 ],
             },
         ],
@@ -447,6 +458,7 @@ function createLicenseSection() {
                     { span: [" "] },
                     createCodecovBadge(),
                     createTitleArea(),
+                    createGifShow(),
                     createTableOfContents(),
                     createAboutSection(),
                     backToTop(),
