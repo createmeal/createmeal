@@ -7,11 +7,11 @@ export default class Node {
 
     /**
      * Append an array of children to the Node
-     * @param {Node[]} child An array of Nodes
+     * @param {Node[]} children An array of Nodes
      */
-    addChildren(child) {
-        if(Array.isArray(child)&&child.length>0){
-            this.children = this.children.concat(child);
+    addChildren(children) {
+        if(Array.isArray(children)&&children.length>0){
+            this.children = this.children.concat(children);
         }
     }
     /**

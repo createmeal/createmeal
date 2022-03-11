@@ -91,8 +91,9 @@ export default class NodeFactory {
                     continue;
                 }  
                 let node;            
-                if(this.isSelfClosingTag(key))
+                if(this.isSelfClosingTag(key)){
                     node = new SelfClosingTag(key);
+                }
                 else {
                     node = new Node(key);
                     node.addChildren(this.getNodes(entryValue));
