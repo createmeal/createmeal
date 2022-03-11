@@ -27,16 +27,6 @@ export default class Node {
             this.attributes.push(`${key}="${value}"`);
     }
 
-    remove(child) {
-        let length = this.children.length;
-        for (let i = 0; i < length; i++) {
-            if (this.children[i] === child) {
-                this.children.splice(i, 1);
-                return;
-            }
-        }
-    }
-
     getAttributes(){
         return this.attributes.join(' ');
     }
@@ -54,10 +44,6 @@ export default class Node {
 
     getChild(i) {
         return this.children[i];
-    }
-
-    hasChildren() {
-        return this.children.length > 0;
     }
 
     toHtml(){
