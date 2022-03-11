@@ -69,7 +69,7 @@
         </li>
         <li><span>Typescript</span><pre><code>import {toHtml} from 'createmeal';</code></pre>
         </li>
-        <li><span>CommonJS (CJS)</span><pre><code>const {toHtml} = require('createmeal/dist/createmeal-legacy-node').createmeal;</code></pre>
+        <li><span>CommonJS (CJS)</span><pre><code>const {toHtml} = require('createmeal/legacy').createmeal;</code></pre>
         </li>
       </ul>
     </section>

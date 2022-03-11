@@ -330,7 +330,7 @@ function createGetStartedSection() {
                         li: createCodeQuote("Typescript", "import {toHtml} from 'createmeal';")
                     },
                     {
-                        li: createCodeQuote("CommonJS (CJS)", "const {toHtml} = require('createmeal/dist/createmeal-legacy-node').createmeal;")
+                        li: createCodeQuote("CommonJS (CJS)", "const {toHtml} = require('createmeal/legacy').createmeal;")
                     }
                 ],
             }
