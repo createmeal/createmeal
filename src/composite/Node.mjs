@@ -5,15 +5,14 @@ export default class Node {
         this.name = name;
     }
 
-    add(child) {
-        this.children.push(child);
-    }
+    /**
+     * Append an array of children to the Node
+     * @param {Node[]} child An array of Nodes
+     */
     addChildren(child) {
-        if(Array.isArray(child)&&child&&child.length>0)
+        if(Array.isArray(child)&&child.length>0){
             this.children = this.children.concat(child);
-        else if(!Array.isArray(child) && typeof child==='object')
-            this.add(child);
-        
+        }
     }
     /**
      * 
