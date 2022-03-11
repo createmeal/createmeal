@@ -45,12 +45,7 @@ export default class NodeFactory {
      * @returns nodes
      */
     createNodesFromObject(jsonDoc, nodes) {
-        let newnodes = this.getNode(jsonDoc);
-        if (Array.isArray(newnodes))
-            nodes = nodes.concat(newnodes);
-
-        else
-            nodes.push(newnodes);
+        nodes = nodes.concat(this.getNodes(jsonDoc));
         return nodes;
     }
 
@@ -62,29 +57,25 @@ export default class NodeFactory {
      * @returns nodes
      */
     createNodesFromArray(jsonDoc, nodes) {
-        for (let child of jsonDoc) {
-            let node = this.getNode(child);
-            if (Array.isArray(node))
-                nodes = nodes.concat(node);
-
-            else
-                nodes.push(node);
+        for (const child of jsonDoc) {
+            nodes = nodes.concat(this.getNodes(child));
         }
         return nodes;
     }
 
-    getNode(value){
+    /**
+     * 
+     * @param {{}|[]|string} value 
+     * @param {Node[]}  nodes
+     */
+    getNodes(value){
         if(typeof value  === 'string'|| value instanceof String){
-            return new StringNode(value);
+            return [new StringNode(value)];
         }        
         if(Array.isArray(value)){
             let nodes = []; 
-            for(let child of value){
-                let node = this.getNode(child);
-                if(Array.isArray(node))
-                    nodes = nodes.concat(node);
-                else
-                    nodes.push(node);
+            for(const child of value){
+                nodes = nodes.concat(this.getNodes(child));
             }
             return nodes;
         } else if(typeof value === 'object'){            
@@ -100,12 +91,12 @@ export default class NodeFactory {
                     continue;
                 }  
                 let node;            
-                if(this.isSelfClosingTag(key))
+                if(this.isSelfClosingTag(key)){
                     node = new SelfClosingTag(key);
+                }
                 else {
                     node = new Node(key);
-                    let children  = this.getNode(entryValue);
-                    node.addChildren(children);
+                    node.addChildren(this.getNodes(entryValue));
                 }
                 this.attributeFacotory.setNodeAttributes(node, entryValue);  
                 nodes.push(node);      

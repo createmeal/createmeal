@@ -1,4 +1,4 @@
-import { toHtml } from '../src/index.js';
+import { toHtml } from '../src/index.mjs';
 import assert from 'assert';
 import {describe,it} from "mocha";
 

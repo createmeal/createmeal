@@ -17,8 +17,19 @@ const CONTRIBUTORS_DATA_URL = "https://api.github.com/repos/createmeal/createmea
 const LICENSE_URL = "https://github.com/createmeal/createmeal/blob/master/LICENSE";
 const NPM_URL = "https://www.npmjs.com/package/createmeal";
 const DOCS_URL = "https://createmeal.org";
+const CDN_URL_ESM = `&lt;script type="module" src="https://cdn.jsdelivr.net/npm/createmeal@${PACKAGE_VERSION}/dist/createmeal.js"&gt;&lt;/script&gt;`;
 const CDN_URL = `&lt;script src="https://cdn.jsdelivr.net/npm/createmeal@${PACKAGE_VERSION}/dist/createmeal-legacy.js"&gt;&lt;/script&gt;`;
 const RUNKIT_URL = "https://npm.runkit.com/createmeal";
+
+const LOADING_CDN_ESM = `${CDN_URL_ESM}
+&lt;script type="module"&gt;
+    import {toHtml} from "createmeal"
+&lt;/script&gt;`;
+
+const LOADING_CDN = `${CDN_URL}
+&lt;script type="application/javascript"&gt;
+    createmeal.toHtml();
+&lt;/script&gt;`;
 
 const USAGE_EXAMPLE = `
 &lt;html&gt;
@@ -198,6 +209,17 @@ function createTitleArea(){
         ],
     }
 }
+function createGifShow(){
+    return {div:{
+        align: "center" ,
+            a:{
+                "href": "https://createmeal.org",                            
+                img: {
+                        src: `https://user-images.githubusercontent.com/13664081/157149662-9b549fd3-659f-46c1-8341-368ba9668a08.gif`,
+                }
+            }
+    }}
+}
 function createAboutSummary(){
     return {
         li: {
@@ -296,10 +318,19 @@ function createGetStartedSection() {
             {
                 ul: [
                     {
-                        li: createCodeQuote("ES Module (ESM) - from version 1.2", "import {toHtml} from 'createmeal';")
+                        li: createCodeQuote("ES Module Browser (ESM)", LOADING_CDN_ESM)
                     },
                     {
-                        li: createCodeQuote("CommonJS - only on version 1.0", "const {toHtml} = require('createmeal');")
+                        li: createCodeQuote("HTML script type='application/javascript'", LOADING_CDN)
+                    },
+                    {
+                        li: createCodeQuote("ES Module NodeJs (MJS)", "import {toHtml} from 'createmeal';")
+                    },
+                    {
+                        li: createCodeQuote("Typescript", "import {toHtml} from 'createmeal';")
+                    },
+                    {
+                        li: createCodeQuote("CommonJS (CJS)", "const {toHtml} = require('createmeal/legacy').createmeal;")
                     }
                 ],
             }
@@ -380,7 +411,7 @@ function createBuiltWithSection() {
                 p: [
                     "The entire library is created using vanilla javascript. ",
                     "All dependencies, HTML, images and other things are used only for Development, ",
-                    " testing, and example porpose.",
+                    " testing, and example purpose.",
                 ],
             },
         ],
@@ -427,6 +458,7 @@ function createLicenseSection() {
                     { span: [" "] },
                     createCodecovBadge(),
                     createTitleArea(),
+                    createGifShow(),
                     createTableOfContents(),
                     createAboutSection(),
                     backToTop(),

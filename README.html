@@ -8,6 +8,7 @@
       <p align="center"><span>HTML generator powered by json</span><br><a href="https://createmeal.org"><strong>Explore the full documentation »</strong></a></p>
       <p><a href="#"><span>View Demo</span></a><span> · </span><a href="https://github.com/createmeal/createmeal/issues"><span>Report Bug</span></a><span> · </span><a href="https://github.com/createmeal/createmeal/issues"><span>Request Feature</span></a></p>
     </div>
+    <div align="center"><a href="https://createmeal.org"><img src="https://user-images.githubusercontent.com/13664081/157149662-9b549fd3-659f-46c1-8341-368ba9668a08.gif"></a></div>
     <details>
       <summary>Table of Contents</summary>
       <ol>
@@ -39,7 +40,7 @@
     <p align="right"><a href="#top"><span>back to top</span></a></p>
     <section>
       <h3>Built With</h3>
-      <p>The entire library is created using vanilla javascript. All dependencies, HTML, images and other things are used only for Development, testing, and example porpose.</p>
+      <p>The entire library is created using vanilla javascript. All dependencies, HTML, images and other things are used only for Development, testing, and example purpose.</p>
     </section>
     <p align="right"><a href="#top"><span>back to top</span></a></p>
     <section>
@@ -54,9 +55,21 @@
       </ul>
       <h3>Loading</h3>
       <ul>
-        <li><span>ES Module (ESM) - from version 1.2</span><pre><code>import {toHtml} from 'createmeal';</code></pre>
+        <li><span>ES Module Browser (ESM)</span><pre><code>&lt;script type="module" src="https://cdn.jsdelivr.net/npm/createmeal@3.0.0/dist/createmeal.js"&gt;&lt;/script&gt;
+&lt;script type="module"&gt;
+    import {toHtml} from "createmeal"
+&lt;/script&gt;</code></pre>
         </li>
-        <li><span>CommonJS - only on version 1.0</span><pre><code>const {toHtml} = require('createmeal');</code></pre>
+        <li><span>HTML script type='application/javascript'</span><pre><code>&lt;script src="https://cdn.jsdelivr.net/npm/createmeal@3.0.0/dist/createmeal-legacy.js"&gt;&lt;/script&gt;
+&lt;script type="application/javascript"&gt;
+    createmeal.toHtml();
+&lt;/script&gt;</code></pre>
+        </li>
+        <li><span>ES Module NodeJs (MJS)</span><pre><code>import {toHtml} from 'createmeal';</code></pre>
+        </li>
+        <li><span>Typescript</span><pre><code>import {toHtml} from 'createmeal';</code></pre>
+        </li>
+        <li><span>CommonJS (CJS)</span><pre><code>const {toHtml} = require('createmeal/legacy').createmeal;</code></pre>
         </li>
       </ul>
     </section>

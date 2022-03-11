@@ -55,14 +55,7 @@ export default class AttributeFactory {
         let attrs = [];
         if(Array.isArray(value)){
             for(const item of value){
-                if(item==="attributes"){
-                    return this.processAttributeArray(item);
-                }  
-                let newAttrs = this.getAttrs(item);
-                if(Array.isArray(newAttrs))
-                    attrs = attrs.concat(newAttrs);    
-                else
-                    attrs.push(newAttrs);
+                attrs = attrs.concat(this.getAttrs(item));
             }
         }
         else if(typeof value ==='object'){

@@ -5,15 +5,14 @@ export default class Node {
         this.name = name;
     }
 
-    add(child) {
-        this.children.push(child);
-    }
-    addChildren(child) {
-        if(Array.isArray(child)&&child&&child.length>0)
-            this.children = this.children.concat(child);
-        else if(!Array.isArray(child) && typeof child==='object')
-            this.add(child);
-        
+    /**
+     * Append an array of children to the Node
+     * @param {Node[]} children An array of Nodes
+     */
+    addChildren(children) {
+        if(Array.isArray(children)&&children.length>0){
+            this.children = this.children.concat(children);
+        }
     }
     /**
      * 
@@ -25,16 +24,6 @@ export default class Node {
             this.attributes.push(`${key}`);
         else
             this.attributes.push(`${key}="${value}"`);
-    }
-
-    remove(child) {
-        let length = this.children.length;
-        for (let i = 0; i < length; i++) {
-            if (this.children[i] === child) {
-                this.children.splice(i, 1);
-                return;
-            }
-        }
     }
 
     getAttributes(){
@@ -54,10 +43,6 @@ export default class Node {
 
     getChild(i) {
         return this.children[i];
-    }
-
-    hasChildren() {
-        return this.children.length > 0;
     }
 
     toHtml(){

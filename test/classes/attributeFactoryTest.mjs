@@ -1,5 +1,5 @@
 import assert from "assert";
-import AttributeFactory from "../../src/composite/AttributeFactory.js";
+import AttributeFactory from "../../src/composite/AttributeFactory.mjs";
 import {describe, it} from "mocha";
 
 describe("AttributeFactory", function () {
