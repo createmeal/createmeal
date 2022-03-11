@@ -1,5 +1,5 @@
 import assert from 'assert';
-import {toHtml} from '../src/index.js';
+import {toHtml} from '../src/index.mjs';
 import { describe, it } from 'mocha';
 
 describe("Basic Strictures",function(){
