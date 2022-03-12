@@ -69,6 +69,8 @@ const USAGE_CDN_RESULT = `&lt;html lang="en"&gt;
 &lt;/html&gt;
 `;
 
+const SPACE_SPAN = { span: " " };
+
 async function getIssuesCount(){    
     const response = await fetch(ISSUES_DATA_URL);
     return (await response.json()).total_count;
@@ -85,9 +87,19 @@ function createTableOfContents() {
             { summary: ["Table of Contents"] },
             {
                 ol: [
-                    createAboutSummary(),
-                    createGettingStartedSummary(),
-                    createUsageSummary(),
+                    createSummary("#about-the-project","About the Project",
+                    [
+                        {id: "#built-with", text: "Built With"}
+                    ]),
+                    createSummary("#getting-started","Getting Started",
+                    [
+                        {id:  "#install",text: "Install"},
+                        {id:  "#loading",text: "Loading"}
+                    ]),
+                    createSummary("#usage","Usage",
+                    [
+                        {id: "#base-specification", text: "Base Specification"}
+                    ]),
                     createTableOfContentsLine("#license", "License")
                 ],
             },
@@ -149,8 +161,8 @@ function createTableOfContentsLine(href, textContent) {
 function createSimpleLink(href, textContent) {
     return {
         a: {
-            href: href,
-            span: [textContent],
+            _href: href,
+            span: textContent,
         },
     };
 }
@@ -162,7 +174,7 @@ function createCodeQuoteLine(listText, textContent){
 }
 
 function createCodeQuote(listText, textContent) {
-    return [{ span: [listText] }, { pre: { code: [textContent] } }];
+    return [{ span: listText }, { pre: { code: textContent } }];
 }
 
 function backToTop(){
@@ -174,20 +186,21 @@ function backToTop(){
     }
 }
 
+
 function createTitleArea(){
     return {
         div: [
             { align: "center" },
-            { h3: ["Createmeal"] },
+            { h3: "Createmeal" },
             {
                 p: [
                     { align: "center" },
-                    { span: ["HTML generator powered by json"] },
+                    { span: "HTML generator powered by json" },
                     { br: {} },
                     {
                         a: {
                             href: DOCS_URL,
-                            strong: ["Explore the full documentation »"],
+                            strong: "Explore the full documentation »",
                         },
                     },
                 ],
@@ -195,14 +208,13 @@ function createTitleArea(){
             {
                 p: [
                     { a: { href: "#", span: ["View Demo"] } },
-                    { span: [" · "] },
+                    { span: " · " },
                     { a: { href: ISSUES_URL, span: ["Report Bug"] } },
-                    { span: [" · "] },
+                    { span: " · " },
                     {
-                        a: {
-                            href: ISSUES_URL,
-                            span: ["Request Feature"],
-                        },
+                        a: [{
+                            _href: ISSUES_URL
+                        },"Request Feature"],
                     },
                 ],
             },
@@ -215,29 +227,26 @@ function createGifShow(){
             a:{
                 "href": "https://createmeal.org",                            
                 img: {
-                        src: `https://user-images.githubusercontent.com/13664081/157149662-9b549fd3-659f-46c1-8341-368ba9668a08.gif`,
+                        _src: `https://user-images.githubusercontent.com/13664081/157149662-9b549fd3-659f-46c1-8341-368ba9668a08.gif`,
                 }
             }
     }}
 }
-function createAboutSummary(){
+function createSummary(id,text,topics){
     return {
         li: {
             a: {
-                href: "#about-the-project",
-                span: ["About The Project"],
+                href: id,
+                span: text,
             },
-            ul: createTableOfContentsLine(
-                "#built-with",
-                "Built With"
-            ),
+            ul: topics.map(topic => createTableOfContentsLine(topic.id,topic.text)),
         },
     }
 }
 function createAboutSection() {
     return {
         section: [
-            { h2: ["About The Project"] },
+            createTopicTitle("about-the-project","About The Project"),
             {
                 p: [
                     "HTML is the standard way to produce web page content ",
@@ -264,46 +273,24 @@ function createAboutSection() {
         ]
     };
 }
-function createGettingStartedSummary(){
-    return {
-        li: {
-            a: {
-                href: "#getting-started",
-                span: ["Getting Started"],
-            },
-            ul: [
-                createTableOfContentsLine(
-                    "#installation",
-                    "Installation"
-                ),
-                createTableOfContentsLine(
-                    "#loading",
-                    "Loading"
-                ),
-            ],
-        },
-    }
-}
 function createGetStartedSection() {
     return {
         section: [
-            { h2: ["Getting Started"] },
+            createTopicTitle("getting-started","Getting Started"),
             {
                 p: [
                     {
-                        span: [
-                            "Try to accessing the guide for complete reference: ",
-                        ],
+                        span: "Try to accessing the guide for complete reference: ",
                     },
                     {
                         a: {
                             href: DOCS_URL,
-                            strong: ["Getting Started"],
+                            strong: "Getting Started",
                         },
                     },
                 ],
             },
-            { h3: ["Installation"] },
+            createTopicSubtitle("install","Install"),
             {
                 ul: [
                     {
@@ -314,7 +301,7 @@ function createGetStartedSection() {
                     },
                 ],
             },
-            { h3: ["Loading"] },
+            createTopicSubtitle("loading","Loading"),
             {
                 ul: [
                     {
@@ -337,56 +324,58 @@ function createGetStartedSection() {
         ],
     };
 }
-function createUsageSummary(){
+function createTopicTitle(id,text){
     return {
-        li: {
-            a: {
-                href: "#usage",
-                span: ["Usage"],
+        h2: [
+            {
+                _id: id
             },
-            ul: [
-                createTableOfContentsLine(
-                    "#base-specification",
-                    "Base Specification"
-                )
-            ],
-        },
+            text
+        ]
+    }
+}
+function createTopicSubtitle(id,text){
+    return {
+        h3: [
+            {
+                _id: id
+            },
+            text
+        ]
     }
 }
 function createUsageSection() {
     return {
         section: [
-            { h2: ["Usage"] },
+            createTopicTitle("usage","Usage"),
             {
                 p: [
                     {
-                        span: [
+                        span: 
                             `
                                         The main metod of createmeal is toHtml({}), so createmeal.toHtml({div:{}}),
                                         will return &lt;div&gt;&lt;/div&gt;.
-                                    `,
-                        ],
+                                    `
+                        ,
                     },
                 ],
             },
-            { h3: ["Base Specification"] },
+            createTopicSubtitle("base-specification","Base Specification"),
             {
                 ul: [
-                    {
-                        li: createCodeQuote(
-                            "Simple text: Text is represented by an array of strings. ",
-                            "createmeal.toHtml([\"test\"]);\\\\ \"test\""
-                        ),
-                    },
-                    createCodeQuoteLine("Paragraphe: Tag text content can be an array of strings. ",
-                        "{\"p\":[\"teste\"]} \\\\&lt;p&gt;teste&lt;/p&gt;"),
-                    createCodeQuoteLine("paragraphe composed by array of strings: Multiple strings compose an unique text. ",
+                    createCodeQuoteLine(
+                        "Simple text: Text is represented by string.",
+                        "createmeal.toHtml(\"test\");\\\\ \"test\""
+                    ),
+                    createCodeQuoteLine(
+                        "paragraphe composed by array of strings: Multiple strings compose an unique text. ",
                         "{\"p\":[\"test\",\"Of\",\"Strings\"]} \\\\&lt;p&gt;testOfStrings&lt;/p&gt;"),
-                    createCodeQuoteLine("Tag defined by array of strings: is not the default way, but is an available option.",
+                    createCodeQuoteLine(
+                        "Tag defined by array of strings: is not the default way, but is an available option.",
                         "[\"&lt;h1&gt;Tag h1 generated by text&lt;/h1&gt;\"] \\\\&lt;h1&gt;Tag h1 generated by text&lt;/h1&gt;")
                 ]
             },
-            { h3: ["Incorporate in your application"] },
+            createTopicSubtitle("incorporate","Incorporate in your application"),
             {
                 ul: [
                     {
@@ -406,7 +395,7 @@ function createUsageSection() {
 function createBuiltWithSection() {
     return {
         section: [
-            { h3: ["Built With"] },
+            createTopicSubtitle("built-with","Built With"),
             {
                 p: [
                     "The entire library is created using vanilla javascript. ",
@@ -420,12 +409,11 @@ function createBuiltWithSection() {
 function createLicenseSection() {
     return {
         section: [
-            { h2: ["License"] },
+            createTopicTitle("license","License"),
             {
-                "a": {
-                    "href": LICENSE_URL,
-                    "span": ["MIT"]
-                }
+                "a": [{
+                    _href: LICENSE_URL
+                },"MIT"]
             }
         ]
     };
@@ -441,21 +429,21 @@ function createLicenseSection() {
                 body: [
                     { div: { id: "top" } },
                     createBadge(RUNKIT_URL, "Try it online on", "RunKit", "f55fa6","badge badge-tryonline"),
-                    { span: [" "] },
+                    SPACE_SPAN,
                     createBadge(CONTRIBUTORS_URL, "CONTRIBUTORS", contributors, "brightgreen","badge badge-contributors"),
-                    { span: [" "] },
+                    SPACE_SPAN,
                     createBadge(ISSUES_URL, "ISSUES", openIssues, "yellow","badge badge-issues"),
-                    { span: [" "] },
+                    SPACE_SPAN,
                     createBadge(LICENSE_URL, "LICENSE", "MIT", "blue"),
-                    { span: [" "] },
+                    SPACE_SPAN,
                     createCDNBadge(),
-                    { span: [" "] },
+                    SPACE_SPAN,
                     createBadge(NPM_URL, "NPM", PACKAGE_VERSION, "red"),
-                    { span: [" "] },
+                    SPACE_SPAN,
                     createBadge("#usage", "REPO STATUS", "ACTIVE", "green"),
-                    { span: [" "] },
+                    SPACE_SPAN,
                     createOpenbaseBadge(),
-                    { span: [" "] },
+                    SPACE_SPAN,
                     createCodecovBadge(),
                     createTitleArea(),
                     createGifShow(),
