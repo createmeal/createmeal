@@ -5,6 +5,9 @@ import { fileURLToPath } from 'url';
 import fetch from "node-fetch";
 import pretty from "pretty";
 
+import { TableOfContents } from "./table-of-contents.mjs";
+import { Badges } from "./badges.mjs";
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const pkgJson = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../package.json")));
@@ -69,8 +72,6 @@ const USAGE_CDN_RESULT = `&lt;html lang="en"&gt;
 &lt;/html&gt;
 `;
 
-const SPACE_SPAN = { span: " " };
-
 async function getIssuesCount(){    
     const response = await fetch(ISSUES_DATA_URL);
     return (await response.json()).total_count;
@@ -79,83 +80,6 @@ async function getContributorsCount(){
     const response = await fetch(CONTRIBUTORS_DATA_URL);
     return (await response.json()).length;
     
-}
-
-function createTableOfContents() {
-    return {
-        details: [
-            { summary: ["Table of Contents"] },
-            {
-                ol: [
-                    createSummary("#about-the-project","About the Project",
-                    [
-                        {id: "#built-with", text: "Built With"}
-                    ]),
-                    createSummary("#getting-started","Getting Started",
-                    [
-                        {id:  "#install",text: "Install"},
-                        {id:  "#loading",text: "Loading"}
-                    ]),
-                    createSummary("#usage","Usage",
-                    [
-                        {id: "#base-specification", text: "Base Specification"}
-                    ]),
-                    createTableOfContentsLine("#license", "License")
-                ],
-            },
-        ],
-    };
-}
-
-function createBadge(link, label, message, color, className="badge") {
-    return {
-        a: {
-            _style: "margin-left:5px;",
-            _class: className,
-            _href: link,
-            img: {
-                src: `https://img.shields.io/badge/${label}-${message}-${color}`,
-            },
-        },
-    };
-}
-function createCDNBadge(){
-    return {
-        a: {
-            _style: "margin-left:5px;",
-            _href: "https://www.jsdelivr.com/package/npm/createmeal",
-            img: {
-                src: `https://data.jsdelivr.com/v1/package/npm/createmeal/badge`,
-            },
-        },
-    }
-}
-function createOpenbaseBadge(){
-    return {
-        a: {
-            _href: "https://openbase.com/js/createmeal?utm_source=embedded&amp;utm_medium=badge&amp;utm_campaign=rate-badge",
-            img: {
-                _src: "https://badges.openbase.com/js/featured/createmeal.svg?token=qN8WsbWRkOBtfXJ9tNG0KnUwxkjPAjs6HUSniqdmrCU=",
-                _alt: "Featured on Openbase"
-            }
-        }
-    }
-}
-function createCodecovBadge(){
-    return {
-        a: {
-            _href: "https://codecov.io/gh/createmeal/createmeal",
-            img: {
-                _src: "https://codecov.io/gh/createmeal/createmeal/branch/master/graph/badge.svg?token=RG5SQ286T0"
-            }
-        }
-    }
-}
-
-function createTableOfContentsLine(href, textContent) {
-    return {
-        li: createSimpleLink(href, textContent),
-    };
 }
 
 function createSimpleLink(href, textContent) {
@@ -231,17 +155,6 @@ function createGifShow(){
                 }
             }
     }}
-}
-function createSummary(id,text,topics){
-    return {
-        li: {
-            a: {
-                href: id,
-                span: text,
-            },
-            ul: topics.map(topic => createTableOfContentsLine(topic.id,topic.text)),
-        },
-    }
 }
 function createAboutSection() {
     return {
@@ -423,31 +336,61 @@ function createLicenseSection() {
     async function(){
         let openIssues = await getIssuesCount();
         let contributors = await getContributorsCount();
+
+        const badges = [
+            {
+                href: RUNKIT_URL,
+                label: "Try it online on",
+                message: "RunKit",
+                color: "f55fa6",
+                className: "badge badge-tryonline"
+            },
+            {
+                href: CONTRIBUTORS_URL,
+                label: "CONTRIBUTORS",
+                message: contributors,
+                color: "brightgreen",
+                className: "badge badge-contributors"
+            },
+            {
+                href: ISSUES_URL,
+                label: "ISSUES",
+                message: openIssues,
+                color: "yellow",
+                className: "badge badge-issues"
+            },
+            {
+                href: LICENSE_URL,
+                label: "LICENSE",
+                message: "MIT",
+                color: "blue",
+                className: "badge"
+            },
+            {
+                href: NPM_URL,
+                label: "NPM",
+                message: PACKAGE_VERSION,
+                color: "red",
+                className: "badge"
+            },
+            {
+                href: "#usage",
+                label: "STATUS",
+                message: "ACTIVE",
+                color: "green",
+                className: "badge"
+            }
+        ]
+
         let readme = {
             "!DOCTYPE html": "",
             html: {
                 body: [
                     { div: { id: "top" } },
-                    createBadge(RUNKIT_URL, "Try it online on", "RunKit", "f55fa6","badge badge-tryonline"),
-                    SPACE_SPAN,
-                    createBadge(CONTRIBUTORS_URL, "CONTRIBUTORS", contributors, "brightgreen","badge badge-contributors"),
-                    SPACE_SPAN,
-                    createBadge(ISSUES_URL, "ISSUES", openIssues, "yellow","badge badge-issues"),
-                    SPACE_SPAN,
-                    createBadge(LICENSE_URL, "LICENSE", "MIT", "blue"),
-                    SPACE_SPAN,
-                    createCDNBadge(),
-                    SPACE_SPAN,
-                    createBadge(NPM_URL, "NPM", PACKAGE_VERSION, "red"),
-                    SPACE_SPAN,
-                    createBadge("#usage", "REPO STATUS", "ACTIVE", "green"),
-                    SPACE_SPAN,
-                    createOpenbaseBadge(),
-                    SPACE_SPAN,
-                    createCodecovBadge(),
+                    new Badges(badges),
                     createTitleArea(),
                     createGifShow(),
-                    createTableOfContents(),
+                    new TableOfContents({summaryText: "Table of Contents"}),
                     createAboutSection(),
                     backToTop(),
                     createBuiltWithSection(),

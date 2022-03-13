@@ -2,7 +2,8 @@
 <html>
 
   <body>
-    <div id="top"></div><a style="margin-left:5px;" class="badge badge-tryonline" href="https://npm.runkit.com/createmeal"><img src="https://img.shields.io/badge/Try it online on-RunKit-f55fa6"></a><span> </span><a style="margin-left:5px;" class="badge badge-contributors" href="https://github.com/createmeal/createmeal/graphs/contributors"><img src="https://img.shields.io/badge/CONTRIBUTORS-3-brightgreen"></a><span> </span><a style="margin-left:5px;" class="badge badge-issues" href="https://github.com/createmeal/createmeal/issues"><img src="https://img.shields.io/badge/ISSUES-6-yellow"></a><span> </span><a style="margin-left:5px;" class="badge" href="https://github.com/createmeal/createmeal/blob/master/LICENSE"><img src="https://img.shields.io/badge/LICENSE-MIT-blue"></a><span> </span><a style="margin-left:5px;" href="https://www.jsdelivr.com/package/npm/createmeal"><img src="https://data.jsdelivr.com/v1/package/npm/createmeal/badge"></a><span> </span><a style="margin-left:5px;" class="badge" href="https://www.npmjs.com/package/createmeal"><img src="https://img.shields.io/badge/NPM-3.0.0-red"></a><span> </span><a style="margin-left:5px;" class="badge" href="#usage"><img src="https://img.shields.io/badge/REPO STATUS-ACTIVE-green"></a><span> </span><a href="https://openbase.com/js/createmeal?utm_source=embedded&amp;utm_medium=badge&amp;utm_campaign=rate-badge"><img src="https://badges.openbase.com/js/featured/createmeal.svg?token=qN8WsbWRkOBtfXJ9tNG0KnUwxkjPAjs6HUSniqdmrCU=" alt="Featured on Openbase"></a><span> </span><a href="https://codecov.io/gh/createmeal/createmeal"><img src="https://codecov.io/gh/createmeal/createmeal/branch/master/graph/badge.svg?token=RG5SQ286T0"></a>
+    <div id="top"></div>
+    <section class="badges"><a style="margin-left:5px;" class="badge badge-tryonline" href="https://npm.runkit.com/createmeal"><img src="https://img.shields.io/badge/Try it online on-RunKit-f55fa6"></a><a style="margin-left:5px;" class="badge badge-contributors" href="https://github.com/createmeal/createmeal/graphs/contributors"><img src="https://img.shields.io/badge/CONTRIBUTORS-3-brightgreen"></a><a style="margin-left:5px;" class="badge badge-issues" href="https://github.com/createmeal/createmeal/issues"><img src="https://img.shields.io/badge/ISSUES-6-yellow"></a><a style="margin-left:5px;" class="badge" href="https://github.com/createmeal/createmeal/blob/master/LICENSE"><img src="https://img.shields.io/badge/LICENSE-MIT-blue"></a><a style="margin-left:5px;" class="badge" href="https://www.npmjs.com/package/createmeal"><img src="https://img.shields.io/badge/NPM-3.0.0-red"></a><a style="margin-left:5px;" class="badge" href="#usage"><img src="https://img.shields.io/badge/STATUS-ACTIVE-green"></a><a class="badge" style="margin-left:5px;" href="https://www.jsdelivr.com/package/npm/createmeal"><img src="https://data.jsdelivr.com/v1/package/npm/createmeal/badge"></a><a class="badge" style="margin-left:5px;" href="https://openbase.com/js/createmeal?utm_source=embedded&amp;utm_medium=badge&amp;utm_campaign=rate-badge"><img src="https://badges.openbase.com/js/featured/createmeal.svg?token=qN8WsbWRkOBtfXJ9tNG0KnUwxkjPAjs6HUSniqdmrCU=" alt="Featured on Openbase"></a><a class="badge" style="margin-left:5px;" href="https://codecov.io/gh/createmeal/createmeal"><img src="https://codecov.io/gh/createmeal/createmeal/branch/master/graph/badge.svg?token=RG5SQ286T0"></a></section>
     <div align="center">
       <h3>Createmeal</h3>
       <p align="center"><span>HTML generator powered by json</span><br><a href="https://createmeal.org"><strong>Explore the full documentation »</strong></a></p>
@@ -14,21 +15,23 @@
       <ol>
         <li><a href="#about-the-project"><span>About the Project</span></a>
           <ul>
-            <li><a href="#built-with"><span>Built With</span></a></li>
+            <li><a href="#built-with">Built With</a></li>
           </ul>
         </li>
         <li><a href="#getting-started"><span>Getting Started</span></a>
           <ul>
-            <li><a href="#install"><span>Install</span></a></li>
-            <li><a href="#loading"><span>Loading</span></a></li>
+            <li><a href="#install">Install</a></li>
+            <li><a href="#loading">Loading</a></li>
           </ul>
         </li>
         <li><a href="#usage"><span>Usage</span></a>
           <ul>
-            <li><a href="#base-specification"><span>Base Specification</span></a></li>
+            <li><a href="#base-specification">Base Specification</a></li>
           </ul>
         </li>
-        <li><a href="#license"><span>License</span></a></li>
+        <li><a href="#license"><span>License</span></a>
+          <ul></ul>
+        </li>
       </ol>
     </details>
     <section>
