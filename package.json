@@ -8,7 +8,7 @@
     "build": "webpack",
     "build-tsc": "tsc --build",
     "docs": "node ./documentation/readme-generator.mjs",
-    "test": "c8 mocha ./test/**/*.js",
+    "test": "c8 mocha ./test/**/*.mjs",
     "release": "node release.js",
     "release_patch": "node release.mjs patch",
     "release_minor": "node release.mjs minor",

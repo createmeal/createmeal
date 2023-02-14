@@ -1,5 +1,5 @@
 import assert from "assert";
-import createmeal from "../src/index.js";
+import createmeal from "../src/index.mjs";
 import {describe,it} from "mocha";
 
 describe("tag", function () {
