@@ -2,14 +2,9 @@ import Node from "./Node.mjs";
 export default class SelfClosingTag extends Node {
     constructor(name){
         super(name);
+        this.addChildren = undefined;
     }
-    /* eslint-disable no-unused-vars */
-    add(child) {
-        
-    }
-    /* eslint-enable no-unused-vars */
     getCloseTag(){
         return "";
     }
-
 }

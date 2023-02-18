@@ -140,5 +140,19 @@ describe("Attributes",function(){
      const expected = '<html><body onload="callSomeBehavior()" class="container"></body></html>';
      assert.equal(createmeal.toHtml(template), expected);
     })
+    it("Should convert an list of attributes on an array",function(){
+      const template = [{
+       "html":{
+         "body":{
+           "attributes": [
+            {"onload":"callSomeBehavior()"},
+            {"class": "container"}
+           ]
+         }
+       }
+     }];
+     const expected = '<html><body onload="callSomeBehavior()" class="container"></body></html>';
+     assert.equal(createmeal.toHtml(template), expected);
+    })
   })
 })
