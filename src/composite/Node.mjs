@@ -20,10 +20,7 @@ export default class Node {
      * @param {*} value Must not be set for boolean attributes
      */
     setAttribute(key, value){
-        if(!value)
-            this.attributes.push(`${key}`);
-        else
-            this.attributes.push(`${key}="${value}"`);
+        this.attributes.push(value ==null ? key : `${key}="${value}"`);
     }
 
     getAttributes(){
@@ -31,10 +28,7 @@ export default class Node {
     }
 
     getOpenTag(){
-        if(this.attributes.length>0)
-            return `<${this.name} ${this.getAttributes()}>`;
-        else
-            return `<${this.name}>`;
+        return this.attributes.length>0? `<${this.name} ${this.getAttributes()}>` : `<${this.name}>`;
     }
 
     getCloseTag(){
