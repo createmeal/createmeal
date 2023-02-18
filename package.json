@@ -3,6 +3,10 @@
   "version": "3.0.2",
   "description": "A library to render HTML",
   "main": "dist/createmeal.mjs",
+  "exports": {
+    ".": "./dist/createmeal.mjs",
+    "./legacy": "./dist/createmeal-legacy-node.js"
+  },
   "scripts": {
     "eslint": "eslint ./src/**/*",
     "build": "webpack",
